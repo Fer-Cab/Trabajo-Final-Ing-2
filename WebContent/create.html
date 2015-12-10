@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+<meta charset="UTF-8"/>
+<title>Crear Cliente page</title>
+</head>
+<body>
+<h2>Crear Cliente</h2>
+	<form id="formNewClient" action="CrearClienteServlet" method="post">
+		<label for="nombre">nombre</label>
+		<input type="text" name="nombre" id="nombre" /><br/>
+		
+		apellido 	 <input type="text" name="apellido" id="apellido" /><br/>
+		tipoDoc	 	 <input type="text" name="tipoDoc" id="tipoDoc" /><br/>
+		numDoc	 	 <input type="text" name="numDoc" id="numDoc" /> int<br/>
+		telFijo  	 <input type="text" name="telFijo" id="telFijo" />int<br/>
+		telCel 		 <input type="text" name="telCel" id="telCel" />int<br/>
+		direccion 	 <input type="text" name="direccion" id="direccion" /><br/>
+		ciudad       <input type="text" name="ciudad" id="ciudad" /><br/>
+		provincia	 <input type="text" name="provincia" id="provincia" /><br/>
+		nacionalidad <input type="text" name="nacionalidad" id="nacionalidad" /><br/>
+		e_mail		 <input type="text" name="e_mail" id="e_mail" /> <br/>
+		<fieldset>
+		 <legend>Aceptar:</legend>
+				<input type="submit" value="crear"/>	
+		</fieldset>
+	
+	</form>
+</body>
+</html>
