@@ -20,18 +20,39 @@ public class Propietario {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long propietarioId;
 
-	public String tipoDoc;
-	public int numDoc;
-	public String nombre;
-	public String apellido;
-	public int telFijo;
-	public int telCel;
-	public String direccion;
-	public String ciudad;
-	public String Provincia;
-	public String nacionalidad;
-	public String e_mail;
-	public String numCuenta;
+	private String nombre;
+	private String apellido;
+	private String tipoDoc;
+	private int numDoc;
+	private int telFijo;
+	private int telCel;
+	private String direccion;
+	private String ciudad;
+	private String provincia;
+	private String nacionalidad;
+	private String e_mail;
+	private String numCuenta;
+
+	
+
+	public Propietario(Long propietarioId, String nombre, String apellido, String tipoDoc, int numDoc, int telFijo,
+			int telCel, String direccion, String ciudad, String provincia, String nacionalidad, String e_mail,
+			String numCuenta) {
+		super();
+		this.propietarioId = propietarioId;
+		this.nombre = nombre;
+		this.apellido = apellido;
+		this.tipoDoc = tipoDoc;
+		this.numDoc = numDoc;
+		this.telFijo = telFijo;
+		this.telCel = telCel;
+		this.direccion = direccion;
+		this.ciudad = ciudad;
+		this.provincia = provincia;
+		this.nacionalidad = nacionalidad;
+		this.e_mail = e_mail;
+		this.numCuenta = numCuenta;
+	}
 
 	public Propietario(String nombre, String apellido, String tipoDoc, int numDoc, int telFijo, int telCel,
 			String direccion, String ciudad, String provincia, String nacionalidad, String e_mail, String numCuenta) {
@@ -44,7 +65,7 @@ public class Propietario {
 		this.telCel = telCel;
 		this.direccion = direccion;
 		this.ciudad = ciudad;
-		Provincia = provincia;
+		this.provincia = provincia;
 		this.nacionalidad = nacionalidad;
 		this.e_mail = e_mail;
 		this.numCuenta = numCuenta;
@@ -94,7 +115,7 @@ public class Propietario {
 	}
 
 	public String getProvincia() {
-		return Provincia;
+		return provincia;
 	}
 
 	public String getNacionalidad() {
@@ -113,7 +134,7 @@ public class Propietario {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((Provincia == null) ? 0 : Provincia.hashCode());
+		result = prime * result + ((provincia == null) ? 0 : provincia.hashCode());
 		result = prime * result + ((apellido == null) ? 0 : apellido.hashCode());
 		result = prime * result + ((ciudad == null) ? 0 : ciudad.hashCode());
 		result = prime * result + ((direccion == null) ? 0 : direccion.hashCode());
@@ -137,10 +158,10 @@ public class Propietario {
 		if (getClass() != obj.getClass())
 			return false;
 		Propietario other = (Propietario) obj;
-		if (Provincia == null) {
-			if (other.Provincia != null)
+		if (provincia == null) {
+			if (other.provincia != null)
 				return false;
-		} else if (!Provincia.equals(other.Provincia))
+		} else if (!provincia.equals(other.provincia))
 			return false;
 		if (apellido == null) {
 			if (other.apellido != null)
@@ -189,6 +210,14 @@ public class Propietario {
 		} else if (!tipoDoc.equals(other.tipoDoc))
 			return false;
 		return true;
+	}
+
+	@Override
+	public String toString() {
+		return "Propietario [inmuebles=" + inmuebles + ", propietarioId=" + propietarioId + ", nombre=" + nombre
+				+ ", apellido=" + apellido + ", tipoDoc=" + tipoDoc + ", numDoc=" + numDoc + ", telFijo=" + telFijo
+				+ ", telCel=" + telCel + ", direccion=" + direccion + ", ciudad=" + ciudad + ", provincia=" + provincia
+				+ ", nacionalidad=" + nacionalidad + ", e_mail=" + e_mail + ", numCuenta=" + numCuenta + "]";
 	}
 
 }

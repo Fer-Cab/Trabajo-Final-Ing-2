@@ -15,27 +15,31 @@ public class Empleado  {
 	private Long empleadoId;
 
 
-	public String tipoDoc;
-	public int numDoc;
-	public String nombre;
-	public String apellido;
-	public int telFijo;
-	public int telCel;
-	public String direccion;
-	public String ciudad;
-	public String provincia;
-	public String nacionalidad;
-	public String e_mail;
-	public String foto;
-	public String sector;
-	public String categoria;
-	public String fechaIngreso;
+	private String nombre;
+	private String apellido;
+	private String tipoDoc;
+	private int numDoc;
+	private int telFijo;
+	private int telCel;
+	private String direccion;
+	private String ciudad;
+	private String provincia;
+	private String nacionalidad;
+	private String e_mail;
+	private String foto;
+	private String sector;
+	private String categoria;
+	private String fechaIngreso;
+
+	Empleado() {
+	}
+	
+	
 
 	public Empleado(String nombre, String apellido, String tipoDoc, int numDoc, int telFijo, int telCel,
 			String direccion, String ciudad, String provincia, String nacionalidad, String e_mail, String foto,
 			String sector, String categoria, String fechaIngreso) {
 		super();
-
 		this.nombre = nombre;
 		this.apellido = apellido;
 		this.tipoDoc = tipoDoc;
@@ -53,8 +57,31 @@ public class Empleado  {
 		this.fechaIngreso = fechaIngreso;
 	}
 
-	Empleado() {
+
+
+	public Empleado(Long empleadoId, String nombre, String apellido, String tipoDoc, int numDoc, int telFijo,
+			int telCel, String direccion, String ciudad, String provincia, String nacionalidad, String e_mail,
+			String foto, String sector, String categoria, String fechaIngreso) {
+		super();
+		this.empleadoId = empleadoId;
+		this.nombre = nombre;
+		this.apellido = apellido;
+		this.tipoDoc = tipoDoc;
+		this.numDoc = numDoc;
+		this.telFijo = telFijo;
+		this.telCel = telCel;
+		this.direccion = direccion;
+		this.ciudad = ciudad;
+		this.provincia = provincia;
+		this.nacionalidad = nacionalidad;
+		this.e_mail = e_mail;
+		this.foto = foto;
+		this.sector = sector;
+		this.categoria = categoria;
+		this.fechaIngreso = fechaIngreso;
 	}
+
+
 
 	public Long getEmpleadoId() {
 		return empleadoId;

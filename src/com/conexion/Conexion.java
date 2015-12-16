@@ -53,7 +53,7 @@ public class Conexion {
 	            br.close();
 	        } catch (Exception e) {;}
 	        try {
-	            if (connection != null) connection.close();
+	            if (connection == null) connection.close();
 	        } catch (Exception e) {;}
 	    }
 	}

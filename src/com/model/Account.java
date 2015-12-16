@@ -18,12 +18,13 @@ public class Account {
 	private Long accountId;
 
 	@JsonIgnore
-	public String password;
-	public String userName;
-	public String permisos;
+	private String password;
+	private String userName;
+	private String permisos;
 
 	
 	public Account(String name, String password,String permisos) {
+		
 		this.userName = name;
 		this.password = password;
 		this.permisos = permisos;
@@ -34,6 +35,14 @@ public class Account {
 	}
 
 	
+	public Account(long accountId,String name, String password,String permisos) {
+		this.accountId =accountId;
+		this.userName = name;
+		this.password = password;
+		this.permisos = permisos;
+	}
+
+
 	public Long getAccountId() {
 		return accountId;
 	}
@@ -52,11 +61,11 @@ public class Account {
 	}
 
 	
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((accountId == null) ? 0 : accountId.hashCode());
 		result = prime * result + ((password == null) ? 0 : password.hashCode());
 		result = prime * result + ((permisos == null) ? 0 : permisos.hashCode());
 		result = prime * result + ((userName == null) ? 0 : userName.hashCode());
@@ -72,11 +81,6 @@ public class Account {
 		if (getClass() != obj.getClass())
 			return false;
 		Account other = (Account) obj;
-		if (accountId == null) {
-			if (other.accountId != null)
-				return false;
-		} else if (!accountId.equals(other.accountId))
-			return false;
 		if (password == null) {
 			if (other.password != null)
 				return false;

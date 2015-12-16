@@ -1,6 +1,5 @@
 package com.model;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -27,13 +26,13 @@ public class Inmueble {
 	private String tipoDeEstado;
 	private String estado;
 	private String direccion;
-	private char piso;
-	private char dpto;
+	private String piso;
+	private String dpto;
 	private String ciudad;
 	private String provincia;
-	private ArrayList<String> imagen;
-	private char numHabitaciones;
-	private char banios;
+	private int imagenId;
+	private int numHabitaciones;
+	private int banios;
 	private int m2;
 	private double alquiler;
 	private double venta;
@@ -47,8 +46,8 @@ public class Inmueble {
 	}
 
 	public Inmueble(String descripcion, String tipoDeInmueble, String tipoDeOperacion, String tipoDeEstado,
-			String estado, String direccion, char piso, char dpto, String ciudad, String provincia,
-			char numHabitaciones, char banios, int m2, double alquiler, double venta, String tipoSuelo, boolean garage,
+			String estado, String direccion, String piso, String dpto, String ciudad, String provincia, int imagenId,
+			int numHabitaciones, int banios, int m2, double alquiler, double venta, String tipoSuelo, boolean garage,
 			boolean ascensor, boolean amueblado, double comision) {
 		super();
 		this.descripcion = descripcion;
@@ -61,7 +60,37 @@ public class Inmueble {
 		this.dpto = dpto;
 		this.ciudad = ciudad;
 		this.provincia = provincia;
-		imagen = new ArrayList<>();
+		this.imagenId = imagenId;
+		this.numHabitaciones = numHabitaciones;
+		this.banios = banios;
+		this.m2 = m2;
+		this.alquiler = alquiler;
+		this.venta = venta;
+		this.tipoSuelo = tipoSuelo;
+		this.garage = garage;
+		this.ascensor = ascensor;
+		this.amueblado = amueblado;
+		this.comision = comision;
+	}
+
+	
+	public Inmueble(long inmuebleId, String descripcion, String tipoDeInmueble,
+			String tipoDeOperacion, String tipoDeEstado, String estado, String direccion, String piso, String dpto,
+			String ciudad, String provincia, int imagenId, int numHabitaciones, int banios, int m2, double alquiler,
+			double venta, String tipoSuelo, boolean garage, boolean ascensor, boolean amueblado, double comision) {
+		super();
+		this.inmuebleId = inmuebleId;
+		this.descripcion = descripcion;
+		this.tipoDeInmueble = tipoDeInmueble;
+		this.tipoDeOperacion = tipoDeOperacion;
+		this.tipoDeEstado = tipoDeEstado;
+		this.estado = estado;
+		this.direccion = direccion;
+		this.piso = piso;
+		this.dpto = dpto;
+		this.ciudad = ciudad;
+		this.provincia = provincia;
+		this.imagenId = imagenId;
 		this.numHabitaciones = numHabitaciones;
 		this.banios = banios;
 		this.m2 = m2;
@@ -106,11 +135,11 @@ public class Inmueble {
 		return direccion;
 	}
 
-	public char getPiso() {
+	public String getPiso() {
 		return piso;
 	}
 
-	public char getDpto() {
+	public String getDpto() {
 		return dpto;
 	}
 
@@ -122,15 +151,15 @@ public class Inmueble {
 		return provincia;
 	}
 
-	public ArrayList<String> getImagen() {
-		return imagen;
+	public int getImagenId() {
+		return imagenId;
 	}
 
-	public char getNumHabitaciones() {
+	public int getNumHabitaciones() {
 		return numHabitaciones;
 	}
 
-	public char getBanios() {
+	public int getBanios() {
 		return banios;
 	}
 
@@ -166,19 +195,15 @@ public class Inmueble {
 		return comision;
 	}
 
-	public void addImagen(String img) {
-		imagen.add(img);
-	}
-
 	@Override
 	public String toString() {
 		return "Inmueble [inmuebleId=" + inmuebleId + ", inmuebleLists=" + inmuebleLists + ", descripcion="
 				+ descripcion + ", tipoDeInmueble=" + tipoDeInmueble + ", tipoDeOperacion=" + tipoDeOperacion
 				+ ", tipoDeEstado=" + tipoDeEstado + ", estado=" + estado + ", direccion=" + direccion + ", piso="
-				+ piso + ", dpto=" + dpto + ", ciudad=" + ciudad + ", provincia=" + provincia + ", imagen=" + imagen
-				+ ", numHabitaciones=" + numHabitaciones + ", banios=" + banios + ", m2=" + m2 + ", alquiler=" + alquiler
-				+ ", venta=" + venta + ", tipoSuelo=" + tipoSuelo + ", garage=" + garage + ", ascensor=" + ascensor
-				+ ", amueblado=" + amueblado + ", comision=" + comision + "]";
+				+ piso + ", dpto=" + dpto + ", ciudad=" + ciudad + ", provincia=" + provincia + ", imagenId=" + imagenId
+				+ ", numHabitaciones=" + numHabitaciones + ", banios=" + banios + ", m2=" + m2 + ", alquiler="
+				+ alquiler + ", venta=" + venta + ", tipoSuelo=" + tipoSuelo + ", garage=" + garage + ", ascensor="
+				+ ascensor + ", amueblado=" + amueblado + ", comision=" + comision + "]";
 	}
 
 }

@@ -17,20 +17,20 @@ public class Cliente  {
 	private Set<InmuebleList> inmueble = new HashSet<>();
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long clienteId;
 
-	public String nombre;
-	public String apellido;
-	public String tipoDoc;
-	public int numDoc;
-	public int telFijo;
-	public int telCel;
-	public String direccion;
-	public String ciudad;
-	public String provincia;
-	public String nacionalidad;
-	public String e_mail;
+	private String nombre;
+	private String apellido;
+	private String tipoDoc;
+	private int numDoc;
+	private int telFijo;
+	private int telCel;
+	private String direccion;
+	private String ciudad;
+	private String provincia;
+	private String nacionalidad;
+	private String e_mail;
 
 	public Cliente(String nombre, String apellido, String tipoDoc, int numDoc, int telFijo, int telCel,
 			String direccion, String ciudad, String provincia, String nacionalidad, String e_mail) {
@@ -48,6 +48,23 @@ public class Cliente  {
 		this.e_mail = e_mail;
 	}
 
+	public Cliente(Long clienteId,String nombre, String apellido, String tipoDoc, int numDoc, int telFijo, int telCel,
+			String direccion, String ciudad, String provincia, String nacionalidad, String e_mail) {
+		super();
+		this.clienteId = clienteId;
+		this.nombre = nombre;
+		this.apellido = apellido;
+		this.tipoDoc = tipoDoc;
+		this.numDoc = numDoc;
+		this.telFijo = telFijo;
+		this.telCel = telCel;
+		this.direccion = direccion;
+		this.ciudad = ciudad;
+		this.provincia = provincia;
+		this.nacionalidad = nacionalidad;
+		this.e_mail = e_mail;
+	}
+	
 	Cliente() {
 	}
 

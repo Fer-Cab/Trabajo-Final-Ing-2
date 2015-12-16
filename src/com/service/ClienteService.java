@@ -16,7 +16,10 @@ public class ClienteService {
 	public static void createCliente(Cliente cliente) throws ClassNotFoundException, SQLException, IOException {
 
 		Connection con = Conexion.getConexion();
-		PreparedStatement ps = con.prepareStatement("insert into Cliente(nombre, apellido ,tipoDoc ,numDoc ,telFijo ,telCel ,direccion ,ciudad ,provincia ,nacionalidad ,e_mail ) values(?,?,?,?,?,?,?,?,?,?,?)");
+		PreparedStatement ps = con.prepareStatement(
+				"insert into Cliente(nombre, apellido ,tipoDoc ,numDoc ,telFijo ,telCel ,direccion ,ciudad ,provincia "
+				+ ",nacionalidad ,e_mail)"
+				+ " values(?,?,?,?,?,?,?,?,?,?,?)");
 		ps.setString(1, cliente.getNombre());
 		ps.setString(2, cliente.getApellido());
 		ps.setString(3, cliente.getTipoDoc());
@@ -43,20 +46,23 @@ public class ClienteService {
 		Cliente client = null;
 
 		if (rs.next()) {
-			client = new Cliente(rs.getString("nombre"), rs.getString("apellido"), rs.getString("tipoDoc"),
-					rs.getInt("numDoc"), rs.getInt("telFijo"), rs.getInt("telCel"), rs.getString("direccion"),
-					rs.getString("ciudad"), rs.getString("provincia"), rs.getString("nacionalidad"),
-					rs.getString("e_mail"));
+			client = new Cliente(rs.getLong("clienteId"), rs.getString("nombre"), rs.getString("apellido"),
+					rs.getString("tipoDoc"), rs.getInt("numDoc"), rs.getInt("telFijo"), rs.getInt("telCel"),
+					rs.getString("direccion"), rs.getString("ciudad"), rs.getString("provincia"),
+					rs.getString("nacionalidad"), rs.getString("e_mail"));
 		}
 		rs.close();
 		return client;
 	}
 
 	public static void updateCliente(Cliente cliente) throws ClassNotFoundException, SQLException, IOException {
+		Cliente client = findByTipoDocAndNumDoc(cliente.getTipoDoc(), cliente.getNumDoc());
+
 		Connection con = Conexion.getConexion();
 		PreparedStatement ps = con.prepareStatement("update Cliente SET nombre=?, apellido=? ,tipoDoc=? ,"
 				+ "numDoc=? ,telFijo=? ,telCel=? ,direccion=? ,ciudad=? ,provincia=? ,nacionalidad=? ,e_mail=? "
 				+ " where clienteId=?");
+
 		ps.setString(1, cliente.getNombre());
 		ps.setString(2, cliente.getApellido());
 		ps.setString(3, cliente.getTipoDoc());
@@ -68,7 +74,7 @@ public class ClienteService {
 		ps.setString(9, cliente.getProvincia());
 		ps.setString(10, cliente.getNacionalidad());
 		ps.setString(11, cliente.getE_mail());
-		ps.setLong(12, cliente.getClienteId());
+		ps.setLong(12, client.getClienteId());
 		ps.execute();
 	}
 
@@ -79,7 +85,7 @@ public class ClienteService {
 		ps.execute();
 	}
 
-	public static List<Cliente> getAllClientes() throws ClassNotFoundException, SQLException, IOException{
+	public static List<Cliente> getAllClientes() throws ClassNotFoundException, SQLException, IOException {
 		Connection con = Conexion.getConexion();
 		List<Cliente> clientes = new ArrayList<>();
 		PreparedStatement ps = con.prepareStatement("SELECT * FROM Cliente");
@@ -87,10 +93,10 @@ public class ClienteService {
 		Cliente client;
 
 		while (rs.next()) {
-			client = new Cliente(rs.getString("nombre"), rs.getString("apellido"), rs.getString("tipoDoc"),
-					rs.getInt("numDoc"), rs.getInt("telFijo"), rs.getInt("telCel"), rs.getString("direccion"),
-					rs.getString("ciudad"), rs.getString("provincia"), rs.getString("nacionalidad"),
-					rs.getString("e_mail"));
+			client = new Cliente(rs.getLong("clienteId"), rs.getString("nombre"), rs.getString("apellido"),
+					rs.getString("tipoDoc"), rs.getInt("numDoc"), rs.getInt("telFijo"), rs.getInt("telCel"),
+					rs.getString("direccion"), rs.getString("ciudad"), rs.getString("provincia"),
+					rs.getString("nacionalidad"), rs.getString("e_mail"));
 			clientes.add(client);
 		}
 		rs.close();

@@ -2,10 +2,23 @@
 <html xmlns:th="http://www.thymeleaf.org"
       xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 <head>
+<link rel="stylesheet" th:href="@{/css/styles.css}" href="css/styles.css"/>
 <meta charset="UTF-8"/>
 <title>Cliente page</title>
 </head>
 <body>
-<a href="create.html">crear cliente</a>
+
+
+	<div class="container">
+		<h2>Opciones Cliente</h2>
+		<ul>
+			<li><a href="clienteCreate.html">crear cliente</a></li>
+			<li><a href="clienteUpdate.html">modificar cliente</a></li>
+			<li><a href="clienteDelete.html">borrar cliente</a></li>
+			<li><a href="ClienteListServlet">Listar clientes</a></li>
+			<li><a href="clienteFind.html">buscar cliente por Tipo And Num Doc</a></li>
+		</ul>
+	</div>
+	
 </body>
 </html>

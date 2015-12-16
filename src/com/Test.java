@@ -2,38 +2,44 @@ package com;
 
 import java.io.IOException;
 import java.sql.SQLException;
-
 import com.conexion.Conexion;
-import com.model.Account;
-import com.model.Cliente;
-import com.service.AccountService;
+import com.model.Imagen;
+import com.service.ImagenService;
 
 public class Test {
-	
 	public static void main(String[] args) throws IOException {
 		
-		Account ac = new Account("Fer", "pass", "admin");
-		Cliente client = new Cliente("nombre", "apellido", "tipoDoc",
-				1, 1, 1, "direccion", "ciudad", "provincia", "nacionalidad", "e_mail");
-		
+		Imagen img = new Imagen("imagen1", "path1");
+		Imagen img2 = new Imagen("imagen2", "path2");
+		Imagen img3 = new Imagen("imagen3", "path3");
+
 		try {
-			
 			Conexion con = new Conexion();
-		
 			con.initDb();
+
+	
+			ImagenService.createImagen(img);
+		//	ImagenService.createImagen(img2);
 			
-			AccountService.createAccount(ac);
-		//	ClienteService.createCliente(client);
+			ImagenService.updateImagen("imagen1",img2);
 			
-			System.out.println(AccountService.findByUserName("Fer"));
-		//System.out.println(ClienteService.getAllClientes());	
+	//		System.out.println(ImagenService.findByNombre("imagen3").getImagenId());
 			
+			/* public static void updateImagen(Imagen imagen) throws ClassNotFoundException, SQLException, IOException {
+
+		System.out.println(findByNombre(imagen.getNombre()).getImagenId());
+		Long imagenId = findByNombre(imagen.getNombre()).getImagenId();
+		
+		Connection con = Conexion.getConexion();
+		PreparedStatement ps = con.prepareStatement("update imagen SET nombre=?,path=? where imagenId=?");
+		ps.setString(1, imagen.getNombre());
+		ps.setString(2, imagen.getPath());
+		ps.setLong(3,imagenId);
+		ps.execute();
+	}				 */
 		} catch (ClassNotFoundException | SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-		
 	}
-
 }
