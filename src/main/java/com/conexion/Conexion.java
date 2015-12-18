@@ -17,7 +17,7 @@ public class Conexion {
 	public static Connection getConexion() throws ClassNotFoundException, SQLException, IOException {
 		if (con == null) {
 			Class.forName("org.h2.Driver");
-			con = DriverManager.getConnection("jdbc:h2:./Fernando/H2 DataBase/prueba", "Fer", "");
+			con = DriverManager.getConnection("jdbc:h2:mem:test");
 			
 		}
 		return con;
