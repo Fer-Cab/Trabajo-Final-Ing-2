@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+<meta charset="UTF-8" />
+<link rel="stylesheet" th:href="@{/css/styles.css}" href="css/styles.css"/>
+<title>Empleado page</title>
+</head>
+<body>
+	<div class="container">
+		<h2>Opciones Empleado</h2>
+		<ul>
+			<li><a href="empleadoCreate.html">crear Empleado</a></li>
+			<li><a href="empleadoUpdate.html">modificar Empleado</a></li>
+			<li><a href="empleadoDelete.html">borrar Empleado</a></li>
+			<li><a href="EmpleadoListServlet">Listar Empleado</a></li>
+			<li><a href="empleadoFind.html">buscar Empleado por Tipo And Num Doc</a></li>
+		</ul>
+		<button id="btnCancel">volver</button>
+		
+		<!-- jQuery -->
+      <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+      <script type="text/javascript" src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+      <script type="text/javascript" src="js/main.js"></script>
+	  
+	</div>
+
+</body>
+</html>

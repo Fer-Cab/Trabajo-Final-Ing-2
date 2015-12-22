@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+<meta charset="UTF-8"/>
+<link rel="stylesheet" th:href="@{/css/styles.css}" href="css/styles.css"/>
+<title>Propietario page</title>
+
+</head>
+<body>
+ 
+	<div class="container">
+		<h2>Opciones Propietario</h2>
+		<ul>
+			<li><a href="propietarioCreate.html">crear Propietario</a></li>
+			<li><a href="propietarioUpdate.html">modificar Propietario</a></li>
+			<li><a href="propietarioDelete.html">borrar Propietario</a></li>
+			<li><a href="ListPropietarioServlet">Listar Propietario</a></li>
+			<li><a href="propietarioFind.html">buscar Propietario por Tipo And Num Doc</a></li>
+		</ul>
+			<button id="btnCancel">volver</button>
+		
+		<!-- jQuery -->
+      <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+      <script type="text/javascript" src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+      <script type="text/javascript" src="js/main.js"></script>
+	  
+	</div>
+	
+</body>
+</html>

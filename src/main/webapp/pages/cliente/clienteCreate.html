@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="./css/styles.css" />
+<meta charset="UTF-8" />
+<title>Cliente page</title>
+</head>
+<body>
+
+	<div id="clienteCreate">
+
+		<h2>Crear Cliente</h2>
+		<form id="formNewClient" action="ClienteCreateServlet" method="post">
+			<label for="nombre">nombre</label> <input type="text" name="nombre"
+				id="nombre" /><br /> <label for="apellido">apellido</label> <input
+				type="text" name="apellido" id="apellido" /><br /> <label
+				for="tipoDoc">tipoDoc</label> <input type="text" name="tipoDoc"
+				id="tipoDoc" /><br /> <label for="numDoc">numDoc</label> <input
+				type="text" name="numDoc" id="numDoc" />int<br /> <label
+				for="telFijo">telFijo</label> <input type="text" name="telFijo"
+				id="telFijo" />int<br /> <label for="telCel">telCel</label> <input
+				type="text" name="telCel" id="telCel" />int<br /> <label
+				for="direccion">direccion</label> <input type="text"
+				name="direccion" id="direccion" /><br /> <label for="ciudad">ciudad</label>
+			<input type="text" name="ciudad" id="ciudad" /><br /> <label
+				for="provincia">provincia</label> <input type="text"
+				name="provincia" id="provincia" /><br /> <label for="nacionalidad">nacionalidad</label>
+			<input type="text" name="nacionalidad" id="nacionalidad" /><br /> <label
+				for="e_mail">E-mail</label> <input type="text" name="e_mail"
+				id="e_mail" /><br />
+		<fieldset>
+				<legend>Aceptar:</legend>
+				<input type="submit" value="crear" /><br />
+				<input type="reset" value="cancel"/>
+			</fieldset>
+	
+		</form>
+	
+		<button id="btnCancel">volver</button>
+		
+		<!-- jQuery -->
+      <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+      <script type="text/javascript" src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+      <script type="text/javascript" src="js/main.js"></script>
+	  
+	</div>
+</body>
+</html>

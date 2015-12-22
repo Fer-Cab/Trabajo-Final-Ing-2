@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" href="../css/styles.css" />
+		<meta charset="UTF-8" />
+		<title>Cliente page</title>
+	</head>
+
+	<body>
+	
+		<h2>Borrar Cliente</h2>
+		<form id="formDeleteClient" action="ClienteDeleteServlet" method="post">
+	
+			<label for="clienteId">cliente ID</label> <input type="text"
+				name="clienteId" id="clienteId" /> int <br />
+	
+			<fieldset>
+				<legend>Aceptar:</legend>
+				<input type="submit" value="borrar" />
+				<input type="reset" value="cancel"/>
+			</fieldset>
+	
+		</form>
+	
+		<button id="btnCancel">volver</button>
+		
+		<!-- jQuery -->
+      <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+      <script type="text/javascript" src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+      <script type="text/javascript" src="js/main.js"></script>
+	  
+			
+	</body>
+</html>

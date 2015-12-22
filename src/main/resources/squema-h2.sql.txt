@@ -1,0 +1,121 @@
+DROP ALL OBJECTS;
+
+CREATE TABLE Account (
+	accountId INT auto_increment,
+	userName VARCHAR(25) NOT NULL UNIQUE,
+	password VARCHAR(25) NOT NULL,
+	permisos VARCHAR(25) NOT NULL,
+	
+	PRIMARY KEY(accountId)
+);
+
+create table Cliente(
+	clienteId bigint  auto_increment,
+	nombre VARCHAR(25) NOT NULL,
+	apellido VARCHAR(25) NOT NULL,
+	tipoDoc VARCHAR(25) NOT NULL,
+	numDoc INT NOT NULL,
+	telFijo INT NOT NULL,
+	telCel INT NOT NULL,
+	direccion VARCHAR(25) NOT NULL,
+	ciudad VARCHAR(25) NOT NULL,
+	provincia VARCHAR(25) NOT NULL,
+	nacionalidad VARCHAR(25) NOT NULL,
+	e_mail VARCHAR(25) NOT NULL,
+	
+	PRIMARY KEY(clienteId)
+);
+	
+create table Empleado( 
+	empleadoId INT AUTO_INCREMENT,
+	nombre VARCHAR(25) NOT NULL,
+	apellido VARCHAR(25) NOT NULL,
+	tipoDoc VARCHAR(25) NOT NULL,
+	numDoc INT NOT NULL,
+	telFijo INT NOT NULL,
+	telCel INT NOT NULL,
+	direccion VARCHAR(25) NOT NULL,
+	ciudad VARCHAR(25) NOT NULL,
+	provincia VARCHAR(25) NOT NULL,
+	nacionalidad VARCHAR(25) NOT NULL,
+	e_mail VARCHAR(25) NOT NULL,
+	foto VARCHAR(25) NOT NULL,
+	sector VARCHAR(25) NOT NULL,
+	categoria VARCHAR(25) NOT NULL,
+	fechaIngreso VARCHAR(25) NOT NULL,
+	
+	PRIMARY KEY(empleadoId)
+);	
+	
+create table Propietario( 
+	propietarioId INT AUTO_INCREMENT,
+	nombre VARCHAR(25) NOT NULL,
+	apellido VARCHAR(25) NOT NULL,
+	tipoDoc VARCHAR(25) NOT NULL,
+	numDoc INT NOT NULL,
+	telFijo INT NOT NULL,
+	telCel INT NOT NULL,
+	direccion VARCHAR(25) NOT NULL,
+	ciudad VARCHAR(25) NOT NULL,
+	provincia VARCHAR(25) NOT NULL,
+	nacionalidad VARCHAR(25) NOT NULL,
+	e_mail VARCHAR(25) NOT NULL,
+	numCuenta VARCHAR(25) NOT NULL,
+	
+	PRIMARY KEY(propietarioId)
+);	
+
+create table Imagen(
+	imagenId INT  AUTO_INCREMENT,
+	nombre VARCHAR(25) NOT NULL UNIQUE,
+	path VARCHAR(100) NOT NULL,
+	
+	PRIMARY KEY(imagenId)
+);	
+	
+create table Inmueble(
+	inmuebleId INT AUTO_INCREMENT,
+	descripcion VARCHAR(100) NOT NULL,
+	tipoDeInmueble VARCHAR(25) NOT NULL,
+	tipoDeOperacion VARCHAR(25) NOT NULL,
+	tipoDeEstado VARCHAR(25) NOT NULL,
+	estado VARCHAR(25) NOT NULL,
+	direccion VARCHAR(25) NOT NULL,
+	piso VARCHAR(1) NOT NULL,
+	dpto VARCHAR(1) NOT NULL,
+	ciudad VARCHAR(25) NOT NULL,
+	provincia VARCHAR(25) NOT NULL,
+	imagenId INT, 
+	numHabitaciones VARCHAR(1) NOT NULL,
+	banios VARCHAR(1) NOT NULL,
+	m2 INT NOT NULL,
+	alquiler DOUBLE ,
+	venta DOUBLE ,
+	tipoSuelo VARCHAR(25) NOT NULL, 
+	garage BOOLEAN ,
+	ascensor BOOLEAN ,
+	amueblado BOOLEAN ,
+	comision DOUBLE ,
+	
+	PRIMARY KEY(inmuebleId),
+	FOREIGN KEY (imagenId) REFERENCES Imagen(imagenId)
+);	
+
+create table InmuebleList(
+	inmuebleListId INT AUTO_INCREMENT,	
+	clienteId INT  NOT NULL,
+	propietarioId INT  NOT NULL,
+	inmuebleId INT  NOT NULL,
+
+	PRIMARY KEY(inmuebleListId),
+	FOREIGN KEY (clienteId) REFERENCES Cliente(clienteId),
+	FOREIGN KEY (propietarioId) REFERENCES Propietario(propietarioId),
+	FOREIGN KEY (inmuebleId) REFERENCES Inmueble(inmuebleId)
+);		
+	
+	
+	
+	
+	
+	
+
