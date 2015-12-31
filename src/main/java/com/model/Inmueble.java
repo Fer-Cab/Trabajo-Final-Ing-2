@@ -30,7 +30,6 @@ public class Inmueble {
 	private String dpto;
 	private String ciudad;
 	private String provincia;
-	private int imagenId;
 	private int numHabitaciones;
 	private int banios;
 	private int m2;
@@ -46,7 +45,7 @@ public class Inmueble {
 	}
 
 	public Inmueble(String descripcion, String tipoDeInmueble, String tipoDeOperacion, String tipoDeEstado,
-			String estado, String direccion, String piso, String dpto, String ciudad, String provincia, int imagenId,
+			String estado, String direccion, String piso, String dpto, String ciudad, String provincia,
 			int numHabitaciones, int banios, int m2, double alquiler, double venta, String tipoSuelo, boolean garage,
 			boolean ascensor, boolean amueblado, double comision) {
 		super();
@@ -60,7 +59,6 @@ public class Inmueble {
 		this.dpto = dpto;
 		this.ciudad = ciudad;
 		this.provincia = provincia;
-		this.imagenId = imagenId;
 		this.numHabitaciones = numHabitaciones;
 		this.banios = banios;
 		this.m2 = m2;
@@ -76,7 +74,7 @@ public class Inmueble {
 	
 	public Inmueble(long inmuebleId, String descripcion, String tipoDeInmueble,
 			String tipoDeOperacion, String tipoDeEstado, String estado, String direccion, String piso, String dpto,
-			String ciudad, String provincia, int imagenId, int numHabitaciones, int banios, int m2, double alquiler,
+			String ciudad, String provincia,  int numHabitaciones, int banios, int m2, double alquiler,
 			double venta, String tipoSuelo, boolean garage, boolean ascensor, boolean amueblado, double comision) {
 		super();
 		this.inmuebleId = inmuebleId;
@@ -90,7 +88,6 @@ public class Inmueble {
 		this.dpto = dpto;
 		this.ciudad = ciudad;
 		this.provincia = provincia;
-		this.imagenId = imagenId;
 		this.numHabitaciones = numHabitaciones;
 		this.banios = banios;
 		this.m2 = m2;
@@ -151,9 +148,7 @@ public class Inmueble {
 		return provincia;
 	}
 
-	public int getImagenId() {
-		return imagenId;
-	}
+
 
 	public int getNumHabitaciones() {
 		return numHabitaciones;
@@ -200,7 +195,7 @@ public class Inmueble {
 		return "Inmueble [inmuebleId=" + inmuebleId + ", inmuebleLists=" + inmuebleLists + ", descripcion="
 				+ descripcion + ", tipoDeInmueble=" + tipoDeInmueble + ", tipoDeOperacion=" + tipoDeOperacion
 				+ ", tipoDeEstado=" + tipoDeEstado + ", estado=" + estado + ", direccion=" + direccion + ", piso="
-				+ piso + ", dpto=" + dpto + ", ciudad=" + ciudad + ", provincia=" + provincia + ", imagenId=" + imagenId
+				+ piso + ", dpto=" + dpto + ", ciudad=" + ciudad + ", provincia=" + provincia 
 				+ ", numHabitaciones=" + numHabitaciones + ", banios=" + banios + ", m2=" + m2 + ", alquiler="
 				+ alquiler + ", venta=" + venta + ", tipoSuelo=" + tipoSuelo + ", garage=" + garage + ", ascensor="
 				+ ascensor + ", amueblado=" + amueblado + ", comision=" + comision + "]";

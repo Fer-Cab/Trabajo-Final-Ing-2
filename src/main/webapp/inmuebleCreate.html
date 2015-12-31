@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="css/styles.css" />
+<meta charset="UTF-8" />
+<title>Inmueble create page</title>
+</head>
+<body>
+
+<h2>Crear Inmueble</h2>
+	<form id="formNewInmueble" action="InmuebleCreateServlet" method="post">
+	
+		<label for="descripcion">descripcion</label>
+			<input type="text" name="descripcion" id="descripcion" /><br/>
+		<label for="tipoDeInmueble">tipoDeInmueble</label>
+			<input type="text" name="tipoDeInmueble" id="tipoDeInmueble" /><br/>
+		<label for="tipoDeOperacion">tipoDeOperacion</label>
+			<input type="text" name="tipoDeOperacion" id="tipoDeOperacion" /><br/>
+		<label for="tipoDeEstado">tipoDeEstado</label>
+			<input type="text" name="tipoDeEstado" id="tipoDeEstado" /><br/>
+		<label for="estado">estado</label>
+			<input type="text" name="estado" id="estado" /><br/>
+		<label for="direccion">direccion</label>
+			<input type="text" name="direccion" id="direccion" /><br/>
+		<label for="piso">piso</label>
+			<input type="text" name="piso" id="piso" /><br/>
+		<label for="dpto">dpto</label>
+			<input type="text" name="dpto" id="dpto" /><br/>
+		<label for="ciudad">ciudad</label>
+			<input type="text" name="ciudad" id="ciudad" /><br/>
+		<label for="provincia">provincia</label>
+			<input type="text" name="provincia" id="provincia" /><br/>
+		<label for="numHabitaciones">numHabitaciones</label> 
+	 		<input type="text" name="numHabitaciones" id="numHabitaciones"/><p >int</p><br/> 
+		<label for="banios">banios</label> 
+			<input type="text" name="banios" id="banios"/>int<br/> 
+		<label for="m2">metros cuadrados</label> 
+			<input type="text" name="m2" id="m2"/>int<br/> 
+		<label for="alquiler">alquiler</label> 
+			<input type="text" name="alquiler" id="alquiler"/>double<br/> 
+		<label for="venta">venta</label> 
+			<input type="text" name="venta" id="venta"/>double<br/> 
+		<label for="tipoSuelo">tipoSuelo</label> 
+			<input type="text" name="tipoSuelo" id="tipoSuelo"/><br/> 
+		<label for="garage">garage</label> 
+			<input type="text" name="garage" id="garage"/>boolean<br/> 
+		<label for="ascensor">ascensor</label>
+			<input type="text" name="ascensor" id="ascensor"/>boolean<br/> 
+		<label for="amueblado">amueblado</label> 
+			<input type="text" name="amueblado" id="amueblado"/>boolean<br/> 
+		<label for="comision">comision</label>
+			<input type="text" name="comision" id="comision"/>double<br/>
+		<fieldset>
+		 <legend>Aceptar:</legend>
+				<input type="submit" class="aceptar" value="crear"/>	
+				<input type="reset" class="cancel" value="cancel"/>
+		</fieldset>
+	
+	</form>
+		
+		<button id="CancelInmueble">volver</button>
+		
+		<!-- jQuery -->
+      <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+      <script type="text/javascript" src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+      <script type="text/javascript" src="js/main.js"></script>
+</body>      
+</html>

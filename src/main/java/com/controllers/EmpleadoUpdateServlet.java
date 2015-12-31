@@ -61,7 +61,8 @@ public class EmpleadoUpdateServlet extends HttpServlet {
 			 
 			EmpleadoService.updateEmpleado(empleado,con);
 
-			response.sendRedirect("home.html");
+			String msj = "empleado modificado";
+			response.sendRedirect("empleado.jsp?msj="+msj);
 			
 		} catch (Exception e) {
 			// TODO Auto-generated catch block

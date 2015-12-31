@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet"
+	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script
+	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+	
+<meta charset="UTF-8" />
+<title>account update page</title>
+</head>
+<body>
+<h2>Modificar account</h2>
+<form id="formUpdateAccount" action="AccountUpdateServlet" method="post">
+
+	<div class="input-group">
+			
+<div class="row">	
+<div class="col-md-4">
+	<span class="input-group-addon" id="basic-addon3">userName</span></div>
+<div class="col-md-8">
+	<input type="text" class="form-control" name="userName" id="userName" aria-describedby="basic-addon3"/><br/></div>
+</div>
+
+<div class="row">	
+<div class="col-md-4">
+	<span class="input-group-addon" id="basic-addon3">password</span></div>
+<div class="col-md-8">
+	<input type="text" name="password" id="password" class="form-control" aria-describedby="sizing-addon1"/><br/></div>
+</div>	
+<div class="row">	
+<div class="col-md-4">
+	<span class="input-group-addon" id="basic-addon2">permisos</span></div> 
+<div class="col-md-8">
+	<input type="text" name="permisos" id="permisos" class="form-control" aria-describedby="sizing-addon1"/><br/></div>
+</div>
+ 
+			</div>
+
+		<fieldset>
+			<legend>Aceptar:</legend>
+				<input type="submit" value="modificar"/>	
+				<input type="reset" value="cancel"/>
+		</fieldset>
+	
+	</form>
+	
+		<button id="CancelAccount">volver</button>
+		
+		<!-- jQuery -->
+      <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+      <script type="text/javascript" src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+      <script type="text/javascript" src="js/main.js"></script>
+	  
+	</body>
+</html>

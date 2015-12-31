@@ -48,7 +48,8 @@ public class ClienteDeleteServlet extends HttpServlet {
 
 			ClienteService.deleteCliente(clienteId, con);
 
-			response.sendRedirect("home.html");
+			String msj = "cliente borrado";
+			response.sendRedirect("cliente.jsp?msj="+msj);
 
 		} catch (Exception e) {
 			// TODO Auto-generated catch block

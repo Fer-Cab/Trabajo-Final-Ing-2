@@ -1,19 +1,42 @@
 ul {
-    list-style-type: none;
-   
+	list-style-type: none;
 }
 
 li {
-	 display: inline-block;
+	display: inline-block;
 }
 
 .container {
 	background-color: #ffffee;
-	
 }
 
 .box-model {
 	width: 800px;
 	height: 200px;
 	background-color: green;
+}
+
+input {
+	position: absolute;
+	left: 150px;
+}
+
+p {
+	position: absolute;
+	left: 320px;
+	
+}
+
+.aceptar {
+	position: relative;
+	left: 100px;
+}
+
+.cancelar {
+	position: relative;
+	left: 150px;
+}
+
+.hidden {
+    visibility: hidden;
 }

@@ -60,7 +60,9 @@ public class EmpleadoCreateServlet extends HttpServlet {
 			 
 			EmpleadoService.createEmpleado(empleado,con);
 
-			response.sendRedirect("home.html");
+			String msj = "empleado creado";
+			response.sendRedirect("empleado.jsp?msj="+msj);
+			
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			// e.printStackTrace();

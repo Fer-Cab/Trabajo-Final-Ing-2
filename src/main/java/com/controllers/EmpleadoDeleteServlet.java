@@ -44,7 +44,8 @@ public class EmpleadoDeleteServlet extends HttpServlet {
 
 			EmpleadoService.deleteEmpleado(empleadoId, con);
 
-			response.sendRedirect("home.html");
+			String msj = "empleado borrado";
+			response.sendRedirect("empleado.jsp?msj="+msj);
 
 		} catch (Exception e) {
 			// TODO Auto-generated catch block

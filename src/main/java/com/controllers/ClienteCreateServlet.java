@@ -57,13 +57,15 @@ public class ClienteCreateServlet extends HttpServlet {
 		Cliente client = new Cliente(nombre, apellido, tipoDoc, numDoc,
 				telFijo, telCel, direccion, ciudad, provincia, nacionalidad,
 				e_mail);
+		
+		String msj = "cliente creado";
 
 		try {
 			 Connection con = (Connection) request.getSession().getAttribute("h2.connection");
 			 
 			ClienteService.createCliente(client,con);
 
-			response.sendRedirect("home.html");
+			response.sendRedirect("cliente.jsp?msj="+msj);
 			
 		} catch (Exception e) {
 			// TODO Auto-generated catch block

@@ -44,7 +44,8 @@ public class PropietarioDeleteServlet extends HttpServlet {
 
 			PropietarioService.deletePropietario(propietarioId, con);
 
-			response.sendRedirect("home.html");
+			String msj = "propietario borrado";
+			response.sendRedirect("propietario.jsp?msj="+msj);
 
 		} catch (Exception e) {
 			// TODO Auto-generated catch block

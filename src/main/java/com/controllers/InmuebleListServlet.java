@@ -9,8 +9,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 import javax.servlet.http.HttpSession;
-import com.model.Cliente;
-import com.service.ClienteService;
+import com.model.Inmueble;
+import com.service.InmuebleService;
 /**
  * Servlet implementation class InmuebleListServlet
  */
@@ -33,11 +33,11 @@ public class InmuebleListServlet extends HttpServlet {
 		try {
 			Connection con = (Connection) request.getSession().getAttribute("h2.connection");
 			
-			List<Cliente> clientes = ClienteService.getAllClientes(con);
+			List<Inmueble> inmuebles = InmuebleService.getAllInmuebles(con);
 			HttpSession sesion = request.getSession();
-			sesion.setAttribute("clientes", clientes);
+			sesion.setAttribute("inmuebles", inmuebles);
 
-			response.sendRedirect("clienteList.jsp");
+			response.sendRedirect("inmuebleList.jsp");
 
 		} catch (Exception e) {
 			// TODO Auto-generated catch block

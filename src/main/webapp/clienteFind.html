@@ -1,0 +1,39 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="css/styles.css" />
+<meta charset="UTF-8" />
+<title>Cliente page</title>
+</head>
+<body>
+
+
+	<h2>buscar cliente TipoDoc y NumDoc</h2>
+
+	<form id="findClient" action="ClienteFindServlet" method="post">
+
+		<label for="tipoDoc">tipoDoc</label> <input type="text" name="tipoDoc"
+			id="tipoDoc" /><br /> <label for="numDoc">numDoc</label> <input
+			type="text" name="numDoc" id="numDoc" />int<br />
+
+		<fieldset>
+			<legend>Aceptar:</legend>
+			<input type="submit" value="buscar" />  
+			<input type="reset"	value="cancel" />
+		</fieldset>
+
+	</form>
+
+	<button id="CancelClient">volver</button>
+
+	<!-- jQuery -->
+	<script type="text/javascript"
+		src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+	<script type="text/javascript"
+		src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+	<script type="text/javascript" src="js/main.js"></script>
+
+</body>
+</html>
+

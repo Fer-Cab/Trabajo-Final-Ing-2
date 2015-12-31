@@ -8,14 +8,12 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.conexion.Conexion;
 import com.model.Account;
 
 public class AccountService {
 
-	public static void createAccount(Account account) throws ClassNotFoundException, SQLException, IOException {
+	public static void createAccount(Account account, Connection con) throws ClassNotFoundException, SQLException, IOException {
 
-		Connection con = Conexion.getConexion();
 		PreparedStatement ps = con.prepareStatement("insert into account(userName,password,permisos) values(?,?,?)");
 	
 		ps.setString(1, account.getUserName());
@@ -24,9 +22,8 @@ public class AccountService {
 		ps.execute();
 	}
 
-	public static Account findByUserName(String userName) throws SQLException, ClassNotFoundException, IOException {
+	public static Account findByUserName(String userName, Connection con) throws SQLException, ClassNotFoundException, IOException {
 
-		Connection con = Conexion.getConexion();
 		PreparedStatement ps = con.prepareStatement("SELECT * FROM account WHERE userName = ?");
 		ps.setString(1, userName);
 
@@ -40,11 +37,10 @@ public class AccountService {
 		return acc;
 	}
 
-	public static void updateAccount(Account account) throws ClassNotFoundException, SQLException, IOException {
+	public static void updateAccount(Account account, Connection con) throws ClassNotFoundException, SQLException, IOException {
 		
-		Account acc = findByUserName(account.getUserName());
+		Account acc = findByUserName(account.getUserName(),con);
 	
-		Connection con = Conexion.getConexion();
 		PreparedStatement ps = con
 				.prepareStatement("update account SET userName=?,password=?,permisos=? where accountId=?");
 		ps.setString(1, account.getUserName());
@@ -54,15 +50,15 @@ public class AccountService {
 		ps.execute();
 	}
 
-	public static void deleteAccount(Long id) throws ClassNotFoundException, SQLException, IOException {
-		Connection con = Conexion.getConexion();
+	public static void deleteAccount(Long id, Connection con) throws ClassNotFoundException, SQLException, IOException {
+		
 		PreparedStatement ps = con.prepareStatement("DELETE FROM account  where accountId=?");
 		ps.setLong(1, id);
 		ps.execute();
 	}
 
-	public static List<Account> getAllAccounts() throws ClassNotFoundException, SQLException, IOException {
-		Connection con = Conexion.getConexion();
+	public List<Account> getAllAccounts(Connection con) throws ClassNotFoundException, SQLException, IOException {
+		
 		List<Account> accounts = new ArrayList<>();
 		PreparedStatement ps = con.prepareStatement("SELECT * FROM Account");
 		ResultSet rs = ps.executeQuery();
@@ -76,18 +72,18 @@ public class AccountService {
 		return accounts;
 	}
 
-	public static boolean existUserName(String userName) throws ClassNotFoundException, SQLException, IOException {
+	public static boolean existUserName(String userName, Connection con) throws ClassNotFoundException, SQLException, IOException {
 		boolean exist = false;
-		Account account = findByUserName(userName);
+		Account account = findByUserName(userName,con);
 		if (account != null && account.equals(userName)) {
 			exist = true;
 		}
 		return exist;
 	}
 
-	public static boolean userExist(Account account) throws ClassNotFoundException, SQLException, IOException {
+	public static boolean userExist(Account account, Connection con) throws ClassNotFoundException, SQLException, IOException {
 		boolean exist = false;
-		Account findAccount = findByUserName(account.getUserName());
+		Account findAccount = findByUserName(account.getUserName(),con);
 		if (findAccount != null && account.equals(findAccount)) {
 			exist = true;
 		}

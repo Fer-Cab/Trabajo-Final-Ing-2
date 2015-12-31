@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" href="css/styles.css" />
+		<meta charset="UTF-8" />
+		<title>Account page</title>
+	</head>
+
+	<body>
+	
+		<h2>Borrar Cuenta</h2>
+		<form id="formDeleteAccount" action="AccountDeleteServlet" method="post">
+	
+			<label for="accountId">account ID</label> <input type="text"
+				name="accountId" id="accountId" /> int <br />
+	
+			<fieldset>
+				<legend>Aceptar:</legend>
+				<input type="submit" value="borrar" />
+				<input type="reset" value="cancel"/>
+			</fieldset>
+	
+		</form>
+	
+		<button id="CancelAccount">volver</button>
+		
+		<!-- jQuery -->
+      <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+      <script type="text/javascript" src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+      <script type="text/javascript" src="js/main.js"></script>
+	  
+			
+	</body>
+</html>

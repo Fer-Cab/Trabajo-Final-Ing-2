@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="css/styles.css" />
+<meta charset="UTF-8" />
+<title>Propietario delete page</title>
+</head>
+
+<body>
+
+	<h2>Borrar Propietario</h2>
+	
+	<form id="formDeletePropietario" action="PropietarioDeleteServlet" method="post">
+
+		<label for="propietarioId">propietario ID</label> <input type="text"
+			name="propietarioId" id="propietarioId" /> int <br />
+
+		<fieldset>
+			<legend>Aceptar:</legend>
+			<input type="submit" value="borrar" /> 
+			<input type="reset" value="cancel" />
+		</fieldset>
+
+	</form>
+
+	<button id="CancelProp">volver</button>
+
+	<!-- jQuery -->
+	<script type="text/javascript"
+		src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+	<script type="text/javascript"
+		src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+	<script type="text/javascript" src="js/main.js"></script>
+
+
+</body>
+</html>

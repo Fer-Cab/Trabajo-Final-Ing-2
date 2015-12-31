@@ -16,10 +16,11 @@ public class ImagenService {
 	public static void createImagen(Imagen imagen) throws ClassNotFoundException, SQLException, IOException {
 
 		Connection con = Conexion.getConexion();
-		PreparedStatement ps = con.prepareStatement("insert into Imagen(nombre,path) values(?,?)");
+		PreparedStatement ps = con.prepareStatement("insert into Imagen(nombre,path,inmuebleId) values(?,?,?)");
 
 		ps.setString(1, imagen.getNombre());
 		ps.setString(2, imagen.getPath());
+		ps.setLong(3, imagen.getInmuebleId());
 		ps.execute();
 	}
 
@@ -34,7 +35,7 @@ public class ImagenService {
 		Imagen acc = null;
 
 		if (rs.next()) {
-			acc = new Imagen(rs.getLong("imagenId"), rs.getString("nombre"), rs.getString("path"));
+			acc = new Imagen(rs.getLong("imagenId"), rs.getString("nombre"), rs.getString("path"),rs.getLong("inmuebleId"));
 		}
 		rs.close();
 		return acc;
@@ -45,10 +46,11 @@ public class ImagenService {
 		Long imagenId = findByNombre(nombre).getImagenId();
 		
 		Connection con = Conexion.getConexion();
-		PreparedStatement ps = con.prepareStatement("update imagen SET nombre=?,path=? where imagenId=?");
+		PreparedStatement ps = con.prepareStatement("update imagen SET nombre=?,path=?,inmuebleId=? where imagenId=?");
 		ps.setString(1, imagen.getNombre());
 		ps.setString(2, imagen.getPath());
-		ps.setLong(3,imagenId);
+		ps.setLong(3, imagen.getInmuebleId());
+		ps.setLong(4,imagenId);
 		ps.execute();
 	}
 
@@ -67,7 +69,7 @@ public class ImagenService {
 		Imagen img;
 
 		while (rs.next()) {
-			img = new Imagen(rs.getLong("imagenId"), rs.getString("nombre"), rs.getString("path"));
+			img = new Imagen(rs.getLong("imagenId"), rs.getString("nombre"), rs.getString("path"),rs.getLong("inmuebleId"));
 			imagens.add(img);
 		}
 		rs.close();

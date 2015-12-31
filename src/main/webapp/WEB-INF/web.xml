@@ -8,7 +8,7 @@
   
  <context-param>
     <param-name>h2.database.path</param-name>
-    <param-value>/C:/Fernando/H2 DataBase</param-value>
+    <param-value>C:/Fernando/H2 DataBase</param-value>
   </context-param>
 <listener>
     <listener-class>com.conexion.MySessionListener</listener-class>
@@ -44,12 +44,7 @@
   	<description></description>
   	<servlet-class>com.controllers.ClienteUpdateServlet</servlet-class>
   </servlet>
-  <servlet>
-  	<servlet-name>CrearClienteServlet</servlet-name>
-  	<display-name>CrearClienteServlet</display-name>
-  	<description></description>
-  	<servlet-class>com.controllers.CrearClienteServlet</servlet-class>
-  </servlet>
+ 
   <servlet>
   	<servlet-name>EmpleadoCreateServlet</servlet-name>
   	<display-name>EmpleadoCreateServlet</display-name>
@@ -140,6 +135,30 @@
   	<description></description>
   	<servlet-class>com.controllers.PropietarioUpdateServlet</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>AccountCreateServlet</servlet-name>
+  	<display-name>AccountCreateServlet</display-name>
+  	<description></description>
+  	<servlet-class>com.controllers.AccountCreateServlet</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>AccountDeleteServlet</servlet-name>
+  	<display-name>AccountDeleteServlet</display-name>
+  	<description></description>
+  	<servlet-class>com.controllers.AccountDeleteServlet</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>AccountUpdateServlet</servlet-name>
+  	<display-name>AccountUpdateServlet</display-name>
+  	<description></description>
+  	<servlet-class>com.controllers.AccountUpdateServlet</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>EjemploServlet</servlet-name>
+  	<display-name>EjemploServlet</display-name>
+  	<description></description>
+  	<servlet-class>com.controllers.EjemploServlet</servlet-class>
+  </servlet>
   <servlet-mapping>
   	<servlet-name>ClienteCreateServlet</servlet-name>
   	<url-pattern>/ClienteCreateServlet</url-pattern>
@@ -160,10 +179,7 @@
   	<servlet-name>ClienteUpdateServlet</servlet-name>
   	<url-pattern>/ClienteUpdateServlet</url-pattern>
   </servlet-mapping>
-  <servlet-mapping>
-  	<servlet-name>CrearClienteServlet</servlet-name>
-  	<url-pattern>/CrearClienteServlet</url-pattern>
-  </servlet-mapping>
+ 
   <servlet-mapping>
   	<servlet-name>EmpleadoCreateServlet</servlet-name>
   	<url-pattern>/EmpleadoCreateServlet</url-pattern>
@@ -223,6 +239,22 @@
   <servlet-mapping>
   	<servlet-name>PropietarioUpdateServlet</servlet-name>
   	<url-pattern>/PropietarioUpdateServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>AccountCreateServlet</servlet-name>
+  	<url-pattern>/AccountCreateServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>AccountDeleteServlet</servlet-name>
+  	<url-pattern>/AccountDeleteServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>AccountUpdateServlet</servlet-name>
+  	<url-pattern>/AccountUpdateServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>EjemploServlet</servlet-name>
+  	<url-pattern>/EjemploServlet</url-pattern>
   </servlet-mapping>
   
   <welcome-file-list>

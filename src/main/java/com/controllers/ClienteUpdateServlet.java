@@ -60,7 +60,8 @@ public class ClienteUpdateServlet extends HttpServlet {
 			 
 			ClienteService.updateCliente(client, con);
 
-			response.sendRedirect("home.html");
+			String msj = "cliente modificado";
+			response.sendRedirect("cliente.jsp?msj="+msj);
 			
 		} catch (Exception e) {
 			// TODO Auto-generated catch block

@@ -58,7 +58,9 @@ public class PropietarioCreateServlet extends HttpServlet {
 			
 			PropietarioService.createPropietario(propietario,con);
 
-			response.sendRedirect("home.html");
+			String msj = "propietario creado";
+			response.sendRedirect("propietario.jsp?msj="+msj);
+			
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			// e.printStackTrace();
