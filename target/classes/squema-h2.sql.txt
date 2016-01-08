@@ -4,7 +4,7 @@ CREATE TABLE Account (
 	accountId INT auto_increment,
 	userName VARCHAR(25) NOT NULL UNIQUE,
 	password VARCHAR(25) NOT NULL,
-	permisos VARCHAR(25) NOT NULL,
+	permisos VARCHAR(14) NOT NULL,
 	
 	PRIMARY KEY(accountId)
 );
@@ -13,14 +13,14 @@ create table Cliente(
 	clienteId bigint  auto_increment,
 	nombre VARCHAR(25) NOT NULL,
 	apellido VARCHAR(25) NOT NULL,
-	tipoDoc VARCHAR(25) NOT NULL,
+	tipoDoc VARCHAR(3) NOT NULL,
 	numDoc INT NOT NULL,
 	telFijo INT NOT NULL,
 	telCel INT NOT NULL,
 	direccion VARCHAR(25) NOT NULL,
 	ciudad VARCHAR(25) NOT NULL,
 	provincia VARCHAR(25) NOT NULL,
-	nacionalidad VARCHAR(25) NOT NULL,
+	nacionalidad VARCHAR(15) NOT NULL,
 	e_mail VARCHAR(25) NOT NULL,
 	
 	PRIMARY KEY(clienteId)
@@ -30,7 +30,7 @@ create table Empleado(
 	empleadoId INT AUTO_INCREMENT,
 	nombre VARCHAR(25) NOT NULL,
 	apellido VARCHAR(25) NOT NULL,
-	tipoDoc VARCHAR(25) NOT NULL,
+	tipoDoc VARCHAR(3) NOT NULL,
 	numDoc INT NOT NULL,
 	telFijo INT NOT NULL,
 	telCel INT NOT NULL,
@@ -39,10 +39,10 @@ create table Empleado(
 	provincia VARCHAR(25) NOT NULL,
 	nacionalidad VARCHAR(25) NOT NULL,
 	e_mail VARCHAR(25) NOT NULL,
-	foto VARCHAR(25) NOT NULL,
+	foto VARCHAR(25) ,
 	sector VARCHAR(25) NOT NULL,
 	categoria VARCHAR(25) NOT NULL,
-	fechaIngreso VARCHAR(25) NOT NULL,
+	fechaIngreso VARCHAR(10) NOT NULL,
 	
 	PRIMARY KEY(empleadoId)
 );	
@@ -51,7 +51,7 @@ create table Propietario(
 	propietarioId INT AUTO_INCREMENT,
 	nombre VARCHAR(25) NOT NULL,
 	apellido VARCHAR(25) NOT NULL,
-	tipoDoc VARCHAR(25) NOT NULL,
+	tipoDoc VARCHAR(3) NOT NULL,
 	numDoc INT NOT NULL,
 	telFijo INT NOT NULL,
 	telCel INT NOT NULL,

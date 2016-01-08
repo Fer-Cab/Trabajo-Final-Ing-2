@@ -58,20 +58,26 @@
 			<input type="text" name="categoria" id="categoria" value="<%=empleados.get(pos).getCategoria()%>"/><br/>
 		<label for="fechaIngreso">fechaIngreso</label>
 			<input type="text" name="fechaIngreso" id="fechaIngreso" value="<%=empleados.get(pos).getFechaIngreso()%>"/><br/>
+
+</div>  
 	
 		<fieldset>
 			<legend>Aceptar:</legend>
-				<input type="submit" value="crear"/>	
+				<input id="empleadoValidate" type="submit" value="modificar"/>	
 				<input type="reset" value="cancel"/>
 		</fieldset>
 	
 	</form>
-		<button id="CancelEmpleado">volver</button>
+	
+    <br/>	<button id="CancelEmpleado">volver</button>
 		
 		<!-- jQuery -->
       <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
       <script type="text/javascript" src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
       <script type="text/javascript" src="js/main.js"></script>
-	  
+      <script type="text/javascript" src="js/validate.js"></script>
+	 
+     </div>
+      
 	</body>
 </html>

@@ -22,7 +22,7 @@
 			<li><a href="inmuebleCreate.html">crear inmueble</a></li>
 			<li><a href="inmuebleUpdate.html">modificar inmueble</a></li>
 			<li><a href="inmuebleDelete.html">borrar inmueble</a></li>
-			<li><a href="ListInmuebleServlet">Listar inmuebles</a></li>
+			<li><a href="InmuebleListServlet">Listar inmuebles</a></li>
 			<li><a href="inmuebleFind.html">buscar inmueble por Direccion Piso And Dpto </a></li>
 		</ul>
 			<button id="btnCancel">volver</button>

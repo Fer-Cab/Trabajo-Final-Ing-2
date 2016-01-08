@@ -21,8 +21,10 @@
 
 <%@page isErrorPage="false" errorPage="Error.jsp"%>
 
+<div id="cliente">
+
 <h2>Modificar Cliente</h2>
-<form id="formUpdateClient" action="ModificarClienteServlet" method="post">
+<form id="formUpdateClient" action="ClienteUpdateServlet" method="post">
 
 	<%
 		@SuppressWarnings("unchecked")
@@ -30,43 +32,113 @@
 			int pos = Integer.parseInt(request.getParameter("pos"));	%>
 			
 			
-	<label for="nombre">nombre</label> 
-		<input type="text" name="nombre" id="nombre" value="<%=clientes.get(pos).getNombre()%>"/><br /> 
-	<label for="apellido">apellido</label> 
-		<input type="text" name="apellido" id="apellido" value="<%=clientes.get(pos).getApellido()%>"/><br /> 
-	<label for="tipoDoc">tipoDoc</label> 
-		<input type="text" name="tipoDoc" id="tipoDoc" value="<%=clientes.get(pos).getTipoDoc()%>"/><br /> 
-	<label for="numDoc">numDoc</label> 
-		<input type="text" name="numDoc" id="numDoc" value="<%=clientes.get(pos).getNumDoc()%>"/>int<br /> 
-	<label for="telFijo">telFijo</label>
-			<input type="text" name="telFijo" id="telFijo" value="<%=clientes.get(pos).getTelFijo()%>"/>int<br /> 
-	<label for="telCel">telCel</label> 
-		<input type="text" name="telCel" id="telCel" value="<%=clientes.get(pos).getTelCel()%>"/>int<br /> 
-	<label for="direccion">direccion</label> 
-		<input type="text" name="direccion" id="direccion" value="<%=clientes.get(pos).getDireccion()%>"/><br /> 
-	<label for="ciudad">ciudad</label> 
-		<input type="text" name="ciudad" id="ciudad" value="<%=clientes.get(pos).getCiudad()%>"/><br /> 
-	<label for="provincia">provincia</label> 
-		<input type="text" name="provincia" id="provincia" value="<%=clientes.get(pos).getProvincia()%>"/><br /> 
-	<label for="nacionalidad">nacionalidad</label> 
-		<input type="text" name="nacionalidad" id="nacionalidad" value="<%=clientes.get(pos).getNacionalidad()%>"/><br /> 
-	<label for="e_mail">E-mail</label>
-		<input type="text" name="e_mail" id="e_mail" value="<%=clientes.get(pos).getE_mail()%>"/><br />
+	
+<div class="input-group">
+			
+<div class="row">	
+<div class="col-md-2">
+	<span class="input-group-addon" id="basic-addon3">nombre</span></div> 
+<div class="col-md-4"> 	<input type="text" name="nombre" id="nombre" value="<%=clientes.get(pos).getNombre()%>" class="form-control"  aria-describedby="basic-addon3"/><br/></div>
+</div> 
+        
+<div class="row">	
+<div class="col-md-2">
+	<span class="input-group-addon" id="basic-addon3">apellido</span></div>
+<div class="col-md-4"> 	<input type="text" name="apellido" id="apellido" value="<%=clientes.get(pos).getApellido()%>" class="form-control"  aria-describedby="basic-addon3"/><br/></div>
+</div> 
 
+
+<div class="row">   
+<div class="col-md-2">
+    <span class="input-group-addon" id="basic-addon2">tipoDoc</span></div> 
+<div class="col-md-4">
+    <select name="tipoDoc" id="tipoDoc" class="form-control">
+    <option value="<%=clientes.get(pos).getTipoDoc()%>"><%=clientes.get(pos).getTipoDoc()%></option>
+     <option value="DNI">DNI</option>
+     <option value="CI">CI</option>
+     <option value="LE">LE</option>
+     <option value="LC">LC</option>
+    </select>   </div>
+    <div class="col-md-2"> </div>
+</div>       
+        
+	
+        
+<div class="row">	
+<div class="col-md-2">
+	<span class="input-group-addon" id="basic-addon3">numDoc</span></div>
+<div class="col-md-4">  <input type="text" name="numDoc" id="numDoc" value="<%=clientes.get(pos).getNumDoc()%>" class="form-control" aria-describedby="basic-addon3"/><br/></div>
+<div class="col-md-2"> int </div>	
+</div>  			 
+        
+<div class="row">	
+<div class="col-md-2">
+	<span class="input-group-addon" id="basic-addon3">telFijo</span></div> 
+<div class="col-md-4"> <input type="text" name="telFijo" id="telFijo" value="<%=clientes.get(pos).getTelFijo()%>" class="form-control" aria-describedby="basic-addon3"/><br/></div>
+<div class="col-md-2"> int </div>	
+</div>  			 
+            
+ <div class="row">	 
+ <div class="col-md-2">
+	<span class="input-group-addon" id="basic-addon3">telCel</span></div> 
+<div class="col-md-4">	<input type="text" name="telCel" id="telCel" value="<%=clientes.get(pos).getTelCel()%>" class="form-control" aria-describedby="basic-addon3"/><br/></div>
+<div class="col-md-2"> int </div>	
+</div>  			 
+        
+ <div class="row">	
+ <div class="col-md-2">
+	<span class="input-group-addon" id="basic-addon3">direccion</span></div> 
+ <div class="col-md-4"> <input type="text" name="direccion" id="direccion" value="<%=clientes.get(pos).getDireccion()%>" class="form-control" aria-describedby="basic-addon3"/><br/></div>
+<div class="col-md-2"> </div>	
+</div>  			 
+        
+ <div class="row">	 	
+ <div class="col-md-2">
+	<span class="input-group-addon" id="basic-addon3">ciudad</span></div>
+ <div class="col-md-4"> <input type="text" name="ciudad" id="ciudad" value="<%=clientes.get(pos).getCiudad()%>" class="form-control" aria-describedby="basic-addon3"/><br/></div>
+<div class="col-md-2"> </div>	
+</div>  			 
+        
+<div class="row">
+<div class="col-md-2">
+	<span class="input-group-addon" id="basic-addon3">provincia</span></div> 
+  <div class="col-md-4">  <input type="text" name="provincia" id="provincia" value="<%=clientes.get(pos).getProvincia()%>" class="form-control" aria-describedby="basic-addon3"/><br/></div>
+<div class="col-md-2"> </div>	
+</div>  			 
+        
+ <div class="row">
+ <div class="col-md-2">
+	<span class="input-group-addon" id="basic-addon3">nacionalidad</span></div>
+	 <div class="col-md-4">	<input type="text" name="nacionalidad" id="nacionalidad" value="<%=clientes.get(pos).getNacionalidad()%>" class="form-control" aria-describedby="basic-addon3"/><br/></div>
+<div class="col-md-2"> </div>	
+</div>  			 
+        
+<div class="row">	
+ <div class="col-md-2">
+	<span class="input-group-addon" id="basic-addon3">E-mail</span></div> 
+ <div class="col-md-4"> <input type="text" name="e_mail" id="e_mail" value="<%=clientes.get(pos).getE_mail()%>" class="form-control" aria-describedby="basic-addon3"/><br/></div>
+<div class="col-md-2"> </div>	
+</div>  			
+
+ </div>
+ 
 	<fieldset>
 		<legend>Aceptar:</legend>
-		<input type="submit" value="modificar" />
+		<input id="clientValidate" type="submit" value="modificar" />
 		<input type="reset" value="cancel"/>
 			</fieldset>
 	
 		</form>
 	
-		<button id="CancelClient">volver</button>
+	<br/>	<button id="CancelClient">volver</button>
+    
+   </div>
 		
 		<!-- jQuery -->
       <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
       <script type="text/javascript" src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
       <script type="text/javascript" src="js/main.js"></script>
+      <script type="text/javascript" src="js/validate.js"></script>
 	  
 
 </body>

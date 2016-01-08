@@ -23,7 +23,7 @@
 			<li><a href="propietarioCreate.html">crear Propietario</a></li>
 			<li><a href="propietarioUpdate.html">modificar Propietario</a></li>
 			<li><a href="propietarioDelete.html">borrar Propietario</a></li>
-			<li><a href="ListPropietarioServlet">Listar Propietario</a></li>
+			<li><a href="PropietarioListServlet">Listar Propietario</a></li>
 			<li><a href="propietarioFind.html">buscar Propietario por Tipo And Num Doc</a></li>
 		</ul>
 			<button id="btnCancel">volver</button>
