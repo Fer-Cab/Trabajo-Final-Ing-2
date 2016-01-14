@@ -62,7 +62,7 @@
 			}
 		%>
 	</table>
-<button id="btnCancel">volver</button>
+<button  class="volverButton" id="btnCancel">volver</button>
 
 	<!-- jQuery -->
 	<script type="text/javascript"

@@ -44,7 +44,6 @@ public class InmuebleCreateServlet extends HttpServlet {
 		String descripcion = request.getParameter("descripcion");
 		String tipoDeInmueble = request.getParameter("tipoDeInmueble");
 		String tipoDeOperacion = request.getParameter("tipoDeOperacion");
-		String tipoDeEstado = request.getParameter("tipoDeEstado");
 		String estado = request.getParameter("estado");
 		String direccion = request.getParameter("direccion");
 		String piso = request.getParameter("piso");
@@ -62,7 +61,7 @@ public class InmuebleCreateServlet extends HttpServlet {
 		boolean amueblado = Boolean.getBoolean(request.getParameter("amueblado"));
 		double comision = Double.parseDouble(request.getParameter("comision"));
 
-		Inmueble inmbl = new Inmueble(descripcion, tipoDeInmueble, tipoDeOperacion, tipoDeEstado, estado, direccion,
+		Inmueble inmbl = new Inmueble(descripcion, tipoDeInmueble, tipoDeOperacion,  estado, direccion,
 				piso, dpto, ciudad, provincia, numHabitaciones, banios, m2, alquiler, venta, tipoSuelo, garage,
 				ascensor, amueblado, comision);
 

@@ -16,27 +16,55 @@ li {
 	background-color: green;
 }
 
-input {
-	position: absolute;
-	left: 150px;
-}
 
 p {
 	position: absolute;
 	left: 320px;
-	
 }
 
-.aceptar {
-	position: relative;
-	left: 100px;
+
+.container {
+	position: absolute;
+		left: 50px;
 }
 
-.cancelar {
-	position: relative;
-	left: 150px;
+/* aside container */
+
+#account {
+	position: absolute;
+		left: 50px;
+		width: 1200px;
+ 
 }
 
-.hidden {
-    visibility: hidden;
+#cliente {
+	position: absolute;
+		left: 50px;
+		width: 1200px;
+ 
+}
+
+#empleado {
+	position: absolute;
+		left: 50px;
+		width: 1200px;
+ 
+}
+
+#inmueble {
+	position: absolute;
+		left: 50px;
+		width: 1200px;
+ 
+}
+
+#propietario {
+	position: absolute;
+		left: 50px;
+		width: 1200px;
+ 
+}
+
+.volverButton{
+	 margin-bottom: 20px;
 }

@@ -27,9 +27,9 @@ public class ImagenServiceTest {
 
 	@Before
 	public void initialize() throws ClassNotFoundException, SQLException, IOException {
-		inmbl = new Inmueble("descripcion", "tipoDeInmueble", "tipoDeOperacion", "tipoDeEstado", "estado", 
+		inmbl = new Inmueble("descripcion", "Departamento", "alquiler",  "estado", 
 				"direccion","1", "d", "ciudad", "provincia", 1, 1, 1, 1.0, 1.0, "tipoSuelo", true, true, true, 1.0);
-		inmbl2 = new Inmueble("descripcion2", "tipoDeInmueble2", "tipoDeOperacion2", "tipoDeEstado2", "estado2", "direccion2",
+		inmbl2 = new Inmueble("descripcion2", "casa", "alquiler", "estado2", "direccion2",
 				"2", "e", "ciudad2", "provincia2", 2, 2,  2, 2.0, 2.0, "tipoSuelo2", true, true, true, 2.0);
 	
 		img = new Imagen("imagen1", "path1",01);

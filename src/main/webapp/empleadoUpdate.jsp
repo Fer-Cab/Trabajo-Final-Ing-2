@@ -13,11 +13,15 @@
 <!-- Latest compiled JavaScript -->
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
+<link rel="stylesheet" href="css/aside.css" />
+
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>Empleado update page</title>
 </head>
 <body>
 <%@page isErrorPage="false" errorPage="Error.jsp"%>
+
+<div id="empleado">
 
 <h2>Modificar Cliente</h2>
 
@@ -28,48 +32,126 @@
 	List<Empleado> empleados = (List<Empleado>) session.getAttribute("empleados");
 			int pos = Integer.parseInt(request.getParameter("pos"));		%>
 			
-		<label for="nombre">nombre</label> 
-			<input type="text" name="nombre"id="nombre" value="<%=empleados.get(pos).getNombre()%>"/><br/>
-	 	<label for="apellido">apellido</label> 
-	 		<input type="text" name="apellido" id="apellido" value="<%=empleados.get(pos).getApellido()%>"/><br/> 
-		<label for="tipoDoc">tipoDoc</label> 
-			<input type="text" name="tipoDoc" id="tipoDoc" value="<%=empleados.get(pos).getTipoDoc()%>"/><br/> 
-		<label for="numDoc">numDoc</label> 
-			<input type="text" name="numDoc" id="numDoc" value="<%=empleados.get(pos).getNumDoc()%>"/>int<br/> 
-		<label for="telFijo">telFijo</label> 
-			<input type="text" name="telFijo" id="telFijo" value="<%=empleados.get(pos).getTelFijo()%>"/>int<br/> 
-		<label for="telCel">telCel</label> 
-			<input type="text" name="telCel" id="telCel" value="<%=empleados.get(pos).getTelCel()%>"/>int<br/> 
-		<label for="direccion">direccion</label> 
-			<input type="text" name="direccion" id="direccion" value="<%=empleados.get(pos).getDireccion()%>"/><br/> 
-		<label for="ciudad">ciudad</label> 
-			<input type="text" name="ciudad" id="ciudad" value="<%=empleados.get(pos).getCiudad()%>"/><br/> 
-		<label for="provincia">provincia</label>
-			<input type="text" name="provincia" id="provincia" value="<%=empleados.get(pos).getProvincia()%>"/><br/> 
-		<label for="nacionalidad">nacionalidad</label> 
-			<input type="text" name="nacionalidad" id="nacionalidad" value="<%=empleados.get(pos).getNacionalidad()%>"/><br/> 
-		<label for="e_mail">E-mail</label>
-			<input type="text" name="e_mail" id="e_mail" value="<%=empleados.get(pos).getE_mail()%>"/><br/>
-		<label for="foto">foto</label>
-			<input type="text" name="foto" id="foto" value="<%=empleados.get(pos).getFoto()%>"/><br/>
-		<label for="sector">sector</label> 
-			<input type="text" name="sector" id="sector" value="<%=empleados.get(pos).getSector()%>"/><br/>
-		<label for="categoria">categoria</label>
-			<input type="text" name="categoria" id="categoria" value="<%=empleados.get(pos).getCategoria()%>"/><br/>
-		<label for="fechaIngreso">fechaIngreso</label>
-			<input type="text" name="fechaIngreso" id="fechaIngreso" value="<%=empleados.get(pos).getFechaIngreso()%>"/><br/>
+<div class="input-group">
+			
+<div class="row">	
+<div class="col-md-2">
+	<span class="input-group-addon" id="basic-addon3">nombre</span></div>
+<div class="col-md-4"> <input type="text" name="nombre" id="nombre" class="form-control"  aria-describedby="basic-addon3" value="<%=empleados.get(pos).getNombre()%>"/><br/></div>
+</div>
 
-</div>  
-	
-		<fieldset>
-			<legend>Aceptar:</legend>
-				<input id="empleadoValidate" type="submit" value="modificar"/>	
-				<input type="reset" value="cancel"/>
-		</fieldset>
+<div class="row">   
+<div class="col-md-2">
+    <span class="input-group-addon" id="basic-addon3">apellido</span></div>
+<div class="col-md-4"> <input type="text" name="apellido" id="apellido" class="form-control" aria-describedby="basic-addon3" value="<%=empleados.get(pos).getApellido()%>"/><br/></div>
+</div>
+	 	
+<div class="row">   
+<div class="col-md-2">
+    <span class="input-group-addon" id="basic-addon2">tipoDoc</span></div> 
+<div class="col-md-4">
+    <select name="tipoDoc" id="tipoDoc" class="form-control">
+    <option value="<%=empleados.get(pos).getTipoDoc()%>"><%=empleados.get(pos).getTipoDoc()%></option>
+     <option value="DNI">DNI</option>
+     <option value="CI">CI</option>
+     <option value="LE">LE</option>
+     <option value="LC">LC</option>
+    </select>   </div>
+</div>          
+		
+
+<div class="row">   
+<div class="col-md-2">
+    <span class="input-group-addon" id="basic-addon3">numDoc</span></div>
+<div class="col-md-4">  <input type="text" name="numDoc" id="numDoc" class="form-control" aria-describedby="basic-addon3" value="<%=empleados.get(pos).getNumDoc()%>"/><br/></div>
+<div class="col-md-1"> int </div>   
+</div>              
+    
+
+<div class="row">   
+<div class="col-md-2">
+    <span class="input-group-addon" id="basic-addon3">telFijo</span></div> 
+<div class="col-md-4"> <input type="text" name="telFijo" id="telFijo" class="form-control" aria-describedby="basic-addon3" value="<%=empleados.get(pos).getTelFijo()%>"/><br/></div>
+<div class="col-md-1"> int </div>   
+</div>              
+
+ <div class="row">   
+ <div class="col-md-2">
+    <span class="input-group-addon" id="basic-addon3">telCel</span></div> 
+<div class="col-md-4">  <input type="text" name="telCel" id="telCel" class="form-control" aria-describedby="basic-addon3" value="<%=empleados.get(pos).getTelCel()%>"/><br/></div>
+<div class="col-md-1"> int </div>   
+</div>              
+
+ <div class="row">  
+ <div class="col-md-2">
+    <span class="input-group-addon" id="basic-addon3">direccion</span></div> 
+ <div class="col-md-4">    <input type="text" name="direccion" id="direccion" class="form-control" aria-describedby="basic-addon3" value="<%=empleados.get(pos).getDireccion()%>"/><br/></div>
+</div>              
+
+ <div class="row">      
+ <div class="col-md-2">
+    <span class="input-group-addon" id="basic-addon3">ciudad</span></div>
+ <div class="col-md-4">     <input type="text" name="ciudad" id="ciudad" class="form-control" aria-describedby="basic-addon3" value="<%=empleados.get(pos).getCiudad()%>"/><br/></div>
+</div>               
+            
+<div class="row">
+<div class="col-md-2">
+    <span class="input-group-addon" id="basic-addon3">provincia</span></div> 
+  <div class="col-md-4">   <input type="text" name="provincia" id="provincia" class="form-control" aria-describedby="basic-addon3" value="<%=empleados.get(pos).getProvincia()%>"/><br/></div>
+</div>                
+                
+ <div class="row">
+ <div class="col-md-2">
+    <span class="input-group-addon" id="basic-addon3">nacionalidad</span></div>
+     <div class="col-md-4">     <input type="text" name="nacionalidad" id="nacionalidad" class="form-control" aria-describedby="basic-addon3"  value="<%=empleados.get(pos).getNacionalidad()%>"/><br/></div>
+</div>                
+            
+ <div class="row">  
+ <div class="col-md-2">
+    <span class="input-group-addon" id="basic-addon3">E-mail</span></div> 
+     <div class="col-md-4"> <input type="text" name="e_mail" id="e_mail" class="form-control" aria-describedby="basic-addon3" value="<%=empleados.get(pos).getE_mail()%>"/><br/></div>
+</div>                
+
+<div class="row">   
+ <div class="col-md-2">
+    <span class="input-group-addon" id="basic-addon3">foto</span></div> 
+     <div class="col-md-4"> <input type="text" name="foto" id="foto" class="form-control" aria-describedby="basic-addon3" value="<%=empleados.get(pos).getFoto()%>"/><br/></div>
+</div>                
+
+<div class="row">   
+ <div class="col-md-2">
+    <span class="input-group-addon" id="basic-addon3">sector</span></div> 
+     <div class="col-md-4"> <input type="text" name="sector" id="sector" class="form-control" aria-describedby="basic-addon3"  value="<%=empleados.get(pos).getSector()%>"/><br/></div>
+</div>                
+
+<div class="row">   
+ <div class="col-md-2">
+    <span class="input-group-addon" id="basic-addon3">categoria</span></div> 
+     <div class="col-md-4"> <input type="text" name="categoria" id="categoria" class="form-control" aria-describedby="basic-addon3" value="<%=empleados.get(pos).getCategoria()%>"/><br/></div>
+</div>                
+
+<div class="row">   
+ <div class="col-md-2">
+    <span class="input-group-addon" id="basic-addon3">fechaIngreso</span></div> 
+     <div class="col-md-4"> <input type="text" name="fechaIngreso" id="fechaIngreso" class="form-control" aria-describedby="basic-addon3" value="<%=empleados.get(pos).getFechaIngreso()%>"/><br/></div>
+</div>                
+            
+		
+
+				
+ <div class="row">			
+    <div class="col-md-6">
+			<fieldset>
+				<legend>Aceptar:</legend>
+				<input id="empleadoValidate"  type="submit" value="crear" />
+				<input type="reset" value="cancel" />
+			</fieldset>	</div>	</div>
+			
+</div>
 	
 	</form>
 	
-    <br/>	<button id="CancelEmpleado">volver</button>
+    <br/>	<button  class="volverButton" id="CancelEmpleado">volver</button>
 		
 		<!-- jQuery -->
       <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>

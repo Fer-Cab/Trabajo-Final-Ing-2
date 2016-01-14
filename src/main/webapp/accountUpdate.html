@@ -20,48 +20,52 @@
 <title>account update page</title>
 </head>
 <body>
+<div id="account">
+
 <h2>Modificar account</h2>
 <form id="formUpdateAccount" action="AccountUpdateServlet" method="post">
 
 	<div class="input-group">
 			
 <div class="row">	
-<div class="col-md-4">
+<div class="col-md-2">
 	<span class="input-group-addon" id="basic-addon3">userName</span></div>
-<div class="col-md-8">
+<div class="col-md-4">
 	<input type="text" class="form-control" name="userName" id="userName" aria-describedby="basic-addon3"/><br/></div>
 </div>
 
 <div class="row">	
-<div class="col-md-4">
+<div class="col-md-2">
 	<span class="input-group-addon" id="basic-addon3">password</span></div>
-<div class="col-md-8">
+<div class="col-md-4">
 	<input type="text" name="password" id="password" class="form-control" aria-describedby="sizing-addon1"/><br/></div>
 </div>	
 <div class="row">	
-<div class="col-md-4">
+<div class="col-md-2">
 	<span class="input-group-addon" id="basic-addon2">permisos</span></div> 
-<div class="col-md-8">
+<div class="col-md-4">
 	<input type="text" name="permisos" id="permisos" class="form-control" aria-describedby="sizing-addon1"/><br/></div>
 </div>
  
-			</div>
+		 <div class="row">			
+    <div class="col-md-6">
+			<fieldset>
+				<legend>Aceptar:</legend>
+				<input id="accountValidate" type="submit" value="crear" /> 
+				<input type="reset" value="cancel" />
+			</fieldset>	</div>	</div>
+			
+</div>
 
-		<fieldset>
-			<legend>Aceptar:</legend>
-				<input id="accountValidate"  type="submit" value="modificar"/>	
-				<input type="reset" value="cancel"/>
-		</fieldset>
-	
 	</form>
 	
-		<button id="CancelAccount">volver</button>
+	   <br/>   	<button class="volverButton" id="CancelAccount">volver</button>
 		
 		<!-- jQuery -->
       <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
       <script type="text/javascript" src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
       <script type="text/javascript" src="js/main.js"></script>
       <script type="text/javascript" src="js/validate.js"></script>
-	  
+</div>	  
 	</body>
 </html>

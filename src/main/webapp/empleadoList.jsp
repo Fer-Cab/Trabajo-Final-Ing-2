@@ -22,6 +22,7 @@
 
 	<table class="table table-bordered">
 		<tr>
+            <th>Foto</th>
 			<th>Nombre</th>
 			<th>Apellido</th>
 			<th>Tipo Doc</th>
@@ -33,7 +34,6 @@
 			<th>Provincia</th>
 			<th>Nacionalidad</th>
 			<th>E-mail</th>
-			<th>Foto</th>
 			<th>Sector</th>
 			<th>Categoria</th>
 			<th>Fecha de Ingreso</th>
@@ -43,8 +43,14 @@
 			List<Empleado> empleados = (List<Empleado>) session.getAttribute("empleados");
 			int pos = 0;
 			for (Empleado empleado : empleados) {
+                String img;
+                if(empleado.getFoto()==null){
+                    img = "C:/Fernando/cosas/Trabajo-Final-Ing-2/src/main/resources/src/main/resources/fotoPerfil.jpg";
+                } else img = empleado.getFoto();
 		%>
 		<tr>
+        
+            <td><img src="src/main/resources/fotoPerfil.jpg" alt="foto"></td>
 			<td><%=empleado.getNombre()%></td>
 			<td><%=empleado.getApellido()%></td>
 			<td><%=empleado.getTipoDoc()%></td>
@@ -56,7 +62,6 @@
 			<td><%=empleado.getProvincia()%></td>
 			<td><%=empleado.getNacionalidad()%></td>
 			<td><%=empleado.getE_mail()%></td>
-			<td><%=empleado.getFoto()%></td>
 			<td><%=empleado.getSector()%></td>
 			<td><%=empleado.getCategoria()%></td>
 			<td><%=empleado.getFechaIngreso()%></td>
@@ -68,7 +73,7 @@
 		}
 		%>
 	</table>
-<button id="CancelEmpleado">volver</button>
+<button  class="volverButton"  id="CancelEmpleado">volver</button>
 
 	<!-- jQuery -->
 	<script type="text/javascript"

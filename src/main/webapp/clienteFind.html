@@ -29,9 +29,9 @@
 <div class="input-group">
 		
 <div class="row">	
-<div class="col-md-4">
+<div class="col-md-2">
 	<span class="input-group-addon" id="basic-addon2">tipoDoc</span></div> 
-<div class="col-md-6">
+<div class="col-md-4">
 	<select name="tipoDoc" id="tipoDoc" class="form-control">
 	<option value="">elija una opcion</option>
 	 <option value="DNI">DNI</option>
@@ -39,23 +39,25 @@
 	 <option value="LE">LE</option>
 	 <option value="LC">LC</option>
 	</select>	</div>
-	<div class="col-md-2"> </div>
 </div> 			
 
 <div class="row">	
-<div class="col-md-4">
+<div class="col-md-2">
 	<span class="input-group-addon" id="basic-addon3">numDoc</span></div>
-<div class="col-md-6">  <input type="text" name="numDoc" id="numDoc" class="form-control" aria-describedby="basic-addon3"/><br/></div>
-<div class="col-md-2"> int </div>	
+<div class="col-md-4">  <input type="text" name="numDoc" id="numDoc" class="form-control" aria-describedby="basic-addon3"/><br/></div>
+<div class="col-md-1"> int </div>	
 </div>  			
 	
+				
+ <div class="row">			
+    <div class="col-md-6">
+			<fieldset>
+				<legend>Aceptar:</legend>
+				<input id="clientValidate" type="submit" value="crear" /> 
+				<input type="reset" value="cancel" />
+			</fieldset>	</div>	</div>
+			
 </div>
-
-		<fieldset>
-			<legend>Aceptar:</legend>
-			<input id="clientValidate" type="submit" value="buscar" />  
-			<input type="reset"	value="cancel" />
-		</fieldset>
 
 	</form>
 

@@ -23,7 +23,6 @@ public class Inmueble {
 	private String descripcion;
 	private String tipoDeInmueble;
 	private String tipoDeOperacion;
-	private String tipoDeEstado;
 	private String estado;
 	private String direccion;
 	private String piso;
@@ -44,7 +43,7 @@ public class Inmueble {
 	public Inmueble() {
 	}
 
-	public Inmueble(String descripcion, String tipoDeInmueble, String tipoDeOperacion, String tipoDeEstado,
+	public Inmueble(String descripcion, String tipoDeInmueble, String tipoDeOperacion,
 			String estado, String direccion, String piso, String dpto, String ciudad, String provincia,
 			int numHabitaciones, int banios, int m2, double alquiler, double venta, String tipoSuelo, boolean garage,
 			boolean ascensor, boolean amueblado, double comision) {
@@ -52,7 +51,6 @@ public class Inmueble {
 		this.descripcion = descripcion;
 		this.tipoDeInmueble = tipoDeInmueble;
 		this.tipoDeOperacion = tipoDeOperacion;
-		this.tipoDeEstado = tipoDeEstado;
 		this.estado = estado;
 		this.direccion = direccion;
 		this.piso = piso;
@@ -73,7 +71,7 @@ public class Inmueble {
 
 	
 	public Inmueble(long inmuebleId, String descripcion, String tipoDeInmueble,
-			String tipoDeOperacion, String tipoDeEstado, String estado, String direccion, String piso, String dpto,
+			String tipoDeOperacion, String estado, String direccion, String piso, String dpto,
 			String ciudad, String provincia,  int numHabitaciones, int banios, int m2, double alquiler,
 			double venta, String tipoSuelo, boolean garage, boolean ascensor, boolean amueblado, double comision) {
 		super();
@@ -81,7 +79,6 @@ public class Inmueble {
 		this.descripcion = descripcion;
 		this.tipoDeInmueble = tipoDeInmueble;
 		this.tipoDeOperacion = tipoDeOperacion;
-		this.tipoDeEstado = tipoDeEstado;
 		this.estado = estado;
 		this.direccion = direccion;
 		this.piso = piso;
@@ -118,10 +115,6 @@ public class Inmueble {
 
 	public String getTipoDeOperacion() {
 		return tipoDeOperacion;
-	}
-
-	public String getTipoDeEstado() {
-		return tipoDeEstado;
 	}
 
 	public String getEstado() {
@@ -194,7 +187,7 @@ public class Inmueble {
 	public String toString() {
 		return "Inmueble [inmuebleId=" + inmuebleId + ", inmuebleLists=" + inmuebleLists + ", descripcion="
 				+ descripcion + ", tipoDeInmueble=" + tipoDeInmueble + ", tipoDeOperacion=" + tipoDeOperacion
-				+ ", tipoDeEstado=" + tipoDeEstado + ", estado=" + estado + ", direccion=" + direccion + ", piso="
+				+ ", estado=" + estado + ", direccion=" + direccion + ", piso="
 				+ piso + ", dpto=" + dpto + ", ciudad=" + ciudad + ", provincia=" + provincia 
 				+ ", numHabitaciones=" + numHabitaciones + ", banios=" + banios + ", m2=" + m2 + ", alquiler="
 				+ alquiler + ", venta=" + venta + ", tipoSuelo=" + tipoSuelo + ", garage=" + garage + ", ascensor="

@@ -60,7 +60,7 @@
 			}
 		%>
 	</table>
-<button id="CancelClient">volver</button>
+<button  class="volverButton" id="CancelClient">volver</button>
 
 	<!-- jQuery -->
 	<script type="text/javascript"

@@ -59,7 +59,6 @@
      <option value="LE">LE</option>
      <option value="LC">LC</option>
     </select>   </div>
-    <div class="col-md-2"> </div>
 </div>       
         
 	
@@ -68,69 +67,67 @@
 <div class="col-md-2">
 	<span class="input-group-addon" id="basic-addon3">numDoc</span></div>
 <div class="col-md-4">  <input type="text" name="numDoc" id="numDoc" value="<%=clientes.get(pos).getNumDoc()%>" class="form-control" aria-describedby="basic-addon3"/><br/></div>
-<div class="col-md-2"> int </div>	
+<div class="col-md-1"> int </div>	
 </div>  			 
         
 <div class="row">	
 <div class="col-md-2">
 	<span class="input-group-addon" id="basic-addon3">telFijo</span></div> 
 <div class="col-md-4"> <input type="text" name="telFijo" id="telFijo" value="<%=clientes.get(pos).getTelFijo()%>" class="form-control" aria-describedby="basic-addon3"/><br/></div>
-<div class="col-md-2"> int </div>	
+<div class="col-md-1"> int </div>	
 </div>  			 
             
  <div class="row">	 
  <div class="col-md-2">
 	<span class="input-group-addon" id="basic-addon3">telCel</span></div> 
 <div class="col-md-4">	<input type="text" name="telCel" id="telCel" value="<%=clientes.get(pos).getTelCel()%>" class="form-control" aria-describedby="basic-addon3"/><br/></div>
-<div class="col-md-2"> int </div>	
+<div class="col-md-1"> int </div>	
 </div>  			 
         
  <div class="row">	
  <div class="col-md-2">
 	<span class="input-group-addon" id="basic-addon3">direccion</span></div> 
  <div class="col-md-4"> <input type="text" name="direccion" id="direccion" value="<%=clientes.get(pos).getDireccion()%>" class="form-control" aria-describedby="basic-addon3"/><br/></div>
-<div class="col-md-2"> </div>	
 </div>  			 
         
  <div class="row">	 	
  <div class="col-md-2">
 	<span class="input-group-addon" id="basic-addon3">ciudad</span></div>
  <div class="col-md-4"> <input type="text" name="ciudad" id="ciudad" value="<%=clientes.get(pos).getCiudad()%>" class="form-control" aria-describedby="basic-addon3"/><br/></div>
-<div class="col-md-2"> </div>	
 </div>  			 
         
 <div class="row">
 <div class="col-md-2">
 	<span class="input-group-addon" id="basic-addon3">provincia</span></div> 
   <div class="col-md-4">  <input type="text" name="provincia" id="provincia" value="<%=clientes.get(pos).getProvincia()%>" class="form-control" aria-describedby="basic-addon3"/><br/></div>
-<div class="col-md-2"> </div>	
 </div>  			 
         
  <div class="row">
  <div class="col-md-2">
 	<span class="input-group-addon" id="basic-addon3">nacionalidad</span></div>
 	 <div class="col-md-4">	<input type="text" name="nacionalidad" id="nacionalidad" value="<%=clientes.get(pos).getNacionalidad()%>" class="form-control" aria-describedby="basic-addon3"/><br/></div>
-<div class="col-md-2"> </div>	
 </div>  			 
         
 <div class="row">	
  <div class="col-md-2">
 	<span class="input-group-addon" id="basic-addon3">E-mail</span></div> 
  <div class="col-md-4"> <input type="text" name="e_mail" id="e_mail" value="<%=clientes.get(pos).getE_mail()%>" class="form-control" aria-describedby="basic-addon3"/><br/></div>
-<div class="col-md-2"> </div>	
 </div>  			
 
- </div>
- 
-	<fieldset>
-		<legend>Aceptar:</legend>
-		<input id="clientValidate" type="submit" value="modificar" />
-		<input type="reset" value="cancel"/>
-			</fieldset>
+				
+ <div class="row">			
+    <div class="col-md-6">
+			<fieldset>
+				<legend>Aceptar:</legend>
+				<input id="clientValidate" type="submit" value="crear" /> 
+				<input type="reset" value="cancel" />
+			</fieldset>	</div>	</div>
+			
+</div>
 	
 		</form>
 	
-	<br/>	<button id="CancelClient">volver</button>
+	<br/>	<button class="volverButton"  id="CancelClient">volver</button>
     
    </div>
 		

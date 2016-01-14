@@ -1,29 +1,56 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<link rel="stylesheet" href="css/styles.css" />
+		
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet"
+	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script
+	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    
+    <link rel="stylesheet" href="css/aside.css" />
+    
 		<meta charset="UTF-8" />
 		<title>Cliente page</title>
 	</head>
 
 	<body>
-	
+    
+	<div id="cliente">
+    
 		<h2>Borrar Cliente</h2>
 		<form id="formDeleteClient" action="ClienteDeleteServlet" method="post">
-	
-			<label for="clienteId">cliente ID</label> <input type="text"
-				name="clienteId" id="clienteId" /> int <br />
-	
+	<div class="input-group">
+    
+			<div class="row">	
+<div class="col-md-2">
+	<span class="input-group-addon" id="basic-addon3">cliente ID</span></div>
+<div class="col-md-4">  <input type="text"
+				name="clienteId" id="clienteId" class="form-control" aria-describedby="basic-addon3"/><br/></div>
+<div class="col-md-1"> int </div>	
+</div>  			
+ 
+ 				
+ <div class="row">			
+    <div class="col-md-6">
 			<fieldset>
 				<legend>Aceptar:</legend>
-				<input type="submit" value="borrar" />
-				<input type="reset" value="cancel"/>
-			</fieldset>
+				<input id="clientValidate" type="submit" value="crear" /> 
+				<input type="reset" value="cancel" />
+			</fieldset>	</div>	</div>
+			
+</div>
 	
 		</form>
 	
-		<button id="CancelClient">volver</button>
-		
+	<br/>	<button id="CancelClient">volver</button>
+</div>		
 		<!-- jQuery -->
       <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
       <script type="text/javascript" src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>

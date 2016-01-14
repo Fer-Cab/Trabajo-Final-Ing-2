@@ -7,8 +7,9 @@ import javax.servlet.http.HttpSessionListener;
 
 import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -21,11 +22,13 @@ public class MySessionListener implements ServletContextListener, HttpSessionLis
 	private final static String DBFILENAME = "test";
 
 	String url;
+	
 	Connection globalConnection;
 
 	public void contextInitialized(ServletContextEvent sce) {
 		// Leemos el parametro del contexto
 		String spath = sce.getServletContext().getInitParameter("h2.database.path");
+		
 		if (spath == null) {
 			// Si no existe, es la home del usuario
 			spath = System.getProperty("user.home");
@@ -50,10 +53,9 @@ public class MySessionListener implements ServletContextListener, HttpSessionLis
 	}
 
 	public void initDb() throws SQLException, IOException, ClassNotFoundException {
-		 
-		 FileReader file = new FileReader("C:/Fernando/cosas/Trabajo-Final-Ing-2/src/main/resources/squema-h2.sql.txt");
 		
-	     BufferedReader br = new BufferedReader(file);
+		InputStream is = getClass().getClassLoader().getResourceAsStream("squema-h2.sql.txt");		 
+		BufferedReader br = new BufferedReader(new InputStreamReader(is));
 	     
 	    Connection connection = null;
 	    try {
@@ -77,10 +79,12 @@ public class MySessionListener implements ServletContextListener, HttpSessionLis
 	    } finally {
 	        try {
 	            br.close();
-	        } catch (Exception e) {;}
+	        } catch (Exception e) {
+	        	e.printStackTrace();}
 	        try {
 	            if (connection != null) connection.close();
-	        } catch (Exception e) {;}
+	        } catch (Exception e) {
+	        	e.printStackTrace();}
 	    }
 	}
 

@@ -1,68 +1,220 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" href="css/styles.css" />
+
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet"
+	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script
+	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    
+    <link rel="stylesheet" href="css/aside.css" />
+    
 <meta charset="UTF-8" />
 <title>Inmueble update page</title>
 </head>
 <body>
 
+<div id="inmueble">
+
 <h2>Modificar Inmueble</h2>
 	<form id="formUpdateInmueble" action="InmuebleUpdateServlet" method="post">
 	
-		<label for="descripcion">descripcion</label>
-			<input type="text" name="descripcion" id="descripcion" /><br/>
-		<label for="tipoDeInmueble">tipoDeInmueble</label>
-			<input type="text" name="tipoDeInmueble" id="tipoDeInmueble" /><br/>
-		<label for="tipoDeOperacion">tipoDeOperacion</label>
-			<input type="text" name="tipoDeOperacion" id="tipoDeOperacion" /><br/>
-		<label for="tipoDeEstado">tipoDeEstado</label>
-			<input type="text" name="tipoDeEstado" id="tipoDeEstado" /><br/>
-		<label for="estado">estado</label>
-			<input type="text" name="estado" id="estado" /><br/>
-		<label for="direccion">direccion</label>
-			<input type="text" name="direccion" id="direccion" /><br/>
-		<label for="piso">piso</label>
-			<input type="text" name="piso" id="piso" /><br/>
-		<label for="dpto">dpto</label>
-			<input type="text" name="dpto" id="dpto" /><br/>
-		<label for="ciudad">ciudad</label>
-			<input type="text" name="ciudad" id="ciudad" /><br/>
-		<label for="provincia">provincia</label>
-			<input type="text" name="provincia" id="provincia" /><br/>
-		<label for="numHabitaciones">numHabitaciones</label> 
-	 		<input type="text" name="numHabitaciones" id="numHabitaciones"/><p >int</p><br/> 
-		<label for="banios">banios</label> 
-			<input type="text" name="banios" id="banios"/>int<br/> 
-		<label for="m2">metros cuadrados</label> 
-			<input type="text" name="m2" id="m2"/>int<br/> 
-		<label for="alquiler">alquiler</label> 
-			<input type="text" name="alquiler" id="alquiler"/>double<br/> 
-		<label for="venta">venta</label> 
-			<input type="text" name="venta" id="venta"/>double<br/> 
-		<label for="tipoSuelo">tipoSuelo</label> 
-			<input type="text" name="tipoSuelo" id="tipoSuelo"/><br/> 
-		<label for="garage">garage</label> 
-			<input type="text" name="garage" id="garage"/>boolean<br/> 
-		<label for="ascensor">ascensor</label>
-			<input type="text" name="ascensor" id="ascensor"/>boolean<br/> 
-		<label for="amueblado">amueblado</label> 
-			<input type="text" name="amueblado" id="amueblado"/>boolean<br/> 
-		<label for="comision">comision</label>
-			<input type="text" name="comision" id="comision"/>double<br/>
-		<fieldset>
-		 <legend>Aceptar:</legend>
-				<input type="submit" class="aceptar" value="crear"/>	
-				<input type="reset" class="cancel" value="cancel"/>
-		</fieldset>
 	
+		<div class="input-group">
+			
+<div class="row">	
+<div class="col-md-2">
+	<span class="input-group-addon" id="basic-addon3">descripcion</span></div>
+    <div class="col-md-4"> 	<input type="text" name="descripcion" id="descripcion"  class="form-control"  aria-describedby="basic-addon3"/><br/></div>
+</div>
+
+<div class="row">	
+<div class="col-md-2">
+	<span class="input-group-addon" id="basic-addon2">tipoDeInmueble</span></div> 
+<div class="col-md-4">
+	<select name="tipoDeInmueble" id="tipoDeInmueble" class="form-control">
+	<option value="">elija una opcion</option>
+	 <option value="Casa">Casa</option>
+	 <option value="Cochera">Cochera</option>
+	 <option value="Departamento">Departamento</option>
+	 <option value="Galpon">Galpon</option>
+	 <option value="Local">Local</option>
+	 <option value="Oficina">Oficina</option>	 
+	 <option value="Terreno">Terreno</option>	 
+	</select>	</div>
+</div> 	
+
+<div class="row">	
+<div class="col-md-2">
+	<span class="input-group-addon" id="basic-addon2">tipoDeOperacion</span></div> 
+<div class="col-md-4">
+	<select name="tipoDeOperacion" id="tipoDeOperacion" class="form-control">
+	<option value="">elija una opcion</option>
+	 <option value="alquiler">alquiler</option>
+	 <option value="venta">venta</option>
+	</select>	</div>
+</div>
+
+<div class="row">	
+<div class="col-md-2">
+	<span class="input-group-addon" id="basic-addon2">estado</span></div> 
+<div class="col-md-4">
+	<select name="estado" id="estado" class="form-control">
+	<option value="">elija una opcion</option>
+	 <option value="nuevo">nuevo</option>
+	 <option value="menos de 10 años">menos de 10 años</option>
+	 <option value="reciente">reciente (de 10 a 50)</option>
+	 <option value="antiguo">antiguo (mas de 50)</option>
+	</select>	</div>
+</div> 
+
+<div class="row">	
+<div class="col-md-2">
+	<span class="input-group-addon" id="basic-addon3">direccion</span></div>
+    <div class="col-md-4"> 	<input type="text" name="direccion" id="direccion"  class="form-control"  aria-describedby="basic-addon3"/><br/></div>
+</div>
+
+<div class="row">	
+<div class="col-md-2">
+	<span class="input-group-addon" id="basic-addon3">piso</span></div>
+    <div class="col-md-4"> 	<input type="text" name="piso" id="piso"  class="form-control"  aria-describedby="basic-addon3"/><br/></div>
+</div>
+
+<div class="row">	
+<div class="col-md-2">
+	<span class="input-group-addon" id="basic-addon3">dpto</span></div>
+    <div class="col-md-4"> 	<input type="text" name="dpto" id="dpto"  class="form-control"  aria-describedby="basic-addon3"/><br/></div>
+</div>
+
+<div class="row">	
+<div class="col-md-2">
+	<span class="input-group-addon" id="basic-addon3">ciudad</span></div>
+    <div class="col-md-4"> 	<input type="text" name="ciudad" id="ciudad"  class="form-control"  aria-describedby="basic-addon3"/><br/></div>
+</div>
+
+<div class="row">	
+<div class="col-md-2">
+	<span class="input-group-addon" id="basic-addon3">provincia</span></div>
+    <div class="col-md-4"> 	<input type="text" name="provincia" id="provincia" class="form-control" aria-describedby="basic-addon3"/><br/></div>
+</div>  			
+
+<div class="row">	
+<div class="col-md-2">
+	<span class="input-group-addon" id="basic-addon3">numHabitaciones</span></div>
+    <div class="col-md-4"> 	<input type="text" name="numHabitaciones" id="numHabitaciones" class="form-control" aria-describedby="basic-addon3"/><br/></div>
+<div class="col-md-1"> int </div>	
+</div>  			 
+
+<div class="row">   
+<div class="col-md-2">
+    <span class="input-group-addon" id="basic-addon3">banios</span></div>
+    <div class="col-md-4"> 	<input type="text" name="banios" id="banios"class="form-control" aria-describedby="basic-addon3"/><br/></div>
+<div class="col-md-1"> int </div>	
+</div>  			
+ 
+<div class="row">	
+<div class="col-md-2">
+	<span class="input-group-addon" id="basic-addon3">metros cuadrados</span></div>
+    <div class="col-md-4"> 	<input type="text" name="m2" id="m2"class="form-control" aria-describedby="basic-addon3"/><br/></div>
+<div class="col-md-1"> int </div>	
+</div>  			
+ 
+<div class="row">	
+<div class="col-md-2">
+	<span class="input-group-addon" id="basic-addon3">alquiler</span></div>
+    <div class="col-md-4"> 	<input type="text" name="alquiler" id="alquiler"class="form-control" aria-describedby="basic-addon3"/><br/></div>
+<div class="col-md-1"> double </div>   
+</div>           
+
+
+<div class="row">	
+<div class="col-md-2">
+	<span class="input-group-addon" id="basic-addon3">venta</span></div>
+    <div class="col-md-4"> 	<input type="text" name="venta" id="venta"class="form-control" aria-describedby="basic-addon3"/><br/></div>
+<div class="col-md-1"> double </div>   
+</div>              
+
+ 
+<div class="row">	
+<div class="col-md-2">
+	<span class="input-group-addon" id="basic-addon2">tipoSuelo</span></div> 
+<div class="col-md-4">
+	<select name="tipoSuelo" id="tipoSuelo" class="form-control">
+	<option value="">elija una opcion</option>
+	 <option value="ceramico">ceramico</option>
+	 <option value="parquet">parquet</option>
+	</select>	</div>
+</div>  			 
+
+<div class="row">	
+<div class="col-md-2">
+	<span class="input-group-addon" id="basic-addon2">garage</span></div> 
+<div class="col-md-4">
+	<select name="garage" id="garage" class="form-control">
+	<option value="">elija una opcion</option>
+	 <option value="si">si</option>
+	 <option value="no">no</option>
+	</select>	</div>
+</div>              
+
+<div class="row">	
+<div class="col-md-2">
+	<span class="input-group-addon" id="basic-addon2">ascensor</span></div> 
+<div class="col-md-4">
+	<select name="ascensor" id="ascensor" class="form-control">
+	<option value="">elija una opcion</option>
+	 <option value="si">si</option>
+	 <option value="no">no</option>
+	</select>	</div>
+</div>   
+           
+
+<div class="row">	
+<div class="col-md-2">
+	<span class="input-group-addon" id="basic-addon2">amueblado</span></div> 
+<div class="col-md-4">
+	<select name="amueblado" id="amueblado" class="form-control">
+	<option value="">elija una opcion</option>
+	 <option value="si">si</option>
+	 <option value="no">no</option>
+	</select>	</div>
+</div>            
+
+<div class="row">   
+<div class="col-md-2">
+    <span class="input-group-addon" id="basic-addon3">comision</span></div>
+    <div class="col-md-4"> 	<input type="text" name="comision" id="comision"class="form-control" aria-describedby="basic-addon3"/><br/></div>
+<div class="col-md-1"> double </div>   
+</div>            
+
+				
+ <div class="row">			
+    <div class="col-md-6">
+			<fieldset>
+				<legend>Aceptar:</legend>
+				<input id="inmuebleValidate" type="submit" value="crear"/>
+				<input type="reset" value="cancel" />
+			</fieldset>	</div>	</div>
+			
+</div>
+			
 	</form>
 		
-		<button id="CancelInmueble">volver</button>
-		
+<br/>		<button class="volverButton"  id="CancelInmueble">volver</button> 
+
+</div>
+  		
 		<!-- jQuery -->
       <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
       <script type="text/javascript" src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
       <script type="text/javascript" src="js/main.js"></script>
+        <script type="text/javascript" src="js/validate.js"></script>
 </body>      
 </html>

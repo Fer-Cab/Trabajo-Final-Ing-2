@@ -80,7 +80,7 @@
 		%>
 	</table>
 	
-		<button id="CancelInmueble">volver</button>
+		<button  class="volverButton" id="CancelInmueble">volver</button>
 		
 		<!-- jQuery -->
       <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>

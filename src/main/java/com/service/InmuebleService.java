@@ -15,30 +15,29 @@ public class InmuebleService {
 			throws ClassNotFoundException, SQLException, IOException {
 
 		PreparedStatement ps = con
-				.prepareStatement("insert into Inmueble(descripcion, tipoDeInmueble,tipoDeOperacion,tipoDeEstado,"
+				.prepareStatement("insert into Inmueble(descripcion, tipoDeInmueble,tipoDeOperacion,"
 						+ "estado,direccion,piso,dpto,ciudad, provincia, numHabitaciones,banios,m2,alquiler,venta,tipoSuelo,"
 						+ "	garage,ascensor,amueblado,comision) "
-						+ "values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+						+ "values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
 		ps.setString(1, inmueble.getDescripcion());
 		ps.setString(2, inmueble.getTipoDeInmueble());
 		ps.setString(3, inmueble.getTipoDeOperacion());
-		ps.setString(4, inmueble.getTipoDeEstado());
-		ps.setString(5, inmueble.getEstado());
-		ps.setString(6, inmueble.getDireccion());
-		ps.setString(7, inmueble.getPiso());
-		ps.setString(8, inmueble.getDpto());
-		ps.setString(9, inmueble.getCiudad());
-		ps.setString(10, inmueble.getProvincia());
-		ps.setInt(11, inmueble.getNumHabitaciones());
-		ps.setInt(12, inmueble.getBanios());
-		ps.setInt(13, inmueble.getM2());
-		ps.setDouble(14, inmueble.getAlquiler());
-		ps.setDouble(15, inmueble.getVenta());
-		ps.setString(16, inmueble.getTipoSuelo());
-		ps.setBoolean(17, inmueble.isGarage());
-		ps.setBoolean(18, inmueble.isAscensor());
-		ps.setBoolean(19, inmueble.isAmueblado());
-		ps.setDouble(20, inmueble.getComision());
+		ps.setString(4, inmueble.getEstado());
+		ps.setString(5, inmueble.getDireccion());
+		ps.setString(6, inmueble.getPiso());
+		ps.setString(7, inmueble.getDpto());
+		ps.setString(8, inmueble.getCiudad());
+		ps.setString(9, inmueble.getProvincia());
+		ps.setInt(10, inmueble.getNumHabitaciones());
+		ps.setInt(11, inmueble.getBanios());
+		ps.setInt(12, inmueble.getM2());
+		ps.setDouble(13, inmueble.getAlquiler());
+		ps.setDouble(14, inmueble.getVenta());
+		ps.setString(15, inmueble.getTipoSuelo());
+		ps.setBoolean(16, inmueble.isGarage());
+		ps.setBoolean(17, inmueble.isAscensor());
+		ps.setBoolean(18, inmueble.isAmueblado());
+		ps.setDouble(19, inmueble.getComision());
 		ps.execute();
 	}
 
@@ -55,7 +54,7 @@ public class InmuebleService {
 
 		if (rs.next()) {
 			inmueble = new Inmueble(rs.getLong("inmuebleId"), rs.getString("descripcion"),
-					rs.getString("tipoDeInmueble"), rs.getString("tipoDeOperacion"), rs.getString("tipoDeEstado"),
+					rs.getString("tipoDeInmueble"), rs.getString("tipoDeOperacion"), 
 					rs.getString("estado"), rs.getString("direccion"), rs.getString("piso"), rs.getString("dpto"),
 					rs.getString("ciudad"), rs.getString("provincia"), rs.getInt("numHabitaciones"),
 					rs.getInt("banios"), rs.getInt("m2"), rs.getDouble("alquiler"), rs.getDouble("venta"),
@@ -75,30 +74,29 @@ public class InmuebleService {
 				.getInmuebleId();
 
 		PreparedStatement ps = con.prepareStatement(
-				"update Inmueble SET descripcion=?, tipoDeInmueble=?,tipoDeOperacion=?,tipoDeEstado=?,"
+				"update Inmueble SET descripcion=?, tipoDeInmueble=?,tipoDeOperacion=?,"
 						+ "estado=?,direccion=?,piso=?,dpto=?,ciudad=?, provincia=?,numHabitaciones=?,banios=?,"
 						+ "m2=?,alquiler=?,venta=?,tipoSuelo=?,garage=?,ascensor=?,amueblado=?,comision=? where inmuebleId=?");
 		ps.setString(1, inmueble.getDescripcion());
 		ps.setString(2, inmueble.getTipoDeInmueble());
 		ps.setString(3, inmueble.getTipoDeOperacion());
-		ps.setString(4, inmueble.getTipoDeEstado());
-		ps.setString(5, inmueble.getEstado());
-		ps.setString(6, inmueble.getDireccion());
-		ps.setString(7, inmueble.getPiso());
-		ps.setString(8, inmueble.getDpto());
-		ps.setString(9, inmueble.getCiudad());
-		ps.setString(10, inmueble.getProvincia());
-		ps.setInt(11, inmueble.getNumHabitaciones());
-		ps.setInt(12, inmueble.getBanios());
-		ps.setInt(13, inmueble.getM2());
-		ps.setDouble(14, inmueble.getAlquiler());
-		ps.setDouble(15, inmueble.getVenta());
-		ps.setString(16, inmueble.getTipoSuelo());
-		ps.setBoolean(17, inmueble.isGarage());
-		ps.setBoolean(18, inmueble.isAscensor());
-		ps.setBoolean(19, inmueble.isAmueblado());
-		ps.setDouble(20, inmueble.getComision());
-		ps.setLong(21, inmuebleId);
+		ps.setString(4, inmueble.getEstado());
+		ps.setString(5, inmueble.getDireccion());
+		ps.setString(6, inmueble.getPiso());
+		ps.setString(7, inmueble.getDpto());
+		ps.setString(8, inmueble.getCiudad());
+		ps.setString(9, inmueble.getProvincia());
+		ps.setInt(10, inmueble.getNumHabitaciones());
+		ps.setInt(11, inmueble.getBanios());
+		ps.setInt(12, inmueble.getM2());
+		ps.setDouble(13, inmueble.getAlquiler());
+		ps.setDouble(14, inmueble.getVenta());
+		ps.setString(15, inmueble.getTipoSuelo());
+		ps.setBoolean(16, inmueble.isGarage());
+		ps.setBoolean(17, inmueble.isAscensor());
+		ps.setBoolean(18, inmueble.isAmueblado());
+		ps.setDouble(19, inmueble.getComision());
+		ps.setLong(20, inmuebleId);
 		ps.execute();
 	}
 
@@ -118,7 +116,7 @@ public class InmuebleService {
 
 		while (rs.next()) {
 			inmueble = new Inmueble(rs.getLong("inmuebleId"), rs.getString("descripcion"),
-					rs.getString("tipoDeInmueble"), rs.getString("tipoDeOperacion"), rs.getString("tipoDeEstado"),
+					rs.getString("tipoDeInmueble"), rs.getString("tipoDeOperacion"),
 					rs.getString("estado"), rs.getString("direccion"), rs.getString("piso"), rs.getString("dpto"),
 					rs.getString("ciudad"), rs.getString("provincia"), rs.getInt("numHabitaciones"),
 					rs.getInt("banios"), rs.getInt("m2"), rs.getDouble("alquiler"), rs.getDouble("venta"),
@@ -143,7 +141,7 @@ public class InmuebleService {
 
 		if (rs.next()) {
 			inmueble = new Inmueble(rs.getLong("inmuebleId"), rs.getString("descripcion"),
-					rs.getString("tipoDeInmueble"), rs.getString("tipoDeOperacion"), rs.getString("tipoDeEstado"),
+					rs.getString("tipoDeInmueble"), rs.getString("tipoDeOperacion"),
 					rs.getString("estado"), rs.getString("direccion"), rs.getString("piso"), rs.getString("dpto"),
 					rs.getString("ciudad"), rs.getString("provincia"), rs.getInt("numHabitaciones"),
 					rs.getInt("banios"), rs.getInt("m2"), rs.getDouble("alquiler"), rs.getDouble("venta"),
@@ -168,7 +166,7 @@ public class InmuebleService {
 
 		if (rs.next()) {
 			inmueble = new Inmueble(rs.getLong("inmuebleId"), rs.getString("descripcion"),
-					rs.getString("tipoDeInmueble"), rs.getString("tipoDeOperacion"), rs.getString("tipoDeEstado"),
+					rs.getString("tipoDeInmueble"), rs.getString("tipoDeOperacion"),
 					rs.getString("estado"), rs.getString("direccion"), rs.getString("piso"), rs.getString("dpto"),
 					rs.getString("ciudad"), rs.getString("provincia"), rs.getInt("numHabitaciones"),
 					rs.getInt("banios"), rs.getInt("m2"), rs.getDouble("alquiler"), rs.getDouble("venta"),
@@ -193,7 +191,7 @@ public class InmuebleService {
 
 		if (rs.next()) {
 			inmueble = new Inmueble(rs.getLong("inmuebleId"), rs.getString("descripcion"),
-					rs.getString("tipoDeInmueble"), rs.getString("tipoDeOperacion"), rs.getString("tipoDeEstado"),
+					rs.getString("tipoDeInmueble"), rs.getString("tipoDeOperacion"), 
 					rs.getString("estado"), rs.getString("direccion"), rs.getString("piso"), rs.getString("dpto"),
 					rs.getString("ciudad"), rs.getString("provincia"), rs.getInt("numHabitaciones"),
 					rs.getInt("banios"), rs.getInt("m2"), rs.getDouble("alquiler"), rs.getDouble("venta"),
@@ -218,7 +216,7 @@ public class InmuebleService {
 
 		if (rs.next()) {
 			inmueble = new Inmueble(rs.getLong("inmuebleId"), rs.getString("descripcion"),
-					rs.getString("tipoDeInmueble"), rs.getString("tipoDeOperacion"), rs.getString("tipoDeEstado"),
+					rs.getString("tipoDeInmueble"), rs.getString("tipoDeOperacion"), 
 					rs.getString("estado"), rs.getString("direccion"), rs.getString("piso"), rs.getString("dpto"),
 					rs.getString("ciudad"), rs.getString("provincia"), rs.getInt("numHabitaciones"),
 					rs.getInt("banios"), rs.getInt("m2"), rs.getDouble("alquiler"), rs.getDouble("venta"),
@@ -243,7 +241,7 @@ public class InmuebleService {
 
 		if (rs.next()) {
 			inmueble = new Inmueble(rs.getLong("inmuebleId"), rs.getString("descripcion"),
-					rs.getString("tipoDeInmueble"), rs.getString("tipoDeOperacion"), rs.getString("tipoDeEstado"),
+					rs.getString("tipoDeInmueble"), rs.getString("tipoDeOperacion"),
 					rs.getString("estado"), rs.getString("direccion"), rs.getString("piso"), rs.getString("dpto"),
 					rs.getString("ciudad"), rs.getString("provincia"), rs.getInt("numHabitaciones"),
 					rs.getInt("banios"), rs.getInt("m2"), rs.getDouble("alquiler"), rs.getDouble("venta"),
@@ -268,7 +266,7 @@ public class InmuebleService {
 
 		if (rs.next()) {
 			inmueble = new Inmueble(rs.getLong("inmuebleId"), rs.getString("descripcion"),
-					rs.getString("tipoDeInmueble"), rs.getString("tipoDeOperacion"), rs.getString("tipoDeEstado"),
+					rs.getString("tipoDeInmueble"), rs.getString("tipoDeOperacion"), 
 					rs.getString("estado"), rs.getString("direccion"), rs.getString("piso"), rs.getString("dpto"),
 					rs.getString("ciudad"), rs.getString("provincia"), rs.getInt("numHabitaciones"),
 					rs.getInt("banios"), rs.getInt("m2"), rs.getDouble("alquiler"), rs.getDouble("venta"),
@@ -293,7 +291,7 @@ public class InmuebleService {
 
 		if (rs.next()) {
 			inmueble = new Inmueble(rs.getLong("inmuebleId"), rs.getString("descripcion"),
-					rs.getString("tipoDeInmueble"), rs.getString("tipoDeOperacion"), rs.getString("tipoDeEstado"),
+					rs.getString("tipoDeInmueble"), rs.getString("tipoDeOperacion"), 
 					rs.getString("estado"), rs.getString("direccion"), rs.getString("piso"), rs.getString("dpto"),
 					rs.getString("ciudad"), rs.getString("provincia"), rs.getInt("numHabitaciones"),
 					rs.getInt("banios"), rs.getInt("m2"), rs.getDouble("alquiler"), rs.getDouble("venta"),
@@ -318,7 +316,7 @@ public class InmuebleService {
 
 		if (rs.next()) {
 			inmueble = new Inmueble(rs.getLong("inmuebleId"), rs.getString("descripcion"),
-					rs.getString("tipoDeInmueble"), rs.getString("tipoDeOperacion"), rs.getString("tipoDeEstado"),
+					rs.getString("tipoDeInmueble"), rs.getString("tipoDeOperacion"),
 					rs.getString("estado"), rs.getString("direccion"), rs.getString("piso"), rs.getString("dpto"),
 					rs.getString("ciudad"), rs.getString("provincia"), rs.getInt("numHabitaciones"),
 					rs.getInt("banios"), rs.getInt("m2"), rs.getDouble("alquiler"), rs.getDouble("venta"),

@@ -1,31 +1,69 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" href="css/styles.css" />
+
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet"
+	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script
+	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    
+    <link rel="stylesheet" href="css/aside.css" />
+    
 <meta charset="UTF-8" />
-<title>Inmueble page</title>
+<title>Inmueble find page</title>
 </head>
 <body>
+
+<div id="inmueble">
 
 	<h2>buscar Inmueble Direccion Piso And Dpto </h2>
 
 	<form id="findInmueble" action="InmuebleFindServlet" method="post">
+    
+    <div class="input-group">
 
-		<label for="direccion">direccion</label> 
-			<input type="text" name="direccion" id="direccion" /><br /> 
-		<label for="piso">piso</label> 
-			<input type="text" name="piso" id="piso" /><br />
-		<label for="dpto">dpto</label> 
-			<input type="text" name="dpto" id="dpto" /><br />
-		<fieldset>
-			<legend>Aceptar:</legend>
-			<input type="submit" class="aceptar" value="buscar" /> 
-			<input type="reset"	class="cancelar" value="cancel" />
-		</fieldset>
+
+<div class="row">	
+<div class="col-md-2">
+	<span class="input-group-addon" id="basic-addon3">direccion</span></div>
+    <div class="col-md-4"> 	<input type="text" name="direccion" id="direccion"  class="form-control"  aria-describedby="basic-addon3"/><br/></div>
+</div>
+
+<div class="row">	
+<div class="col-md-2">
+	<span class="input-group-addon" id="basic-addon3">piso</span></div>
+    <div class="col-md-4"> 	<input type="text" name="piso" id="piso"  class="form-control"  aria-describedby="basic-addon3"/><br/></div>
+</div>
+
+<div class="row">	
+<div class="col-md-2">
+	<span class="input-group-addon" id="basic-addon3">dpto</span></div>
+    <div class="col-md-4"> 	<input type="text" name="dpto" id="dpto"  class="form-control"  aria-describedby="basic-addon3"/><br/></div>
+</div>
+
+			
+ <div class="row">			
+    <div class="col-md-6">
+			<fieldset>
+				<legend>Aceptar:</legend>
+				<input id="inmuebleValidate" type="submit" value="crear"/>
+				<input type="reset" value="cancel" />
+			</fieldset>	</div>	</div>
+			
+</div>
 
 	</form>
 
-	<button id="CancelInmueble">volver</button>
+<br/>   	<button id="CancelInmueble">volver</button>
+
+</div>
 
 	<!-- jQuery -->
 	<script type="text/javascript"
@@ -33,5 +71,7 @@
 	<script type="text/javascript"
 		src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
 	<script type="text/javascript" src="js/main.js"></script>
+            <script type="text/javascript" src="js/validate.js"></script>
+            
 </body>
 </html>

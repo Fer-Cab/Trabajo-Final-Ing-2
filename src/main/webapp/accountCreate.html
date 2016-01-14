@@ -2,6 +2,8 @@
 <html>
 <head>
 
+    <link rel="stylesheet" href="css/reset.css" />
+
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet"
 	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
@@ -14,38 +16,41 @@
 <script
 	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
-
+    <link rel="stylesheet" href="css/styles.css" />
+    
 <meta charset="UTF-8" />
 <title>Account page</title>
 </head>
 <body >
 
+	<div id="account"> 
+    
 		<h2>Crear Account</h2>
 	
-	<div id="accountCreate">
+	
  
 		<form id="formNewAccount" action="AccountCreateServlet" method="post">
 		
 			<div class="input-group">
 			
 <div class="row">	
-<div class="col-md-4">
+<div class="col-md-2">
 	<span class="input-group-addon" id="basic-addon3">userName</span></div>
-<div class="col-md-6">
+<div class="col-md-4">
 	<input type="text" name="userName" id="userName" class="form-control" aria-describedby="basic-addon3"/><br/></div>
 </div>
 
 <div class="row">	
-<div class="col-md-4">
+<div class="col-md-2">
 	<span class="input-group-addon" id="basic-addon3">password</span></div>
-<div class="col-md-8">
+<div class="col-md-4">
 	<input type="text" name="password" id="password" class="form-control" aria-describedby="sizing-addon1"/><br/></div>
 </div>
 	
 <div class="row">	
-<div class="col-md-4">
+<div class="col-md-2">
 	<span class="input-group-addon" id="basic-addon2">permisos</span></div> 
-<div class="col-md-8">
+<div class="col-md-4">
 	<select name="permisos" id="permisos" class="form-control">
 	<option value="">elija una opcion</option>
 	 <option value="Administrativo">Administrativo</option>
@@ -55,17 +60,22 @@
 </div>
  
  
-			</div>
-
+	
+    <div class="row">			
+    <div class="col-md-6">
 			<fieldset>
 				<legend>Aceptar:</legend>
 				<input id="accountValidate" type="submit" value="crear" /> 
 				<input type="reset" value="cancel" />
-			</fieldset>
+			</fieldset>	</div>	</div>
+			
+</div>
 
 		</form>
-	</div>
-		<button id="CancelAccount">volver</button>
+	
+	<br/>	<button class="volverButton" id="CancelAccount">volver</button>
+
+</div>
 
 		<!-- jQuery -->
 		<script type="text/javascript"
