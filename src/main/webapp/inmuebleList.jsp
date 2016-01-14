@@ -54,7 +54,6 @@
 		<td><%=inmbl.getDescripcion()%></td>
 		<td><%=inmbl.getTipoDeInmueble()%></td>
 		<td><%=inmbl.getTipoDeOperacion()%></td>
-		<td><%=inmbl.getTipoDeEstado()%></td>
 		<td><%=inmbl.getEstado()%></td>
 		<td><%=inmbl.getDireccion()%></td>
 		<td><%=inmbl.getPiso()%></td>
