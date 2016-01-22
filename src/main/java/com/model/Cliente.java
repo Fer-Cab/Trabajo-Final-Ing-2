@@ -14,7 +14,7 @@ import javax.persistence.OneToMany;
 public class Cliente  {
 
 	@OneToMany(mappedBy = "cliente")
-	private Set<InmuebleList> inmueble = new HashSet<>();
+	private Set<Inmueble> inmuebles = new HashSet<>();
 	
 	
 	@Id
@@ -69,8 +69,8 @@ public class Cliente  {
 	Cliente() {
 	}
 
-	public Set<InmuebleList> getInmueble() {
-		return inmueble;
+	public Set<Inmueble> getInmueble() {
+		return inmuebles;
 	}
 
 	public Long getClienteId() {
@@ -131,7 +131,7 @@ public class Cliente  {
 		result = prime * result + ((clienteId == null) ? 0 : clienteId.hashCode());
 		result = prime * result + ((direccion == null) ? 0 : direccion.hashCode());
 		result = prime * result + ((e_mail == null) ? 0 : e_mail.hashCode());
-		result = prime * result + ((inmueble == null) ? 0 : inmueble.hashCode());
+		result = prime * result + ((inmuebles == null) ? 0 : inmuebles.hashCode());
 		result = prime * result + ((nacionalidad == null) ? 0 : nacionalidad.hashCode());
 		result = prime * result + ((nombre == null) ? 0 : nombre.hashCode());
 		result = prime * result + numDoc;
@@ -180,10 +180,10 @@ public class Cliente  {
 				return false;
 		} else if (!e_mail.equals(other.e_mail))
 			return false;
-		if (inmueble == null) {
-			if (other.inmueble != null)
+		if (inmuebles == null) {
+			if (other.inmuebles != null)
 				return false;
-		} else if (!inmueble.equals(other.inmueble))
+		} else if (!inmuebles.equals(other.inmuebles))
 			return false;
 		if (nacionalidad == null) {
 			if (other.nacionalidad != null)
@@ -211,7 +211,7 @@ public class Cliente  {
 
 	@Override
 	public String toString() {
-		return "Cliente [inmueble=" + inmueble + ", clienteId=" + clienteId + ", nombre=" + nombre + ", apellido="
+		return "Cliente [inmuebles=" + inmuebles + ", clienteId=" + clienteId + ", nombre=" + nombre + ", apellido="
 				+ apellido + ", tipoDoc=" + tipoDoc + ", numDoc=" + numDoc + ", telFijo=" + telFijo + ", telCel="
 				+ telCel + ", direccion=" + direccion + ", ciudad=" + ciudad + ", provincia=" + provincia
 				+ ", nacionalidad=" + nacionalidad + ", e_mail=" + e_mail + "]";

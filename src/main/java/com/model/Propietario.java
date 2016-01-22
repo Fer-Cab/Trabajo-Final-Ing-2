@@ -14,7 +14,7 @@ import javax.persistence.OneToMany;
 public class Propietario {
 
 	@OneToMany(mappedBy = "propietario")
-	private Set<InmuebleList> inmuebles = new HashSet<>();
+	private Set<Inmueble> inmuebles = new HashSet<>();
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -74,7 +74,7 @@ public class Propietario {
 	Propietario() {
 	}
 
-	public Set<InmuebleList> getInmuebles() {
+	public Set<Inmueble> getInmuebles() {
 		return inmuebles;
 	}
 

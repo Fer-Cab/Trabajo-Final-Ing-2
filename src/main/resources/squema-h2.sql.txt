@@ -40,8 +40,6 @@ create table Empleado(
 	nacionalidad VARCHAR(25) NOT NULL,
 	e_mail VARCHAR(25) NOT NULL,
 	foto VARCHAR(25) ,
-	sector VARCHAR(25) NOT NULL,
-	categoria VARCHAR(25) NOT NULL,
 	fechaIngreso VARCHAR(10) NOT NULL,
 	
 	PRIMARY KEY(empleadoId)
@@ -61,8 +59,8 @@ create table Propietario(
 	nacionalidad VARCHAR(25) NOT NULL,
 	e_mail VARCHAR(25) NOT NULL,
 	numCuenta VARCHAR(25) NOT NULL,
-	
-	PRIMARY KEY(propietarioId)
+		
+	PRIMARY KEY(propietarioId),
 );	
 
 create table Inmueble(
@@ -72,8 +70,8 @@ create table Inmueble(
 	tipoDeOperacion VARCHAR(8) NOT NULL,
 	estado VARCHAR(21) NOT NULL,
 	direccion VARCHAR(25) NOT NULL,
-	piso VARCHAR(1) NOT NULL,
-	dpto VARCHAR(1) NOT NULL,
+	piso VARCHAR(1) ,
+	dpto VARCHAR(1) ,
 	ciudad VARCHAR(25) NOT NULL,
 	provincia VARCHAR(25) NOT NULL,
 	numHabitaciones VARCHAR(1) NOT NULL,
@@ -86,8 +84,12 @@ create table Inmueble(
 	ascensor BOOLEAN ,
 	amueblado BOOLEAN ,
 	comision DOUBLE ,
+	tipoDoc VARCHAR(3) NOT NULL,
+	numDoc INT NOT NULL,
 	
 	PRIMARY KEY(inmuebleId),
+	FOREIGN KEY (tipoDoc) REFERENCES Propietario(tipoDoc),
+	FOREIGN KEY (numDoc) REFERENCES Propietario(numDoc)
 );	
 
 create table Imagen(
@@ -98,23 +100,4 @@ create table Imagen(
 	
 	PRIMARY KEY(imagenId),
 	FOREIGN KEY (inmuebleId) REFERENCES inmueble(inmuebleId)
-);	
-
-create table InmuebleList(
-	inmuebleListId INT AUTO_INCREMENT,	
-	clienteId INT  NOT NULL,
-	propietarioId INT  NOT NULL,
-	inmuebleId INT  NOT NULL,
-
-	PRIMARY KEY(inmuebleListId),
-	FOREIGN KEY (clienteId) REFERENCES Cliente(clienteId),
-	FOREIGN KEY (propietarioId) REFERENCES Propietario(propietarioId),
-	FOREIGN KEY (inmuebleId) REFERENCES Inmueble(inmuebleId)
-);		
-	
-	
-	
-	
-	
-	
-
+);

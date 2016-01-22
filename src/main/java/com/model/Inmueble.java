@@ -18,7 +18,7 @@ public class Inmueble {
 
 	@JsonIgnore
 	@ManyToMany
-	private List<InmuebleList> inmuebleLists;
+	private List<Inmueble> inmuebleLists;
 
 	private String descripcion;
 	private String tipoDeInmueble;
@@ -101,7 +101,7 @@ public class Inmueble {
 		return inmuebleId;
 	}
 
-	public List<InmuebleList> getInmuebleLists() {
+	public List<Inmueble> getInmuebleLists() {
 		return inmuebleLists;
 	}
 

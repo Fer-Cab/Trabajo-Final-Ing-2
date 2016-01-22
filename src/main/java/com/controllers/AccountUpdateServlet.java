@@ -22,14 +22,14 @@ public class AccountUpdateServlet extends HttpServlet {
      */
     public AccountUpdateServlet() {
         super();
-        // TODO Auto-generated constructor stub
+
     }
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
@@ -37,7 +37,7 @@ public class AccountUpdateServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+
 
 		String name = request.getParameter("userName");
 		String password = request.getParameter("password");
@@ -54,8 +54,7 @@ public class AccountUpdateServlet extends HttpServlet {
 			 response.sendRedirect("account.jsp?msj="+msj);
 			
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			// e.printStackTrace();
+		
 			response.sendRedirect("Error.jsp?error=" + e.toString());
 		}
 	}
