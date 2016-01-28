@@ -21,25 +21,38 @@ public class Account {
 	private String password;
 	private String userName;
 	private String permisos;
-
+	// empleado
+	private String tipoDoc;
+	private int numDoc;
 	
-	public Account(String name, String password,String permisos) {
+	public Account(String name, String password,String permisos,String tipoDoc,int numDoc) {
 		
 		this.userName = name;
 		this.password = password;
 		this.permisos = permisos;
+		this.tipoDoc = tipoDoc;
+		this.numDoc = numDoc;
 	}
 
-	
-	Account() {
-	}
-
-	
 	public Account(long accountId,String name, String password,String permisos) {
 		this.accountId =accountId;
 		this.userName = name;
 		this.password = password;
 		this.permisos = permisos;
+	
+	}
+	
+	Account() {
+	}
+
+	
+	public Account(long accountId,String name, String password,String permisos,String tipoDoc,int numDoc) {
+		this.accountId =accountId;
+		this.userName = name;
+		this.password = password;
+		this.permisos = permisos;
+		this.tipoDoc = tipoDoc;
+		this.numDoc = numDoc;
 	}
 
 
@@ -62,6 +75,16 @@ public class Account {
 
 	
 	
+	public String getTipoDoc() {
+		return tipoDoc;
+	}
+
+
+	public int getNumDoc() {
+		return numDoc;
+	}
+
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -112,9 +135,11 @@ public class Account {
 
 	@Override
 	public String toString() {
-		return "Account [ userName=" + userName + ", password=" + password + ", permisos="
+		return "Account [ userName=" + userName +  ", password=" + password + ", permisos="
 				+ permisos + "]";
 	}
+
+
 	
 	
 	

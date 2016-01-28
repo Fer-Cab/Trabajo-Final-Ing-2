@@ -61,6 +61,7 @@ public class InmuebleCreateServlet extends HttpServlet {
 		boolean amueblado = Boolean.getBoolean(request.getParameter("amueblado"));
 		double comision = Double.parseDouble(request.getParameter("comision"));
 
+		
 		Inmueble inmbl = new Inmueble(descripcion, tipoDeInmueble, tipoDeOperacion,  estado, direccion,
 				piso, dpto, ciudad, provincia, numHabitaciones, banios, m2, alquiler, venta, tipoSuelo, garage,
 				ascensor, amueblado, comision);

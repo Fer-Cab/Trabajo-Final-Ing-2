@@ -17,8 +17,8 @@ public class InmuebleService {
 		PreparedStatement ps = con
 				.prepareStatement("insert into Inmueble(descripcion, tipoDeInmueble,tipoDeOperacion,"
 						+ "estado,direccion,piso,dpto,ciudad, provincia, numHabitaciones,banios,m2,alquiler,venta,tipoSuelo,"
-						+ "	garage,ascensor,amueblado,comision) "
-						+ "values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+						+ "	garage,ascensor,amueblado,comision,propietarioId) "
+						+ "values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
 		ps.setString(1, inmueble.getDescripcion());
 		ps.setString(2, inmueble.getTipoDeInmueble());
 		ps.setString(3, inmueble.getTipoDeOperacion());
@@ -38,6 +38,7 @@ public class InmuebleService {
 		ps.setBoolean(17, inmueble.isAscensor());
 		ps.setBoolean(18, inmueble.isAmueblado());
 		ps.setDouble(19, inmueble.getComision());
+		ps.setInt(20, inmueble.getPropietarioId());
 		ps.execute();
 	}
 
@@ -59,7 +60,7 @@ public class InmuebleService {
 					rs.getString("ciudad"), rs.getString("provincia"), rs.getInt("numHabitaciones"),
 					rs.getInt("banios"), rs.getInt("m2"), rs.getDouble("alquiler"), rs.getDouble("venta"),
 					rs.getString("tipoSuelo"), rs.getBoolean("garage"), rs.getBoolean("ascensor"),
-					rs.getBoolean("amueblado"), rs.getDouble("comision"));
+					rs.getBoolean("amueblado"), rs.getDouble("comision"),rs.getInt("propietarioId"));
 
 		}
 		rs.close();
@@ -76,7 +77,7 @@ public class InmuebleService {
 		PreparedStatement ps = con.prepareStatement(
 				"update Inmueble SET descripcion=?, tipoDeInmueble=?,tipoDeOperacion=?,"
 						+ "estado=?,direccion=?,piso=?,dpto=?,ciudad=?, provincia=?,numHabitaciones=?,banios=?,"
-						+ "m2=?,alquiler=?,venta=?,tipoSuelo=?,garage=?,ascensor=?,amueblado=?,comision=? where inmuebleId=?");
+						+ "m2=?,alquiler=?,venta=?,tipoSuelo=?,garage=?,ascensor=?,amueblado=?,comision=?,propietarioId=? where inmuebleId=?");
 		ps.setString(1, inmueble.getDescripcion());
 		ps.setString(2, inmueble.getTipoDeInmueble());
 		ps.setString(3, inmueble.getTipoDeOperacion());
@@ -96,7 +97,8 @@ public class InmuebleService {
 		ps.setBoolean(17, inmueble.isAscensor());
 		ps.setBoolean(18, inmueble.isAmueblado());
 		ps.setDouble(19, inmueble.getComision());
-		ps.setLong(20, inmuebleId);
+		ps.setInt(20, inmueble.getPropietarioId());
+		ps.setLong(21, inmuebleId);
 		ps.execute();
 	}
 
@@ -121,7 +123,7 @@ public class InmuebleService {
 					rs.getString("ciudad"), rs.getString("provincia"), rs.getInt("numHabitaciones"),
 					rs.getInt("banios"), rs.getInt("m2"), rs.getDouble("alquiler"), rs.getDouble("venta"),
 					rs.getString("tipoSuelo"), rs.getBoolean("garage"), rs.getBoolean("ascensor"),
-					rs.getBoolean("amueblado"), rs.getDouble("comision"));
+					rs.getBoolean("amueblado"), rs.getDouble("comision"),rs.getInt("propietarioId"));
 
 			inmuebles.add(inmueble);
 		}
@@ -146,7 +148,7 @@ public class InmuebleService {
 					rs.getString("ciudad"), rs.getString("provincia"), rs.getInt("numHabitaciones"),
 					rs.getInt("banios"), rs.getInt("m2"), rs.getDouble("alquiler"), rs.getDouble("venta"),
 					rs.getString("tipoSuelo"), rs.getBoolean("garage"), rs.getBoolean("ascensor"),
-					rs.getBoolean("amueblado"), rs.getDouble("comision"));
+					rs.getBoolean("amueblado"), rs.getDouble("comision"),rs.getInt("propietarioId"));
 
 			inmuebles.add(inmueble);
 		}
@@ -171,7 +173,7 @@ public class InmuebleService {
 					rs.getString("ciudad"), rs.getString("provincia"), rs.getInt("numHabitaciones"),
 					rs.getInt("banios"), rs.getInt("m2"), rs.getDouble("alquiler"), rs.getDouble("venta"),
 					rs.getString("tipoSuelo"), rs.getBoolean("garage"), rs.getBoolean("ascensor"),
-					rs.getBoolean("amueblado"), rs.getDouble("comision"));
+					rs.getBoolean("amueblado"), rs.getDouble("comision"),rs.getInt("propietarioId"));
 
 			inmuebles.add(inmueble);
 		}
@@ -196,7 +198,7 @@ public class InmuebleService {
 					rs.getString("ciudad"), rs.getString("provincia"), rs.getInt("numHabitaciones"),
 					rs.getInt("banios"), rs.getInt("m2"), rs.getDouble("alquiler"), rs.getDouble("venta"),
 					rs.getString("tipoSuelo"), rs.getBoolean("garage"), rs.getBoolean("ascensor"),
-					rs.getBoolean("amueblado"), rs.getDouble("comision"));
+					rs.getBoolean("amueblado"), rs.getDouble("comision"),rs.getInt("propietarioId"));
 
 			inmuebles.add(inmueble);
 		}
@@ -221,7 +223,7 @@ public class InmuebleService {
 					rs.getString("ciudad"), rs.getString("provincia"), rs.getInt("numHabitaciones"),
 					rs.getInt("banios"), rs.getInt("m2"), rs.getDouble("alquiler"), rs.getDouble("venta"),
 					rs.getString("tipoSuelo"), rs.getBoolean("garage"), rs.getBoolean("ascensor"),
-					rs.getBoolean("amueblado"), rs.getDouble("comision"));
+					rs.getBoolean("amueblado"), rs.getDouble("comision"),rs.getInt("propietarioId"));
 
 			inmuebles.add(inmueble);
 		}
@@ -246,7 +248,7 @@ public class InmuebleService {
 					rs.getString("ciudad"), rs.getString("provincia"), rs.getInt("numHabitaciones"),
 					rs.getInt("banios"), rs.getInt("m2"), rs.getDouble("alquiler"), rs.getDouble("venta"),
 					rs.getString("tipoSuelo"), rs.getBoolean("garage"), rs.getBoolean("ascensor"),
-					rs.getBoolean("amueblado"), rs.getDouble("comision"));
+					rs.getBoolean("amueblado"), rs.getDouble("comision"),rs.getInt("propietarioId"));
 
 			inmuebles.add(inmueble);
 		}
@@ -271,7 +273,7 @@ public class InmuebleService {
 					rs.getString("ciudad"), rs.getString("provincia"), rs.getInt("numHabitaciones"),
 					rs.getInt("banios"), rs.getInt("m2"), rs.getDouble("alquiler"), rs.getDouble("venta"),
 					rs.getString("tipoSuelo"), rs.getBoolean("garage"), rs.getBoolean("ascensor"),
-					rs.getBoolean("amueblado"), rs.getDouble("comision"));
+					rs.getBoolean("amueblado"), rs.getDouble("comision"),rs.getInt("propietarioId"));
 
 			inmuebles.add(inmueble);
 		}
@@ -296,7 +298,7 @@ public class InmuebleService {
 					rs.getString("ciudad"), rs.getString("provincia"), rs.getInt("numHabitaciones"),
 					rs.getInt("banios"), rs.getInt("m2"), rs.getDouble("alquiler"), rs.getDouble("venta"),
 					rs.getString("tipoSuelo"), rs.getBoolean("garage"), rs.getBoolean("ascensor"),
-					rs.getBoolean("amueblado"), rs.getDouble("comision"));
+					rs.getBoolean("amueblado"), rs.getDouble("comision"),rs.getInt("propietarioId"));
 
 			inmuebles.add(inmueble);
 		}
@@ -321,7 +323,7 @@ public class InmuebleService {
 					rs.getString("ciudad"), rs.getString("provincia"), rs.getInt("numHabitaciones"),
 					rs.getInt("banios"), rs.getInt("m2"), rs.getDouble("alquiler"), rs.getDouble("venta"),
 					rs.getString("tipoSuelo"), rs.getBoolean("garage"), rs.getBoolean("ascensor"),
-					rs.getBoolean("amueblado"), rs.getDouble("comision"));
+					rs.getBoolean("amueblado"), rs.getDouble("comision"),rs.getInt("propietarioId"));
 
 			inmuebles.add(inmueble);
 		}

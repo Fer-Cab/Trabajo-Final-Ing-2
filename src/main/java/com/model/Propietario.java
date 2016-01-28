@@ -214,7 +214,7 @@ public class Propietario {
 
 	@Override
 	public String toString() {
-		return "Propietario [inmuebles=" + inmuebles + ", propietarioId=" + propietarioId + ", nombre=" + nombre
+		return "Propietario [ propietarioId=" + propietarioId + ", nombre=" + nombre
 				+ ", apellido=" + apellido + ", tipoDoc=" + tipoDoc + ", numDoc=" + numDoc + ", telFijo=" + telFijo
 				+ ", telCel=" + telCel + ", direccion=" + direccion + ", ciudad=" + ciudad + ", provincia=" + provincia
 				+ ", nacionalidad=" + nacionalidad + ", e_mail=" + e_mail + ", numCuenta=" + numCuenta + "]";

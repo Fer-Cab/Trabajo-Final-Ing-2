@@ -1,31 +1,5 @@
 DROP ALL OBJECTS;
 
-CREATE TABLE Account (
-	accountId INT auto_increment,
-	userName VARCHAR(25) NOT NULL UNIQUE,
-	password VARCHAR(25) NOT NULL,
-	permisos VARCHAR(14) NOT NULL,
-	
-	PRIMARY KEY(accountId)
-);
-
-create table Cliente(
-	clienteId bigint  auto_increment,
-	nombre VARCHAR(25) NOT NULL,
-	apellido VARCHAR(25) NOT NULL,
-	tipoDoc VARCHAR(3) NOT NULL,
-	numDoc INT NOT NULL,
-	telFijo INT NOT NULL,
-	telCel INT NOT NULL,
-	direccion VARCHAR(25) NOT NULL,
-	ciudad VARCHAR(25) NOT NULL,
-	provincia VARCHAR(25) NOT NULL,
-	nacionalidad VARCHAR(15) NOT NULL,
-	e_mail VARCHAR(25) NOT NULL,
-	
-	PRIMARY KEY(clienteId)
-);
-	
 create table Empleado( 
 	empleadoId INT AUTO_INCREMENT,
 	nombre VARCHAR(25) NOT NULL,
@@ -44,6 +18,34 @@ create table Empleado(
 	
 	PRIMARY KEY(empleadoId)
 );	
+
+CREATE TABLE Account (
+	accountId INT auto_increment,
+	userName VARCHAR(25) NOT NULL UNIQUE,
+	password VARCHAR(25) NOT NULL,
+	permisos VARCHAR(14) NOT NULL,
+	empleadoId INT NOT NULL,
+	
+	PRIMARY KEY(accountId),
+	FOREIGN KEY (empleadoId) REFERENCES Empleado(empleadoId)
+);
+
+create table Cliente(
+	clienteId INT  auto_increment,
+	nombre VARCHAR(25) NOT NULL,
+	apellido VARCHAR(25) NOT NULL,
+	tipoDoc VARCHAR(3) NOT NULL,
+	numDoc INT NOT NULL,
+	telFijo INT NOT NULL,
+	telCel INT NOT NULL,
+	direccion VARCHAR(25) NOT NULL,
+	ciudad VARCHAR(25) NOT NULL,
+	provincia VARCHAR(25) NOT NULL,
+	nacionalidad VARCHAR(15) NOT NULL,
+	e_mail VARCHAR(25) NOT NULL,
+	
+	PRIMARY KEY(clienteId)
+);
 	
 create table Propietario( 
 	propietarioId INT AUTO_INCREMENT,
@@ -84,12 +86,10 @@ create table Inmueble(
 	ascensor BOOLEAN ,
 	amueblado BOOLEAN ,
 	comision DOUBLE ,
-	tipoDoc VARCHAR(3) NOT NULL,
-	numDoc INT NOT NULL,
+	propietarioId INT NOT NULL,
 	
 	PRIMARY KEY(inmuebleId),
-	FOREIGN KEY (tipoDoc) REFERENCES Propietario(tipoDoc),
-	FOREIGN KEY (numDoc) REFERENCES Propietario(numDoc)
+	FOREIGN KEY (propietarioId) REFERENCES inmueble(propietarioId)
 );	
 
 create table Imagen(
@@ -101,3 +101,32 @@ create table Imagen(
 	PRIMARY KEY(imagenId),
 	FOREIGN KEY (inmuebleId) REFERENCES inmueble(inmuebleId)
 );
+
+create table ContratoAlquiler(
+	clienteId INT  NOT NULL,
+	inmuebleId INT  NOT NULL,
+	fecha DATE  NOT NULL,
+	estado VARCHAR(10) NOT NULL,
+	monto DOUBLE NOT NULL,
+	
+	PRIMARY KEY(clienteId,inmuebleId,fecha),
+	FOREIGN KEY (clienteId) REFERENCES cliente(clienteId),
+	FOREIGN KEY (inmuebleId) REFERENCES inmueble(inmuebleId)
+);
+
+create table ContratoVenta(
+	clienteId INT  NOT NULL,
+	inmuebleId INT  NOT NULL,
+	fecha DATE  NOT NULL,
+	monto DOUBLE NOT NULL,
+	
+	PRIMARY KEY(clienteId,inmuebleId,fecha),
+	FOREIGN KEY (clienteId) REFERENCES cliente(clienteId),
+	FOREIGN KEY (inmuebleId) REFERENCES inmueble(inmuebleId)
+);
+
+insert into Empleado(nombre, apellido ,tipoDoc ,numDoc ,telFijo ,telCel ,direccion,ciudad ,provincia 
+,nacionalidad ,e_mail,foto,fechaIngreso ) values('Admin','a','a',1,1,1,'a','a','a','a','a','a','1111-11-11');
+
+insert into account(userName,password,permisos,empleadoId) values('Admin','Admin_00','Admin',1);
+

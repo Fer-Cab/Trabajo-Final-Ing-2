@@ -11,20 +11,21 @@ import java.util.List;
 import com.model.Account;
 
 public class AccountService {
+	
+		public static void createAccount(Account account, Connection con) throws ClassNotFoundException, SQLException, IOException {
 
-	public static void createAccount(Account account, Connection con) throws ClassNotFoundException, SQLException, IOException {
-
-		PreparedStatement ps = con.prepareStatement("insert into account(userName,password,permisos) values(?,?,?)");
+		PreparedStatement ps = con.prepareStatement("insert into account(userName,password,permisos,empleadoId) values(?,?,?,?)");
 	
 		ps.setString(1, account.getUserName());
 		ps.setString(2, account.getPassword());
 		ps.setString(3, account.getPermisos());
+		ps.setLong(4, ClienteService.findByTipoDocAndNumDoc(account.getTipoDoc(),account.getNumDoc(),con).getClienteId());
 		ps.execute();
 	}
 
 	public static Account findByUserName(String userName, Connection con) throws SQLException, ClassNotFoundException, IOException {
 
-		PreparedStatement ps = con.prepareStatement("SELECT * FROM account WHERE userName = ?");
+		PreparedStatement ps = con.prepareStatement("SELECT * FROM account WHERE userName = ? and accountId > 1");
 		ps.setString(1, userName);
 
 		ResultSet rs = ps.executeQuery();
@@ -42,7 +43,7 @@ public class AccountService {
 		Account acc = findByUserName(account.getUserName(),con);
 	
 		PreparedStatement ps = con
-				.prepareStatement("update account SET userName=?,password=?,permisos=? where accountId=?");
+				.prepareStatement("update account SET userName=?,password=?,permisos=? where accountId=? and accountId > 1");
 		ps.setString(1, account.getUserName());
 		ps.setString(2, account.getPassword());
 		ps.setString(3, account.getPermisos());
@@ -51,16 +52,17 @@ public class AccountService {
 	}
 
 	public static void deleteAccount(Long id, Connection con) throws ClassNotFoundException, SQLException, IOException {
-		
-		PreparedStatement ps = con.prepareStatement("DELETE FROM account  where accountId=?");
+		if(id > 1){
+		PreparedStatement ps = con.prepareStatement("DELETE FROM account  where accountId=? and accountId > 1");
 		ps.setLong(1, id);
-		ps.execute();
+		ps.execute();}
+		else throw new SQLException("you do not have permission to do that");
 	}
 
 	public List<Account> getAllAccounts(Connection con) throws ClassNotFoundException, SQLException, IOException {
 		
 		List<Account> accounts = new ArrayList<>();
-		PreparedStatement ps = con.prepareStatement("SELECT * FROM Account");
+		PreparedStatement ps = con.prepareStatement("SELECT * FROM Account where accountId > 1");
 		ResultSet rs = ps.executeQuery();
 		Account acc;
 
@@ -90,4 +92,16 @@ public class AccountService {
 		return exist;
 	}
 
+	public static boolean canLog (String name , String pass, Connection con) throws ClassNotFoundException, SQLException, IOException{
+		boolean can = false;
+	if (existUserName(name, con)){
+		Account account = findByUserName(name,con);
+		if(userExist( account,  con)){
+			can = true;
+		}
+	}	
+		return can ;
+	}
+	
 }
+

@@ -14,8 +14,7 @@ public class PropietarioService {
 	public static void createPropietario(Propietario propietario,Connection con)
 			throws ClassNotFoundException, SQLException, IOException {
 
-		//Connection con = Conexion.getConexion();
-		PreparedStatement ps = con
+	PreparedStatement ps = con
 				.prepareStatement("insert into Propietario(nombre, apellido ,tipoDoc ,numDoc ,telFijo ,telCel "
 						+ ",direccion ,ciudad ,provincia ,nacionalidad ,e_mail,numCuenta ) values(?,?,?,?,?,?,?,?,?,?,?,?)");
 		ps.setString(1, propietario.getNombre());

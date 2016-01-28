@@ -120,18 +120,6 @@
 
 <div class="row">   
  <div class="col-md-2">
-    <span class="input-group-addon" id="basic-addon3">sector</span></div> 
-     <div class="col-md-4"> <input type="text" name="sector" id="sector" class="form-control" aria-describedby="basic-addon3"  value="<%=empleados.get(pos).getSector()%>"/><br/></div>
-</div>                
-
-<div class="row">   
- <div class="col-md-2">
-    <span class="input-group-addon" id="basic-addon3">categoria</span></div> 
-     <div class="col-md-4"> <input type="text" name="categoria" id="categoria" class="form-control" aria-describedby="basic-addon3" value="<%=empleados.get(pos).getCategoria()%>"/><br/></div>
-</div>                
-
-<div class="row">   
- <div class="col-md-2">
     <span class="input-group-addon" id="basic-addon3">fechaIngreso</span></div> 
      <div class="col-md-4"> <input type="text" name="fechaIngreso" id="fechaIngreso" class="form-control" aria-describedby="basic-addon3" value="<%=empleados.get(pos).getFechaIngreso()%>"/><br/></div>
 </div>                

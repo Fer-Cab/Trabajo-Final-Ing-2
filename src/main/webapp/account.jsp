@@ -1,3 +1,4 @@
+<%@page import="javax.websocket.SendResult"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html >
@@ -17,6 +18,11 @@
 <body onload="show ('<%=m%>')">
 <% } %>
 <%@page isErrorPage="false" errorPage="Error.jsp"%>
+
+<%  String msj = "you do not have permission to do that";
+    if (!(session.getAttribute("permiso").toString().equalsIgnoreCase("admin") ||
+		session.getAttribute("permiso").toString().equalsIgnoreCase("gerente"))) 
+    	((HttpServletResponse)response).sendRedirect("home.jsp?msj="+msj);          %>
 
 	<div class="container">
 			<h2>Opciones Account</h2>

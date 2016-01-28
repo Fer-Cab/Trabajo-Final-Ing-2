@@ -62,8 +62,6 @@
 			<td><%=empleado.getProvincia()%></td>
 			<td><%=empleado.getNacionalidad()%></td>
 			<td><%=empleado.getE_mail()%></td>
-			<td><%=empleado.getSector()%></td>
-			<td><%=empleado.getCategoria()%></td>
 			<td><%=empleado.getFechaIngreso()%></td>
 			<td><a href="EmpleadoDeleteServlet?empleadoId=<%=empleado.getEmpleadoId()%>">Eliminar</a></td>
 			<td><a href="empleadoUpdate.jsp?pos=<%=pos%>">Modificar</a></td>

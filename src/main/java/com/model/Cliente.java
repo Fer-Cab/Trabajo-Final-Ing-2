@@ -211,7 +211,7 @@ public class Cliente  {
 
 	@Override
 	public String toString() {
-		return "Cliente [inmuebles=" + inmuebles + ", clienteId=" + clienteId + ", nombre=" + nombre + ", apellido="
+		return "Cliente [ clienteId=" + clienteId + ", nombre=" + nombre + ", apellido="
 				+ apellido + ", tipoDoc=" + tipoDoc + ", numDoc=" + numDoc + ", telFijo=" + telFijo + ", telCel="
 				+ telCel + ", direccion=" + direccion + ", ciudad=" + ciudad + ", provincia=" + provincia
 				+ ", nacionalidad=" + nacionalidad + ", e_mail=" + e_mail + "]";

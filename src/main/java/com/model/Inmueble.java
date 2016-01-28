@@ -7,6 +7,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToOne;
+
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
@@ -40,13 +42,18 @@ public class Inmueble {
 	private boolean amueblado;
 	private double comision;
 
+	@OneToOne
+	private String tipoDoc;
+	@OneToOne
+	private int numDoc;
+	
 	public Inmueble() {
 	}
 
 	public Inmueble(String descripcion, String tipoDeInmueble, String tipoDeOperacion,
 			String estado, String direccion, String piso, String dpto, String ciudad, String provincia,
 			int numHabitaciones, int banios, int m2, double alquiler, double venta, String tipoSuelo, boolean garage,
-			boolean ascensor, boolean amueblado, double comision) {
+			boolean ascensor, boolean amueblado, double comision,int propietarioId) {
 		super();
 		this.descripcion = descripcion;
 		this.tipoDeInmueble = tipoDeInmueble;
@@ -67,13 +74,14 @@ public class Inmueble {
 		this.ascensor = ascensor;
 		this.amueblado = amueblado;
 		this.comision = comision;
+		this.propietarioId = propietarioId;
 	}
 
 	
 	public Inmueble(long inmuebleId, String descripcion, String tipoDeInmueble,
 			String tipoDeOperacion, String estado, String direccion, String piso, String dpto,
 			String ciudad, String provincia,  int numHabitaciones, int banios, int m2, double alquiler,
-			double venta, String tipoSuelo, boolean garage, boolean ascensor, boolean amueblado, double comision) {
+			double venta, String tipoSuelo, boolean garage, boolean ascensor, boolean amueblado, double comision,int propietarioId) {
 		super();
 		this.inmuebleId = inmuebleId;
 		this.descripcion = descripcion;
@@ -95,6 +103,7 @@ public class Inmueble {
 		this.ascensor = ascensor;
 		this.amueblado = amueblado;
 		this.comision = comision;
+		this.propietarioId = propietarioId;
 	}
 
 	public long getInmuebleId() {
@@ -142,6 +151,10 @@ public class Inmueble {
 	}
 
 
+
+	public int getPropietarioId() {
+		return propietarioId;
+	}
 
 	public int getNumHabitaciones() {
 		return numHabitaciones;
@@ -191,7 +204,7 @@ public class Inmueble {
 				+ piso + ", dpto=" + dpto + ", ciudad=" + ciudad + ", provincia=" + provincia 
 				+ ", numHabitaciones=" + numHabitaciones + ", banios=" + banios + ", m2=" + m2 + ", alquiler="
 				+ alquiler + ", venta=" + venta + ", tipoSuelo=" + tipoSuelo + ", garage=" + garage + ", ascensor="
-				+ ascensor + ", amueblado=" + amueblado + ", comision=" + comision + "]";
+				+ ascensor + ", amueblado=" + amueblado + ", comision=" + comision +", propietarioId=" +  propietarioId +"]";
 	}
 
 }

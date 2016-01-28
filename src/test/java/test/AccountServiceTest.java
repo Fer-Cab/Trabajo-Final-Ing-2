@@ -10,10 +10,12 @@ import org.junit.Test;
 
 import com.conexion.Conexion;
 import com.model.Account;
+import com.model.Cliente;
 import com.service.AccountService;
+import com.service.ClienteService;
 
 public class AccountServiceTest {
-
+	Cliente client;
 	Account ac;
 	Account ac2;
 	Account ac3;
@@ -25,15 +27,17 @@ public class AccountServiceTest {
 
 	@Before
 	public void initialize() throws ClassNotFoundException, SQLException, IOException {
-		ac = new Account("Fer", "pass", "admin");
-		ac2 = new Account("Ram", "loq", "admin");
-		ac3 = new Account("Fer", "contra", "admin");
+		client = new Cliente("nombre", "apellido", "DNI", 1, 1, 1, "direccion", "ciudad", "provincia",
+				"nacionalidad", "e_mail");
+		ac = new Account("Fer", "pass", "admin", "DNI", 1);
+		ac2 = new Account("Ram", "loq", "admin", "DNI", 1);
+		ac3 = new Account("Fer", "contra", "admin", "DNI", 1);
 		accS = new AccountService();
 
 		con1 = new Conexion();
 		con1.initDb();
 		 con = Conexion.getConexion();
-		
+		 ClienteService.createCliente(client,con);
 	}
 
 	// account con comillas " pasa , corregir
@@ -66,7 +70,7 @@ public class AccountServiceTest {
 	public void deleteAccountTest() throws ClassNotFoundException, SQLException, IOException {
 		AccountService.createAccount(ac,con);
 		AccountService.createAccount(ac2,con);
-		AccountService.deleteAccount(2l,con);
+		AccountService.deleteAccount(3l,con);
 		assertEquals("[Account [ userName=Fer, password=pass, permisos=admin]]",
 				accS.getAllAccounts(con).toString());
 	}
@@ -94,7 +98,25 @@ public class AccountServiceTest {
 	@Test
 	public void userExistTestFalse() throws ClassNotFoundException, SQLException, IOException {
 		AccountService.createAccount(ac2,con);
-		assertFalse(AccountService.userExist(new Account("Fer", "pass", "admin"),con));
+		assertFalse(AccountService.userExist(new Account("Fer", "pass", "admin", "DNI", 1),con));
 	}
 
+	// test log-In
+	
+	@Test
+	public void logInTestTrue() throws ClassNotFoundException, SQLException, IOException {
+		AccountService.createAccount(ac,con);
+		String name = "Fer";
+		String pass = "pass";
+		assertTrue(AccountService.canLog(name, pass, con));
+	}
+
+	@Test
+	public void logInTestFalse() throws ClassNotFoundException, SQLException, IOException {
+		AccountService.createAccount(ac2,con);
+		String name = "Fer";
+		String pass = "pass";
+		assertFalse(AccountService.canLog(name, pass, con));
+	}
+	
 }

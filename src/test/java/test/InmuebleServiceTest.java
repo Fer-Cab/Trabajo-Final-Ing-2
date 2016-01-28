@@ -30,11 +30,11 @@ public class InmuebleServiceTest {
 	@Before
 	public void initialize() throws ClassNotFoundException, SQLException, IOException {
 		inmbl = new Inmueble("descripcion", "Departamento", "alquiler",  "estado", 
-				"direccion","1", "d", "ciudad", "provincia", 1, 1, 1, 1.0, 1.0, "tipoSuelo", true, true, true, 1.0);
+				"direccion","1", "d", "ciudad", "provincia", 1, 1, 1, 1.0, 1.0, "tipoSuelo", true, true, true, 1.0,1);
 		inmbl2 = new Inmueble("descripcion2", "casa", "alquiler", "estado2", "direccion2",
-				"2", "e", "ciudad2", "provincia2", 2, 2,  2, 2.0, 2.0, "tipoSuelo2", true, true, true, 2.0);
+				"2", "e", "ciudad2", "provincia2", 2, 2,  2, 2.0, 2.0, "tipoSuelo2", true, true, true, 2.0,1);
 		 inmbl3 = new Inmueble("descripcion3", "Oficina", "venta","estado3",
-				"direccion", "1", "d", "ciudad3", "provincia3",  3, 3, 3, 3.1, 3.1, "tipoSuelo3", false, false, true, 3.1);
+				"direccion", "1", "d", "ciudad3", "provincia3",  3, 3, 3, 3.1, 3.1, "tipoSuelo3", false, false, true, 3.1,1);
 	
 		
 		con1 = new Conexion();

@@ -268,7 +268,7 @@
   </servlet-mapping>
   
   <welcome-file-list>
-  	<welcome-file>home.html</welcome-file>
+  	<welcome-file>LogIn.html</welcome-file>
   </welcome-file-list>
   
   <error-page>

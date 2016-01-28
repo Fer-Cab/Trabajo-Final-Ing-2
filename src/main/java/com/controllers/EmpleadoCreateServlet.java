@@ -49,11 +49,9 @@ public class EmpleadoCreateServlet extends HttpServlet {
 		String nacionalidad = request.getParameter("nacionalidad");
 		String e_mail = request.getParameter("e_mail");
 		String foto = request.getParameter("foto");
-		String sector = request.getParameter("sector");
-		String categoria = request.getParameter("categoria");
 		String fechaIngreso = request.getParameter("fechaIngreso");
 		
-		Empleado empleado = new Empleado(nombre, apellido, tipoDoc, numDoc, telFijo, telCel, direccion, ciudad, provincia, nacionalidad, e_mail, foto, sector, categoria, fechaIngreso);
+		Empleado empleado = new Empleado(nombre, apellido, tipoDoc, numDoc, telFijo, telCel, direccion, ciudad, provincia, nacionalidad, e_mail, foto, fechaIngreso);
 
 		try {
 			 Connection con = (Connection) request.getSession().getAttribute("h2.connection");

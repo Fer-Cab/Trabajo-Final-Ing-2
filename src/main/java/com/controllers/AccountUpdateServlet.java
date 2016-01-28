@@ -42,9 +42,11 @@ public class AccountUpdateServlet extends HttpServlet {
 		String name = request.getParameter("userName");
 		String password = request.getParameter("password");
 		String permisos = request.getParameter("permisos");
+		String tipoDoc = request.getParameter("tipoDoc");
+		int numDoc = Integer.parseInt(request.getParameter("numDoc"));
 		String msj = "usuario modificado";
 		
-		Account account = new Account(name, password, permisos);
+		Account account = new Account(name, password, permisos, tipoDoc, numDoc);
 		
 		try {
 			 Connection con = (Connection) request.getSession().getAttribute("h2.connection");
