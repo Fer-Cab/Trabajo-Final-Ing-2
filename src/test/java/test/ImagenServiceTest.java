@@ -11,10 +11,14 @@ import org.junit.Test;
 import com.conexion.Conexion;
 import com.model.Imagen;
 import com.model.Inmueble;
+import com.model.Propietario;
 import com.service.ImagenService;
 import com.service.InmuebleService;
+import com.service.PropietarioService;
 
 public class ImagenServiceTest {
+	Propietario prop;
+	
 	Inmueble inmbl;
 	Inmueble inmbl2;
 	
@@ -27,10 +31,12 @@ public class ImagenServiceTest {
 
 	@Before
 	public void initialize() throws ClassNotFoundException, SQLException, IOException {
+		prop = new Propietario("nombre", "apellido", "DNI", 1, 1, 1, "direccion", "ciudad", "provincia",
+				"nacionalidad", "e_mail", "numCuenta");
 		inmbl = new Inmueble("descripcion", "Departamento", "alquiler",  "estado", 
-				"direccion","1", "d", "ciudad", "provincia", 1, 1, 1, 1.0, 1.0, "tipoSuelo", true, true, true, 1.0);
+				"direccion","1", "d", "ciudad", "provincia", 1, 1, 1, 1.0, 1.0, "tipoSuelo", true, true, true, 1.0, "DNI", 1);
 		inmbl2 = new Inmueble("descripcion2", "casa", "alquiler", "estado2", "direccion2",
-				"2", "e", "ciudad2", "provincia2", 2, 2,  2, 2.0, 2.0, "tipoSuelo2", true, true, true, 2.0);
+				"2", "e", "ciudad2", "provincia2", 2, 2,  2, 2.0, 2.0, "tipoSuelo2", true, true, true, 2.0, "DNI", 1);
 	
 		img = new Imagen("imagen1", "path1",01);
 		img2 = new Imagen("imagen2", "path2",02);
@@ -38,7 +44,9 @@ public class ImagenServiceTest {
 
 		con1 = new Conexion();
 		con1.initDb();
-		 con = Conexion.getConexion();
+		con = Conexion.getConexion();
+		 
+		PropietarioService.createPropietario(prop,con);
 	}
 
 	@Test

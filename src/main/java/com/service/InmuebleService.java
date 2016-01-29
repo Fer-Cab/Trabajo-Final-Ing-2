@@ -14,10 +14,10 @@ public class InmuebleService {
 	public static void createInmueble(Inmueble inmueble, Connection con)
 			throws ClassNotFoundException, SQLException, IOException {
 
-		PreparedStatement ps = con
+	PreparedStatement ps = con
 				.prepareStatement("insert into Inmueble(descripcion, tipoDeInmueble,tipoDeOperacion,"
 						+ "estado,direccion,piso,dpto,ciudad, provincia, numHabitaciones,banios,m2,alquiler,venta,tipoSuelo,"
-						+ "	garage,ascensor,amueblado,comision,propietarioId) "
+						+ "	garage,ascensor,amueblado,comision, propietarioId) "
 						+ "values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
 		ps.setString(1, inmueble.getDescripcion());
 		ps.setString(2, inmueble.getTipoDeInmueble());
@@ -38,14 +38,17 @@ public class InmuebleService {
 		ps.setBoolean(17, inmueble.isAscensor());
 		ps.setBoolean(18, inmueble.isAmueblado());
 		ps.setDouble(19, inmueble.getComision());
-		ps.setInt(20, inmueble.getPropietarioId());
+		ps.setLong(20, PropietarioService.findByTipoDocAndNumDoc(inmueble.getTipoDoc(), inmueble.getNumDoc(), con).getPropietarioId());
 		ps.execute();
 	}
 
 	public static Inmueble findByDireccionAndPisoAndDpto(String direccion, String piso, String dpto, Connection con)
 			throws SQLException, ClassNotFoundException, IOException {
 
-		PreparedStatement ps = con.prepareStatement("SELECT * FROM Inmueble WHERE direccion=? and piso=? and dpto=?");
+		PreparedStatement ps = con.prepareStatement("SELECT inmuebleId,descripcion, tipoDeInmueble,tipoDeOperacion,"
+						+ "estado,Inmueble.direccion,piso,dpto,Inmueble.ciudad, Inmueble.provincia, numHabitaciones,banios,m2,alquiler,venta,tipoSuelo,"
+						+ "	garage,ascensor,amueblado,comision, Propietario.tipoDoc, Propietario.numDoc FROM Inmueble,"
+						+ "Propietario WHERE Inmueble.direccion=? and piso=? and dpto=? and Propietario.propietarioId = Inmueble.propietarioId");
 		ps.setString(1, direccion);
 		ps.setString(2, piso);
 		ps.setString(3, dpto);
@@ -60,7 +63,7 @@ public class InmuebleService {
 					rs.getString("ciudad"), rs.getString("provincia"), rs.getInt("numHabitaciones"),
 					rs.getInt("banios"), rs.getInt("m2"), rs.getDouble("alquiler"), rs.getDouble("venta"),
 					rs.getString("tipoSuelo"), rs.getBoolean("garage"), rs.getBoolean("ascensor"),
-					rs.getBoolean("amueblado"), rs.getDouble("comision"),rs.getInt("propietarioId"));
+					rs.getBoolean("amueblado"), rs.getDouble("comision"),rs.getString("tipoDoc"),rs.getInt("numDoc"));
 
 		}
 		rs.close();
@@ -77,7 +80,9 @@ public class InmuebleService {
 		PreparedStatement ps = con.prepareStatement(
 				"update Inmueble SET descripcion=?, tipoDeInmueble=?,tipoDeOperacion=?,"
 						+ "estado=?,direccion=?,piso=?,dpto=?,ciudad=?, provincia=?,numHabitaciones=?,banios=?,"
-						+ "m2=?,alquiler=?,venta=?,tipoSuelo=?,garage=?,ascensor=?,amueblado=?,comision=?,propietarioId=? where inmuebleId=?");
+						+ "m2=?,alquiler=?,venta=?,tipoSuelo=?,garage=?,ascensor=?,amueblado=?,comision=?,propietarioId=? "
+						+ "where inmuebleId=? ");
+		
 		ps.setString(1, inmueble.getDescripcion());
 		ps.setString(2, inmueble.getTipoDeInmueble());
 		ps.setString(3, inmueble.getTipoDeOperacion());
@@ -97,7 +102,7 @@ public class InmuebleService {
 		ps.setBoolean(17, inmueble.isAscensor());
 		ps.setBoolean(18, inmueble.isAmueblado());
 		ps.setDouble(19, inmueble.getComision());
-		ps.setInt(20, inmueble.getPropietarioId());
+		ps.setLong(20, PropietarioService.findByTipoDocAndNumDoc(inmueble.getTipoDoc(), inmueble.getNumDoc(), con).getPropietarioId());
 		ps.setLong(21, inmuebleId);
 		ps.execute();
 	}
@@ -112,7 +117,10 @@ public class InmuebleService {
 	public static List<Inmueble> getAllInmuebles(Connection con)
 			throws ClassNotFoundException, SQLException, IOException {
 		List<Inmueble> inmuebles = new ArrayList<>();
-		PreparedStatement ps = con.prepareStatement("SELECT * FROM Inmueble");
+		PreparedStatement ps = con.prepareStatement("SELECT inmuebleId,descripcion, tipoDeInmueble,tipoDeOperacion,"
+						+ "estado,Inmueble.direccion,piso,dpto,Inmueble.ciudad, Inmueble.provincia, numHabitaciones,banios,m2,alquiler,venta,tipoSuelo,"
+						+ "	garage,ascensor,amueblado,comision, Propietario.tipoDoc, Propietario.numDoc FROM Inmueble,"
+						+ "Propietario WHERE Propietario.propietarioId = Inmueble.propietarioId");
 		ResultSet rs = ps.executeQuery();
 		Inmueble inmueble;
 
@@ -123,7 +131,7 @@ public class InmuebleService {
 					rs.getString("ciudad"), rs.getString("provincia"), rs.getInt("numHabitaciones"),
 					rs.getInt("banios"), rs.getInt("m2"), rs.getDouble("alquiler"), rs.getDouble("venta"),
 					rs.getString("tipoSuelo"), rs.getBoolean("garage"), rs.getBoolean("ascensor"),
-					rs.getBoolean("amueblado"), rs.getDouble("comision"),rs.getInt("propietarioId"));
+					rs.getBoolean("amueblado"), rs.getDouble("comision"),rs.getString("tipoDoc"),rs.getInt("numDoc"));
 
 			inmuebles.add(inmueble);
 		}
@@ -134,7 +142,11 @@ public class InmuebleService {
 	public List<Inmueble> getInmuebleByTipoDeInmueble(String tipoDeInmueble, Connection con)
 			throws SQLException, ClassNotFoundException, IOException {
 
-		PreparedStatement ps = con.prepareStatement("SELECT * FROM Inmueble WHERE tipoDeInmueble=?");
+		PreparedStatement ps = con.prepareStatement("SELECT descripcion, tipoDeInmueble,tipoDeOperacion,"
+					+ "estado,direccion,piso,dpto,ciudad, provincia, numHabitaciones,banios,m2,alquiler,venta,tipoSuelo,"
+					+ "	garage,ascensor,amueblado,comision, Propietario.tipoDoc, Propietario.numDoc FROM Inmueble,"
+					+ "Propietario WHERE tipoDeInmueble=? and Propietario.propietarioId = Inmueble.propietarioId");
+	
 		ps.setString(1, tipoDeInmueble);
 
 		ResultSet rs = ps.executeQuery();
@@ -148,7 +160,7 @@ public class InmuebleService {
 					rs.getString("ciudad"), rs.getString("provincia"), rs.getInt("numHabitaciones"),
 					rs.getInt("banios"), rs.getInt("m2"), rs.getDouble("alquiler"), rs.getDouble("venta"),
 					rs.getString("tipoSuelo"), rs.getBoolean("garage"), rs.getBoolean("ascensor"),
-					rs.getBoolean("amueblado"), rs.getDouble("comision"),rs.getInt("propietarioId"));
+					rs.getBoolean("amueblado"), rs.getDouble("comision"),rs.getString("tipoDoc"),rs.getInt("numDoc"));
 
 			inmuebles.add(inmueble);
 		}
@@ -159,7 +171,11 @@ public class InmuebleService {
 	public List<Inmueble> getInmuebleByTipoDeOperacion(String tipoDeOperacion, Connection con)
 			throws SQLException, ClassNotFoundException, IOException {
 
-		PreparedStatement ps = con.prepareStatement("SELECT * FROM Inmueble WHERE tipoDeOperacion=?");
+		PreparedStatement ps = con.prepareStatement("SELECT descripcion, tipoDeInmueble,tipoDeOperacion,"
+				+ "estado,direccion,piso,dpto,ciudad, provincia, numHabitaciones,banios,m2,alquiler,venta,tipoSuelo,"
+				+ "	garage,ascensor,amueblado,comision, Propietario.tipoDoc, Propietario.numDoc FROM Inmueble,"
+				+ "Propietario WHERE tipoDeOperacion=? and Propietario.propietarioId = Inmueble.propietarioId");
+		
 		ps.setString(1, tipoDeOperacion);
 
 		ResultSet rs = ps.executeQuery();
@@ -173,7 +189,7 @@ public class InmuebleService {
 					rs.getString("ciudad"), rs.getString("provincia"), rs.getInt("numHabitaciones"),
 					rs.getInt("banios"), rs.getInt("m2"), rs.getDouble("alquiler"), rs.getDouble("venta"),
 					rs.getString("tipoSuelo"), rs.getBoolean("garage"), rs.getBoolean("ascensor"),
-					rs.getBoolean("amueblado"), rs.getDouble("comision"),rs.getInt("propietarioId"));
+					rs.getBoolean("amueblado"), rs.getDouble("comision"),rs.getString("tipoDoc"),rs.getInt("numDoc"));
 
 			inmuebles.add(inmueble);
 		}
@@ -184,7 +200,10 @@ public class InmuebleService {
 	public List<Inmueble> getInmuebleByTipoDeEstado(String tipoDeEstado, Connection con)
 			throws SQLException, ClassNotFoundException, IOException {
 
-		PreparedStatement ps = con.prepareStatement("SELECT * FROM Inmueble WHERE tipoDeEstado=?");
+		PreparedStatement ps = con.prepareStatement("SELECT descripcion, tipoDeInmueble,tipoDeOperacion,"
+				+ "estado,direccion,piso,dpto,ciudad, provincia, numHabitaciones,banios,m2,alquiler,venta,tipoSuelo,"
+				+ "	garage,ascensor,amueblado,comision, Propietario.tipoDoc, Propietario.numDoc FROM Inmueble,"
+				+ "Propietario WHERE tipoDeEstado=? and Propietario.propietarioId = Inmueble.propietarioId");
 		ps.setString(1, tipoDeEstado);
 
 		ResultSet rs = ps.executeQuery();
@@ -198,7 +217,7 @@ public class InmuebleService {
 					rs.getString("ciudad"), rs.getString("provincia"), rs.getInt("numHabitaciones"),
 					rs.getInt("banios"), rs.getInt("m2"), rs.getDouble("alquiler"), rs.getDouble("venta"),
 					rs.getString("tipoSuelo"), rs.getBoolean("garage"), rs.getBoolean("ascensor"),
-					rs.getBoolean("amueblado"), rs.getDouble("comision"),rs.getInt("propietarioId"));
+					rs.getBoolean("amueblado"), rs.getDouble("comision"),rs.getString("tipoDoc"),rs.getInt("numDoc"));
 
 			inmuebles.add(inmueble);
 		}
@@ -209,7 +228,10 @@ public class InmuebleService {
 	public List<Inmueble> getInmuebleByCiudad(String ciudad, Connection con)
 			throws SQLException, ClassNotFoundException, IOException {
 
-		PreparedStatement ps = con.prepareStatement("SELECT * FROM Inmueble WHERE ciudad=?");
+		PreparedStatement ps = con.prepareStatement("SELECT descripcion, tipoDeInmueble,tipoDeOperacion,"
+				+ "estado,direccion,piso,dpto,ciudad, provincia, numHabitaciones,banios,m2,alquiler,venta,tipoSuelo,"
+				+ "	garage,ascensor,amueblado,comision, Propietario.tipoDoc, Propietario.numDoc FROM Inmueble,"
+				+ "Propietario WHERE ciudad=? and Propietario.propietarioId = Inmueble.propietarioId");
 		ps.setString(1, ciudad);
 
 		ResultSet rs = ps.executeQuery();
@@ -223,7 +245,7 @@ public class InmuebleService {
 					rs.getString("ciudad"), rs.getString("provincia"), rs.getInt("numHabitaciones"),
 					rs.getInt("banios"), rs.getInt("m2"), rs.getDouble("alquiler"), rs.getDouble("venta"),
 					rs.getString("tipoSuelo"), rs.getBoolean("garage"), rs.getBoolean("ascensor"),
-					rs.getBoolean("amueblado"), rs.getDouble("comision"),rs.getInt("propietarioId"));
+					rs.getBoolean("amueblado"), rs.getDouble("comision"),rs.getString("tipoDoc"),rs.getInt("numDoc"));
 
 			inmuebles.add(inmueble);
 		}
@@ -234,7 +256,11 @@ public class InmuebleService {
 	public List<Inmueble> getInmuebleByNumHabitaciones(int numHabitaciones, Connection con)
 			throws SQLException, ClassNotFoundException, IOException {
 
-		PreparedStatement ps = con.prepareStatement("SELECT * FROM Inmueble WHERE numHabitaciones=?");
+		PreparedStatement ps = con.prepareStatement("SELECT descripcion, tipoDeInmueble,tipoDeOperacion,"
+				+ "estado,direccion,piso,dpto,ciudad, provincia, numHabitaciones,banios,m2,alquiler,venta,tipoSuelo,"
+				+ "	garage,ascensor,amueblado,comision, Propietario.tipoDoc, Propietario.numDoc FROM Inmueble,"
+				+ "Propietario WHERE  numHabitaciones=? and Propietario.propietarioId = Inmueble.propietarioId");
+		
 		ps.setInt(1, numHabitaciones);
 
 		ResultSet rs = ps.executeQuery();
@@ -248,7 +274,7 @@ public class InmuebleService {
 					rs.getString("ciudad"), rs.getString("provincia"), rs.getInt("numHabitaciones"),
 					rs.getInt("banios"), rs.getInt("m2"), rs.getDouble("alquiler"), rs.getDouble("venta"),
 					rs.getString("tipoSuelo"), rs.getBoolean("garage"), rs.getBoolean("ascensor"),
-					rs.getBoolean("amueblado"), rs.getDouble("comision"),rs.getInt("propietarioId"));
+					rs.getBoolean("amueblado"), rs.getDouble("comision"),rs.getString("tipoDoc"),rs.getInt("numDoc"));
 
 			inmuebles.add(inmueble);
 		}
@@ -259,7 +285,11 @@ public class InmuebleService {
 	public List<Inmueble> getInmuebleByM2(int m2, Connection con)
 			throws SQLException, ClassNotFoundException, IOException {
 
-		PreparedStatement ps = con.prepareStatement("SELECT * FROM Inmueble WHERE m2=?");
+		PreparedStatement ps = con.prepareStatement("SELECT descripcion, tipoDeInmueble,tipoDeOperacion,"
+				+ "estado,direccion,piso,dpto,ciudad, provincia, numHabitaciones,banios,m2,alquiler,venta,tipoSuelo,"
+				+ "	garage,ascensor,amueblado,comision, Propietario.tipoDoc, Propietario.numDoc FROM Inmueble,"
+				+ "Propietario WHERE m2=? and Propietario.propietarioId = Inmueble.propietarioId");
+		
 		ps.setInt(1, m2);
 
 		ResultSet rs = ps.executeQuery();
@@ -273,7 +303,7 @@ public class InmuebleService {
 					rs.getString("ciudad"), rs.getString("provincia"), rs.getInt("numHabitaciones"),
 					rs.getInt("banios"), rs.getInt("m2"), rs.getDouble("alquiler"), rs.getDouble("venta"),
 					rs.getString("tipoSuelo"), rs.getBoolean("garage"), rs.getBoolean("ascensor"),
-					rs.getBoolean("amueblado"), rs.getDouble("comision"),rs.getInt("propietarioId"));
+					rs.getBoolean("amueblado"), rs.getDouble("comision"),rs.getString("tipoDoc"),rs.getInt("numDoc"));
 
 			inmuebles.add(inmueble);
 		}
@@ -284,7 +314,11 @@ public class InmuebleService {
 	public List<Inmueble> getInmuebleByAlquiler(double alquiler, Connection con)
 			throws SQLException, ClassNotFoundException, IOException {
 
-		PreparedStatement ps = con.prepareStatement("SELECT * FROM Inmueble WHERE alquiler=?");
+		PreparedStatement ps = con.prepareStatement("SELECT descripcion, tipoDeInmueble,tipoDeOperacion,"
+				+ "estado,direccion,piso,dpto,ciudad, provincia, numHabitaciones,banios,m2,alquiler,venta,tipoSuelo,"
+				+ "	garage,ascensor,amueblado,comision, Propietario.tipoDoc, Propietario.numDoc FROM Inmueble,"
+				+ "Propietario WHERE alquiler=? and Propietario.propietarioId = Inmueble.propietarioId");
+		
 		ps.setDouble(1, alquiler);
 
 		ResultSet rs = ps.executeQuery();
@@ -298,7 +332,7 @@ public class InmuebleService {
 					rs.getString("ciudad"), rs.getString("provincia"), rs.getInt("numHabitaciones"),
 					rs.getInt("banios"), rs.getInt("m2"), rs.getDouble("alquiler"), rs.getDouble("venta"),
 					rs.getString("tipoSuelo"), rs.getBoolean("garage"), rs.getBoolean("ascensor"),
-					rs.getBoolean("amueblado"), rs.getDouble("comision"),rs.getInt("propietarioId"));
+					rs.getBoolean("amueblado"), rs.getDouble("comision"),rs.getString("tipoDoc"),rs.getInt("numDoc"));
 
 			inmuebles.add(inmueble);
 		}
@@ -309,7 +343,11 @@ public class InmuebleService {
 	public List<Inmueble> getInmuebleByVenta(double venta, Connection con)
 			throws SQLException, ClassNotFoundException, IOException {
 
-		PreparedStatement ps = con.prepareStatement("SELECT * FROM Inmueble WHERE venta=?");
+		PreparedStatement ps = con.prepareStatement("SELECT descripcion, tipoDeInmueble,tipoDeOperacion,"
+				+ "estado,direccion,piso,dpto,ciudad, provincia, numHabitaciones,banios,m2,alquiler,venta,tipoSuelo,"
+				+ "	garage,ascensor,amueblado,comision, Propietario.tipoDoc, Propietario.numDoc FROM Inmueble,"
+				+ "Propietario WHERE venta=? and Propietario.propietarioId = Inmueble.propietarioId");
+		
 		ps.setDouble(1, venta);
 
 		ResultSet rs = ps.executeQuery();
@@ -323,7 +361,7 @@ public class InmuebleService {
 					rs.getString("ciudad"), rs.getString("provincia"), rs.getInt("numHabitaciones"),
 					rs.getInt("banios"), rs.getInt("m2"), rs.getDouble("alquiler"), rs.getDouble("venta"),
 					rs.getString("tipoSuelo"), rs.getBoolean("garage"), rs.getBoolean("ascensor"),
-					rs.getBoolean("amueblado"), rs.getDouble("comision"),rs.getInt("propietarioId"));
+					rs.getBoolean("amueblado"), rs.getDouble("comision"),rs.getString("tipoDoc"),rs.getInt("numDoc"));
 
 			inmuebles.add(inmueble);
 		}

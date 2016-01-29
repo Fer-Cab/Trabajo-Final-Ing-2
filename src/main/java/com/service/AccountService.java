@@ -13,13 +13,13 @@ import com.model.Account;
 public class AccountService {
 	
 		public static void createAccount(Account account, Connection con) throws ClassNotFoundException, SQLException, IOException {
-
+	
 		PreparedStatement ps = con.prepareStatement("insert into account(userName,password,permisos,empleadoId) values(?,?,?,?)");
 	
 		ps.setString(1, account.getUserName());
 		ps.setString(2, account.getPassword());
 		ps.setString(3, account.getPermisos());
-		ps.setLong(4, ClienteService.findByTipoDocAndNumDoc(account.getTipoDoc(),account.getNumDoc(),con).getClienteId());
+		ps.setLong(4,EmpleadoService.findByTipoDocAndNumDoc(account.getTipoDoc(),account.getNumDoc(),con).getEmpleadoId());
 		ps.execute();
 	}
 

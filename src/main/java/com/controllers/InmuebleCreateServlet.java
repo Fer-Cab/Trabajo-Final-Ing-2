@@ -60,11 +60,13 @@ public class InmuebleCreateServlet extends HttpServlet {
 		boolean ascensor = Boolean.getBoolean(request.getParameter("ascensor"));
 		boolean amueblado = Boolean.getBoolean(request.getParameter("amueblado"));
 		double comision = Double.parseDouble(request.getParameter("comision"));
+		String tipoDoc = request.getParameter("tipoDoc");
+		int numDoc = Integer.parseInt(request.getParameter("numDoc"));
 
 		
 		Inmueble inmbl = new Inmueble(descripcion, tipoDeInmueble, tipoDeOperacion,  estado, direccion,
 				piso, dpto, ciudad, provincia, numHabitaciones, banios, m2, alquiler, venta, tipoSuelo, garage,
-				ascensor, amueblado, comision);
+				ascensor, amueblado, comision,tipoDoc,  numDoc);
 
 		try {
 			Connection con = (Connection) request.getSession().getAttribute("h2.connection");

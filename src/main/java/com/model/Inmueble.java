@@ -53,7 +53,7 @@ public class Inmueble {
 	public Inmueble(String descripcion, String tipoDeInmueble, String tipoDeOperacion,
 			String estado, String direccion, String piso, String dpto, String ciudad, String provincia,
 			int numHabitaciones, int banios, int m2, double alquiler, double venta, String tipoSuelo, boolean garage,
-			boolean ascensor, boolean amueblado, double comision,int propietarioId) {
+			boolean ascensor, boolean amueblado, double comision,String tipoDoc, int numDoc) {
 		super();
 		this.descripcion = descripcion;
 		this.tipoDeInmueble = tipoDeInmueble;
@@ -74,14 +74,15 @@ public class Inmueble {
 		this.ascensor = ascensor;
 		this.amueblado = amueblado;
 		this.comision = comision;
-		this.propietarioId = propietarioId;
+		this.tipoDoc= tipoDoc;
+		this.numDoc = numDoc;
 	}
 
 	
 	public Inmueble(long inmuebleId, String descripcion, String tipoDeInmueble,
 			String tipoDeOperacion, String estado, String direccion, String piso, String dpto,
 			String ciudad, String provincia,  int numHabitaciones, int banios, int m2, double alquiler,
-			double venta, String tipoSuelo, boolean garage, boolean ascensor, boolean amueblado, double comision,int propietarioId) {
+			double venta, String tipoSuelo, boolean garage, boolean ascensor, boolean amueblado, double comision,String tipoDoc, int numDoc) {
 		super();
 		this.inmuebleId = inmuebleId;
 		this.descripcion = descripcion;
@@ -103,7 +104,8 @@ public class Inmueble {
 		this.ascensor = ascensor;
 		this.amueblado = amueblado;
 		this.comision = comision;
-		this.propietarioId = propietarioId;
+		this.tipoDoc= tipoDoc;
+		 this.numDoc = numDoc;
 	}
 
 	public long getInmuebleId() {
@@ -152,8 +154,12 @@ public class Inmueble {
 
 
 
-	public int getPropietarioId() {
-		return propietarioId;
+	public String getTipoDoc() {
+		return tipoDoc;
+	}
+
+	public int getNumDoc() {
+		return numDoc;
 	}
 
 	public int getNumHabitaciones() {
@@ -200,11 +206,13 @@ public class Inmueble {
 	public String toString() {
 		return "Inmueble [inmuebleId=" + inmuebleId + ", inmuebleLists=" + inmuebleLists + ", descripcion="
 				+ descripcion + ", tipoDeInmueble=" + tipoDeInmueble + ", tipoDeOperacion=" + tipoDeOperacion
-				+ ", estado=" + estado + ", direccion=" + direccion + ", piso="
-				+ piso + ", dpto=" + dpto + ", ciudad=" + ciudad + ", provincia=" + provincia 
-				+ ", numHabitaciones=" + numHabitaciones + ", banios=" + banios + ", m2=" + m2 + ", alquiler="
-				+ alquiler + ", venta=" + venta + ", tipoSuelo=" + tipoSuelo + ", garage=" + garage + ", ascensor="
-				+ ascensor + ", amueblado=" + amueblado + ", comision=" + comision +", propietarioId=" +  propietarioId +"]";
+				+ ", estado=" + estado + ", direccion=" + direccion + ", piso=" + piso + ", dpto=" + dpto + ", ciudad="
+				+ ciudad + ", provincia=" + provincia + ", numHabitaciones=" + numHabitaciones + ", banios=" + banios
+				+ ", m2=" + m2 + ", alquiler=" + alquiler + ", venta=" + venta + ", tipoSuelo=" + tipoSuelo
+				+ ", garage=" + garage + ", ascensor=" + ascensor + ", amueblado=" + amueblado + ", comision="
+				+ comision + ", tipoDoc=" + tipoDoc + ", numDoc=" + numDoc + "]";
 	}
+
+	
 
 }

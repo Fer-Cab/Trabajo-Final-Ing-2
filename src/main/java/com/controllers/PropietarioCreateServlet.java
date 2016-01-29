@@ -39,7 +39,7 @@ public class PropietarioCreateServlet extends HttpServlet {
 
 		String nombre = request.getParameter("nombre");
 		String apellido = request.getParameter("apellido");
-		String tipoDoc = request.getParameter("apellido");
+		String tipoDoc = request.getParameter("tipoDoc");
 		int numDoc = Integer.parseInt(request.getParameter("numDoc"));
 		int telFijo = Integer.parseInt(request.getParameter("telFijo"));
 		int telCel = Integer.parseInt(request.getParameter("telCel"));

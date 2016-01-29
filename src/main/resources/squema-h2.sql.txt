@@ -89,7 +89,7 @@ create table Inmueble(
 	propietarioId INT NOT NULL,
 	
 	PRIMARY KEY(inmuebleId),
-	FOREIGN KEY (propietarioId) REFERENCES inmueble(propietarioId)
+	FOREIGN KEY (propietarioId) REFERENCES Propietario(propietarioId)
 );	
 
 create table Imagen(

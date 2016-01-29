@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 
 @Entity
@@ -22,7 +23,9 @@ public class Account {
 	private String userName;
 	private String permisos;
 	// empleado
+	@OneToOne
 	private String tipoDoc;
+	@OneToOne
 	private int numDoc;
 	
 	public Account(String name, String password,String permisos,String tipoDoc,int numDoc) {

@@ -10,12 +10,12 @@ import org.junit.Test;
 
 import com.conexion.Conexion;
 import com.model.Account;
-import com.model.Cliente;
+import com.model.Empleado;
 import com.service.AccountService;
-import com.service.ClienteService;
+import com.service.EmpleadoService;
 
 public class AccountServiceTest {
-	Cliente client;
+	Empleado empleado;
 	Account ac;
 	Account ac2;
 	Account ac3;
@@ -27,8 +27,8 @@ public class AccountServiceTest {
 
 	@Before
 	public void initialize() throws ClassNotFoundException, SQLException, IOException {
-		client = new Cliente("nombre", "apellido", "DNI", 1, 1, 1, "direccion", "ciudad", "provincia",
-				"nacionalidad", "e_mail");
+		empleado = new Empleado("nombre", "apellido", "DNI", 1, 1, 1, "direccion", "ciudad", "provincia",
+				"nacionalidad", "e_mail","foto","2000-05-09");
 		ac = new Account("Fer", "pass", "admin", "DNI", 1);
 		ac2 = new Account("Ram", "loq", "admin", "DNI", 1);
 		ac3 = new Account("Fer", "contra", "admin", "DNI", 1);
@@ -37,13 +37,15 @@ public class AccountServiceTest {
 		con1 = new Conexion();
 		con1.initDb();
 		 con = Conexion.getConexion();
-		 ClienteService.createCliente(client,con);
+		 
+			EmpleadoService.createEmpleado(empleado,con);
 	}
 
 	// account con comillas " pasa , corregir
 
 	@Test
 	public void createAccountAndFindByUserNameTest() throws ClassNotFoundException, SQLException, IOException {
+		
 		AccountService.createAccount(ac,con);
 		assertEquals("Account [ userName=Fer, password=pass, permisos=admin]",
 				AccountService.findByUserName("Fer",con).toString());
