@@ -103,6 +103,7 @@ create table Imagen(
 );
 
 create table ContratoAlquiler(
+	contratoId INT NOT NULL UNIQUE AUTO_INCREMENT,
 	clienteId INT  NOT NULL,
 	inmuebleId INT  NOT NULL,
 	fecha DATE  NOT NULL,
@@ -115,6 +116,7 @@ create table ContratoAlquiler(
 );
 
 create table ContratoVenta(
+	contratoId INT NOT NULL UNIQUE AUTO_INCREMENT,
 	clienteId INT  NOT NULL,
 	inmuebleId INT  NOT NULL,
 	fecha DATE  NOT NULL,
